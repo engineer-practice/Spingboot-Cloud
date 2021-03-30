@@ -1,0 +1,15 @@
+2021-03-30 09:26:40.456  INFO 27636 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 27636 (started by paranoid in F:\IDEA Project\Springboot-cloud)
+2021-03-30 09:26:40.724  INFO 27636 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-03-30 09:26:42.451  INFO 27636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-03-30 09:26:42.467  INFO 27636 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-30 09:26:42.467  INFO 27636 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-03-30 09:26:42.622  INFO 27636 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-30 09:26:42.622  INFO 27636 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1773 ms
+2021-03-30 09:26:44.957  INFO 27636 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-03-30 09:26:45.329  INFO 27636 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-03-30 09:26:46.228  INFO 27636 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-30 09:26:46.375  INFO 27636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-03-30 09:26:46.377  INFO 27636 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 6.145 seconds (JVM running for 7.616)
+2021-03-30 09:27:02.503  INFO 27636 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-30 09:27:02.503  INFO 27636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-30 09:27:02.508  INFO 27636 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
