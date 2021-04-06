@@ -1,0 +1,101 @@
+2021-04-06 09:31:07.258  INFO 21872 --- [http-nio-8080-exec-7] c.e.dcloud.controller.MailController     : ======sendCode======email：791937916@qq.com, checkCode:863606
+2021-04-06 09:31:33.493  INFO 21872 --- [http-nio-8080-exec-5] c.e.d.controller.RegisterController      : ======register======email：791937916@qq.com, password：daling,11===注册成功
+2021-04-06 09:31:54.051  INFO 21872 --- [http-nio-8080-exec-9] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：daling,11===登录成功
+2021-04-06 09:32:40.472  INFO 21872 --- [http-nio-8080-exec-8] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ymdhr111===登录失败（账号或密码错误）
+2021-04-06 09:32:47.365  INFO 21872 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ymdhr11===登录成功
+2021-04-06 09:36:27.548  INFO 21872 --- [http-nio-8080-exec-9] c.e.dcloud.controller.MailController     : ======sendCode======email：791937916@qq.com, checkCode:331061
+2021-04-06 09:36:49.356  INFO 21872 --- [http-nio-8080-exec-6] c.e.d.controller.RegisterController      : ======register======email：791937916@qq.com, password：ym123456===注册成功
+2021-04-06 09:37:01.269  INFO 21872 --- [http-nio-8080-exec-4] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ym123456===登录成功
+2021-04-06 09:37:49.680  INFO 21872 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ym7890===登录成功
+2021-04-06 10:38:16.849  INFO 17028 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 17028 (started by paranoid in C:\Users\paranoid\Documents\Tencent Files\791937916\FileRecv\Springboot-cloud (1)\Springboot-cloud)
+2021-04-06 10:38:16.852  INFO 17028 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-04-06 10:38:18.390  INFO 17028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-06 10:38:18.398  INFO 17028 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-06 10:38:18.399  INFO 17028 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-06 10:38:18.487  INFO 17028 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-06 10:38:18.488  INFO 17028 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1477 ms
+2021-04-06 10:38:18.823  INFO 17028 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-04-06 10:38:19.470  INFO 17028 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-04-06 10:38:20.667  INFO 17028 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-06 10:38:20.913  INFO 17028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-06 10:38:20.915  INFO 17028 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 4.465 seconds (JVM running for 4.98)
+2021-04-06 10:43:55.966  INFO 22864 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 22864 (started by paranoid in F:\IDEA Project\Springboot-cloud)
+2021-04-06 10:43:55.979  INFO 22864 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-04-06 10:43:57.474  INFO 22864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-06 10:43:57.489  INFO 22864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-06 10:43:57.489  INFO 22864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-06 10:43:57.592  INFO 22864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-06 10:43:57.592  INFO 22864 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1543 ms
+2021-04-06 10:43:57.838  INFO 22864 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-04-06 10:43:58.237  INFO 22864 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-04-06 10:43:59.264  INFO 22864 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-06 10:43:59.429  INFO 22864 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-06 10:43:59.438  INFO 22864 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-06 10:43:59.448 ERROR 22864 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2021-04-06 10:43:59.450  INFO 22864 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-06 10:43:59.452  INFO 22864 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2021-04-06 10:43:59.454  INFO 22864 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2021-04-06 10:44:35.246  INFO 18532 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 18532 (started by paranoid in F:\IDEA Project\Springboot-cloud)
+2021-04-06 10:44:35.250  INFO 18532 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-04-06 10:44:36.174  INFO 18532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-06 10:44:36.179  INFO 18532 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-06 10:44:36.179  INFO 18532 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-06 10:44:36.236  INFO 18532 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-06 10:44:36.237  INFO 18532 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 942 ms
+2021-04-06 10:44:36.389  INFO 18532 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-04-06 10:44:36.582  INFO 18532 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-04-06 10:44:37.269  INFO 18532 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-06 10:44:37.453  INFO 18532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-06 10:44:37.456  INFO 18532 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.448 seconds (JVM running for 3.154)
+2021-04-06 10:45:22.369  INFO 18532 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-06 10:45:22.369  INFO 18532 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-06 10:45:22.374  INFO 18532 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2021-04-06 10:45:22.818  INFO 18532 --- [http-nio-8080-exec-1] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ym7890===登录成功
+2021-04-06 10:50:10.759  INFO 17652 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 17652 (started by paranoid in F:\IDEA Project\Springboot-cloud)
+2021-04-06 10:50:10.761  INFO 17652 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-04-06 10:50:11.348  INFO 17652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-06 10:50:11.353  INFO 17652 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-06 10:50:11.354  INFO 17652 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-06 10:50:11.454  INFO 17652 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-06 10:50:11.454  INFO 17652 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 664 ms
+2021-04-06 10:50:11.584  INFO 17652 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-04-06 10:50:11.753  INFO 17652 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-04-06 10:50:12.102  INFO 17652 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-06 10:50:12.220  INFO 17652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-06 10:50:12.222  INFO 17652 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 1.662 seconds (JVM running for 2.062)
+2021-04-06 10:50:22.648  INFO 17652 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-06 10:50:22.648  INFO 17652 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-06 10:50:22.652  INFO 17652 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-04-06 10:50:22.867  INFO 17652 --- [http-nio-8080-exec-1] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ym7890===登录成功
+2021-04-06 10:55:09.520  INFO 4400 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 4400 (started by paranoid in F:\IDEA Project\Springboot-cloud)
+2021-04-06 10:55:09.521  INFO 4400 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-04-06 10:55:10.193  INFO 4400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-06 10:55:10.198  INFO 4400 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-06 10:55:10.199  INFO 4400 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-04-06 10:55:10.254  INFO 4400 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-06 10:55:10.254  INFO 4400 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 695 ms
+2021-04-06 10:55:10.392  INFO 4400 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-04-06 10:55:10.558  INFO 4400 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-04-06 10:55:10.879  INFO 4400 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-06 10:55:10.992  INFO 4400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-06 10:55:10.994  INFO 4400 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 1.685 seconds (JVM running for 2.064)
+2021-04-06 10:55:30.774  INFO 4400 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-06 10:55:30.774  INFO 4400 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-06 10:55:30.777  INFO 4400 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-04-06 10:55:30.971  INFO 4400 --- [http-nio-8080-exec-1] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ym7890===登录成功
+2021-04-06 11:01:00.935  INFO 4400 --- [http-nio-8080-exec-5] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：791937916@qq.com, password：ym7890===登录成功

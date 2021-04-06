@@ -1,0 +1,338 @@
+2020-07-04 00:00:42.584  INFO 6372 --- [http-nio-8080-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: The HTTP header line [accept-encoding:gzip, deflatee0x0d0x0aAccept-Language: zh-CN,zh;q=0.9] does not conform to RFC 7230 and has been ignored.
+	at org.apache.coyote.http11.Http11InputBuffer.skipLine(Http11InputBuffer.java:986) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeader(Http11InputBuffer.java:905) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeaders(Http11InputBuffer.java:565) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:277) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+
+2020-07-04 00:00:49.669  INFO 6372 --- [http-nio-8080-exec-10] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 00:01:05.780  INFO 6372 --- [http-nio-8080-exec-1] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:01:21.177  INFO 6372 --- [http-nio-8080-exec-3] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:03:50.281  INFO 6372 --- [http-nio-8080-exec-4] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:05:32.240  INFO 6372 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:05:43.405  INFO 6372 --- [http-nio-8080-exec-9] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:07:29.728  INFO 6372 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:07:49.651  INFO 6372 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:10:08.608  INFO 6372 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:10:56.808  INFO 6372 --- [http-nio-8080-exec-8] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:11:10.302  INFO 6372 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:11:54.743  INFO 6372 --- [http-nio-8080-exec-3] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:12:04.056  INFO 6372 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:12:42.675  INFO 6372 --- [http-nio-8080-exec-6] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:12:52.990  INFO 6372 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:13:03.671  INFO 6372 --- [http-nio-8080-exec-6] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student2, password：123456===登录成功
+2020-07-04 00:13:25.382  INFO 6372 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:19:36.149  INFO 6372 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:20:51.032  INFO 6372 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:22:23.927  INFO 6372 --- [http-nio-8080-exec-8] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:24:18.161  INFO 6372 --- [http-nio-8080-exec-3] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:27:05.469  INFO 6372 --- [http-nio-8080-exec-6] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:27:19.550  INFO 6372 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 00:29:23.049  INFO 6372 --- [http-nio-8080-exec-2] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 00:58:36.676  INFO 6372 --- [http-nio-8080-exec-6] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 00:58:43.100  INFO 6372 --- [http-nio-8080-exec-3] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:06:29.726  INFO 6372 --- [http-nio-8080-exec-3] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:06:32.883  INFO 6372 --- [http-nio-8080-exec-6] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:09:38.661  INFO 6372 --- [http-nio-8080-exec-10] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student2, password：123456===登录成功
+2020-07-04 01:09:44.833  INFO 6372 --- [http-nio-8080-exec-9] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student2, password：123456===登录成功
+2020-07-04 01:09:52.482  INFO 6372 --- [http-nio-8080-exec-7] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:15:29.215  INFO 6372 --- [http-nio-8080-exec-6] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:28:53.331  INFO 7296 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on LAPTOP-7JFC1EN2 with PID 7296 (C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud\target\classes started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 01:28:53.337  INFO 7296 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2020-07-04 01:28:58.468  INFO 7296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-04 01:28:58.489  INFO 7296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-04 01:28:58.489  INFO 7296 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-04 01:28:58.491  INFO 7296 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-07-04 01:28:58.492  INFO 7296 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2020-07-04 01:28:58.492  INFO 7296 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-04 01:28:58.493  INFO 7296 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-04 01:28:59.542  INFO 7296 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2020-07-04 01:28:59.759  INFO 7296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-04 01:28:59.759  INFO 7296 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6267 ms
+2020-07-04 01:29:00.499  INFO 7296 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 01:29:01.482  INFO 7296 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 01:29:04.660  INFO 7296 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 01:29:05.197  INFO 7296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-04 01:29:05.208  INFO 7296 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 13.199 seconds (JVM running for 14.273)
+2020-07-04 01:33:45.708  INFO 7296 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-04 01:33:45.709  INFO 7296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-04 01:33:45.722  INFO 7296 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-07-04 01:34:08.659  INFO 7296 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 01:34:49.850  INFO 7296 --- [http-nio-8080-exec-3] c.e.dcloud.controller.LoginController    : ======loginByCode验证码登录======email：===登录失败（账号不存在）
+2020-07-04 01:34:58.175  INFO 7296 --- [http-nio-8080-exec-4] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:35:34.114  INFO 7296 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 01:35:58.422  INFO 7296 --- [http-nio-8080-exec-7] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:36:09.335  INFO 7296 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student2, password：123456===登录成功
+2020-07-04 01:36:16.000  INFO 7296 --- [http-nio-8080-exec-4] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:36:32.689  INFO 7296 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 01:36:47.598  INFO 7296 --- [http-nio-8080-exec-7] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student2, password：123456===登录成功
+2020-07-04 01:37:02.311  INFO 7296 --- [http-nio-8080-exec-9] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 01:39:39.798  INFO 7296 --- [http-nio-8080-exec-1] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 01:39:54.238  INFO 7296 --- [http-nio-8080-exec-6] c.e.d.controller.AttendenceController    : ======attendence签到===开始时间：2020-07-04 01:39:54 ===code：2218640, local：24.514934,118.18154
+2020-07-04 01:40:24.162  INFO 7296 --- [http-nio-8080-exec-8] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 01:46:04.742  INFO 7296 --- [http-nio-8080-exec-9] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: The HTTP header line [accept:*/**0x0d0x0aAccept-Encoding: gzip, deflate] does not conform to RFC 7230 and has been ignored.
+	at org.apache.coyote.http11.Http11InputBuffer.skipLine(Http11InputBuffer.java:986) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeader(Http11InputBuffer.java:905) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeaders(Http11InputBuffer.java:565) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:277) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+
+2020-07-04 01:48:12.010  INFO 15460 --- [main] c.example.dcloud.DcloudApplicationTests  : Starting DcloudApplicationTests on LAPTOP-7JFC1EN2 with PID 15460 (started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 01:48:12.013  INFO 15460 --- [main] c.example.dcloud.DcloudApplicationTests  : No active profile set, falling back to default profiles: default
+2020-07-04 01:48:16.703  INFO 15460 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 01:48:17.747  INFO 15460 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 01:48:22.405  INFO 15460 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 01:48:23.716  INFO 15460 --- [main] c.example.dcloud.DcloudApplicationTests  : Started DcloudApplicationTests in 12.554 seconds (JVM running for 15.693)
+2020-07-04 01:48:24.531  INFO 15460 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-04 01:48:24.535  INFO 15460 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2020-07-04 01:48:24.631  INFO 15460 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2020-07-04 10:59:07.197  INFO 8704 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on LAPTOP-7JFC1EN2 with PID 8704 (C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud\target\classes started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 10:59:07.204  INFO 8704 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2020-07-04 10:59:11.948  INFO 8704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-04 10:59:11.973  INFO 8704 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-04 10:59:11.974  INFO 8704 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-04 10:59:11.976  INFO 8704 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-07-04 10:59:11.976  INFO 8704 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2020-07-04 10:59:11.977  INFO 8704 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-04 10:59:11.977  INFO 8704 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-04 10:59:13.050  INFO 8704 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2020-07-04 10:59:13.257  INFO 8704 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-04 10:59:13.258  INFO 8704 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5820 ms
+2020-07-04 10:59:14.061  INFO 8704 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 10:59:15.153  INFO 8704 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 10:59:17.542  INFO 8704 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 10:59:18.178  INFO 8704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-04 10:59:18.193  INFO 8704 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 12.247 seconds (JVM running for 13.999)
+2020-07-04 11:16:28.838  INFO 8704 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-04 11:16:28.839  INFO 8704 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-04 11:16:28.855  INFO 8704 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2020-07-04 11:16:29.756  INFO 8704 --- [http-nio-8080-exec-1] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 11:18:25.238  INFO 15044 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on LAPTOP-7JFC1EN2 with PID 15044 (C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud\target\classes started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 11:18:25.244  INFO 15044 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2020-07-04 11:18:29.813  INFO 15044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-04 11:18:29.833  INFO 15044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-04 11:18:29.834  INFO 15044 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-04 11:18:29.836  INFO 15044 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-07-04 11:18:29.836  INFO 15044 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2020-07-04 11:18:29.837  INFO 15044 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-04 11:18:29.837  INFO 15044 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-04 11:18:30.887  INFO 15044 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2020-07-04 11:18:31.155  INFO 15044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-04 11:18:31.156  INFO 15044 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5759 ms
+2020-07-04 11:18:31.777  INFO 15044 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 11:18:32.787  INFO 15044 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 11:18:35.096  INFO 15044 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 11:18:35.609  INFO 15044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-04 11:18:35.617  INFO 15044 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 11.617 seconds (JVM running for 12.657)
+2020-07-04 11:18:37.573  INFO 15044 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-04 11:18:37.574  INFO 15044 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-04 11:18:37.591  INFO 15044 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2020-07-04 11:27:24.864  INFO 15044 --- [http-nio-8080-exec-3] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:27:44.827  INFO 15044 --- [http-nio-8080-exec-6] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 11:29:34.818  INFO 15044 --- [http-nio-8080-exec-6] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:34:16.788  INFO 15044 --- [http-nio-8080-exec-9] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 11:34:21.846  INFO 15044 --- [http-nio-8080-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: The HTTP header line [referer:http://localhost/lesson-tabs/user-inff0x0d0x0aX-Natapp-Ip: 112.5.201.139] does not conform to RFC 7230 and has been ignored.
+	at org.apache.coyote.http11.Http11InputBuffer.skipLine(Http11InputBuffer.java:986) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeader(Http11InputBuffer.java:905) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeaders(Http11InputBuffer.java:565) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:277) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+
+2020-07-04 11:34:34.019  INFO 15044 --- [http-nio-8080-exec-10] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: The HTTP header line [referer:http://localhost/lesson-tabs/user-inff0x0d0x0aX-Natapp-Ip: 112.5.201.139] does not conform to RFC 7230 and has been ignored.
+	at org.apache.coyote.http11.Http11InputBuffer.skipLine(Http11InputBuffer.java:986) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeader(Http11InputBuffer.java:905) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeaders(Http11InputBuffer.java:565) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:277) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+
+2020-07-04 11:34:50.491  INFO 15044 --- [http-nio-8080-exec-2] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:38:28.354  INFO 15044 --- [http-nio-8080-exec-9] c.e.dcloud.controller.MailController     : ======sendCode======email：, checkCode:869568
+2020-07-04 11:38:28.544  INFO 15044 --- [http-nio-8080-exec-9] c.e.dcloud.controller.MailController     : ======sendCode======邮箱错误，请输入真实邮箱
+2020-07-04 11:41:47.148  INFO 15044 --- [http-nio-8080-exec-8] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录失败（账号或密码错误）
+2020-07-04 11:41:50.488  INFO 15044 --- [http-nio-8080-exec-9] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录失败（账号或密码错误）
+2020-07-04 11:41:56.201  INFO 15044 --- [http-nio-8080-exec-5] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teache, password：123456===登录成功
+2020-07-04 11:42:32.288  INFO 15044 --- [http-nio-8080-exec-3] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:47:35.178  INFO 15044 --- [http-nio-8080-exec-5] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 11:48:14.737  INFO 15044 --- [http-nio-8080-exec-9] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:48:40.043  INFO 15044 --- [http-nio-8080-exec-3] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:48:46.533  INFO 15044 --- [http-nio-8080-exec-5] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:49:02.662  INFO 15044 --- [http-nio-8080-exec-9] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:49:29.179  INFO 15044 --- [http-nio-8080-exec-2] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:50:39.433  INFO 15044 --- [http-nio-8080-exec-7] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 11:52:08.212  INFO 15044 --- [http-nio-8080-exec-1] c.e.d.controller.AttendenceController    : ======attendence签到===开始时间：2020-07-04 11:52:08 ===code：2218640, local：24.514905,118.181532
+2020-07-04 11:52:39.891  INFO 15044 --- [http-nio-8080-exec-7] c.e.d.controller.AttendenceController    : ======attendence签到===开始时间：2020-07-04 11:52:39 ===code：2218640, local：24.514868,118.181646
+2020-07-04 11:54:13.301  INFO 15044 --- [http-nio-8080-exec-6] c.e.d.controller.AttendenceController    : ======attendence签到===开始时间：2020-07-04 11:54:13 ===code：2218640, local：24.514821,118.181726
+2020-07-04 11:54:23.209  INFO 15044 --- [http-nio-8080-exec-3] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: The HTTP header line [referer:http://localhost/checkin-resultt0x0d0x0aToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNiJ9.UcAhQ2rU-DI9uJXyevjv34uvsKH7jId26pok-gRNtEQ] does not conform to RFC 7230 and has been ignored.
+	at org.apache.coyote.http11.Http11InputBuffer.skipLine(Http11InputBuffer.java:986) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeader(Http11InputBuffer.java:905) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11InputBuffer.parseHeaders(Http11InputBuffer.java:565) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:277) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
+
+2020-07-04 11:55:02.333  INFO 15044 --- [http-nio-8080-exec-4] c.e.d.controller.AttendenceController    : ======attendence签到===开始时间：2020-07-04 11:55:02 ===code：2218640, local：24.514821,118.181726
+2020-07-04 11:58:34.258  INFO 15044 --- [http-nio-8080-exec-4] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 12:00:49.277  INFO 15044 --- [http-nio-8080-exec-3] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 12:01:18.419  INFO 15044 --- [http-nio-8080-exec-7] c.e.d.controller.AttendenceController    : ======attendence签到===开始时间：2020-07-04 12:01:18 ===code：2218640, local：24.51485,118.18167
+2020-07-04 12:06:30.979  INFO 15044 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 12:08:10.542  INFO 15044 --- [http-nio-8080-exec-8] c.e.dcloud.controller.LoginController    : ======loginByCode验证码登录======email：===登录失败（账号不存在）
+2020-07-04 12:08:32.744  INFO 15044 --- [http-nio-8080-exec-8] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：student1, password：123456===登录成功
+2020-07-04 12:08:47.757  INFO 15044 --- [http-nio-8080-exec-3] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 12:09:04.858  INFO 15044 --- [http-nio-8080-exec-7] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 12:09:16.685  INFO 15044 --- [http-nio-8080-exec-2] c.e.dcloud.controller.LoginController    : ======loginByPassword======email：teacher, password：123456===登录成功
+2020-07-04 12:09:25.015  INFO 15044 --- [http-nio-8080-exec-10] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 12:09:31.585  INFO 15044 --- [http-nio-8080-exec-3] c.e.dcloud.controller.CourseController   : ======CourseController======
+2020-07-04 12:09:59.034  INFO 15044 --- [http-nio-8080-exec-6] c.e.dcloud.controller.LoginController    : ======loginByCode验证码登录======email：1084961608@qq.com===登录成功
+2020-07-04 12:09:59.596  INFO 15044 --- [http-nio-8080-exec-1] c.e.dcloud.controller.MailController     : ======sendCode======email：1084961608@qq.com, checkCode:687497
+2020-07-04 12:10:49.042  INFO 15044 --- [http-nio-8080-exec-4] c.e.dcloud.controller.LoginController    : ======loginByCode验证码登录======email：1084961608@qq.com===登录成功
+2020-07-04 12:10:49.238  INFO 15044 --- [http-nio-8080-exec-2] c.e.dcloud.controller.MailController     : ======sendCode======email：1084961608@qq.com, checkCode:277278
+2020-07-04 12:11:36.449  INFO 15044 --- [http-nio-8080-exec-10] c.e.dcloud.controller.MailController     : ======sendCode======email：1084961608@qq.com, checkCode:775248
+2020-07-04 12:12:04.852  INFO 15044 --- [http-nio-8080-exec-8] c.e.dcloud.controller.MailController     : ======sendCode======email：1084961608@qq.com, checkCode:129408
+2020-07-04 12:12:07.025  INFO 15044 --- [http-nio-8080-exec-3] c.e.d.controller.RegisterController      : ======register======email：1084961608@qq.com, password：qqqq111===注册失败（该邮箱已经注册过了）
+2020-07-04 12:12:50.395  INFO 15044 --- [http-nio-8080-exec-5] c.e.dcloud.controller.MailController     : ======sendCode======email：1084961608@qq.com, checkCode:807037
+2020-07-04 12:13:19.307  INFO 15044 --- [http-nio-8080-exec-1] c.e.d.controller.RegisterController      : ======register======email：1084961608@qq.com, password：qqqq111===注册成功
+2020-07-04 12:16:29.574  INFO 9020 --- [main] c.example.dcloud.DcloudApplicationTests  : Starting DcloudApplicationTests on LAPTOP-7JFC1EN2 with PID 9020 (started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 12:16:29.576  INFO 9020 --- [main] c.example.dcloud.DcloudApplicationTests  : No active profile set, falling back to default profiles: default
+2020-07-04 12:16:33.096  INFO 9020 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 12:16:34.604  INFO 9020 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 12:16:37.783  INFO 9020 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 12:16:38.937  INFO 9020 --- [main] c.example.dcloud.DcloudApplicationTests  : Started DcloudApplicationTests in 10.03 seconds (JVM running for 11.864)
+2020-07-04 12:16:39.787  INFO 9020 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-04 12:16:39.790  INFO 9020 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2020-07-04 12:16:39.820  INFO 9020 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2020-07-04 12:56:27.196  INFO 17272 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on LAPTOP-7JFC1EN2 with PID 17272 (C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud\target\classes started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 12:56:27.203  INFO 17272 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2020-07-04 12:56:31.892  INFO 17272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-04 12:56:31.913  INFO 17272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-04 12:56:31.914  INFO 17272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-04 12:56:31.916  INFO 17272 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-07-04 12:56:31.916  INFO 17272 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2020-07-04 12:56:31.917  INFO 17272 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-04 12:56:31.917  INFO 17272 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-04 12:56:32.965  INFO 17272 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2020-07-04 12:56:33.164  INFO 17272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-04 12:56:33.164  INFO 17272 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5783 ms
+2020-07-04 12:56:33.819  INFO 17272 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 12:56:34.851  INFO 17272 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 12:56:36.973  INFO 17272 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 12:56:37.563  INFO 17272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-04 12:56:37.568  INFO 17272 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 11.463 seconds (JVM running for 12.427)
+2020-07-04 13:33:22.730  INFO 8016 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on LAPTOP-7JFC1EN2 with PID 8016 (C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud\target\classes started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 13:33:22.739  INFO 8016 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2020-07-04 13:33:31.747  INFO 8016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-04 13:33:31.768  INFO 8016 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-04 13:33:31.769  INFO 8016 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-04 13:33:31.771  INFO 8016 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-07-04 13:33:31.772  INFO 8016 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2020-07-04 13:33:31.772  INFO 8016 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-04 13:33:31.772  INFO 8016 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-04 13:33:32.833  INFO 8016 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2020-07-04 13:33:33.106  INFO 8016 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-04 13:33:33.106  INFO 8016 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9500 ms
+2020-07-04 13:33:34.080  INFO 8016 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 13:33:35.257  INFO 8016 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 13:33:37.812  INFO 8016 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 13:33:38.405  INFO 8016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-04 13:33:38.425  INFO 8016 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 17.243 seconds (JVM running for 19.532)
+2020-07-04 13:39:01.326  INFO 9044 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on LAPTOP-7JFC1EN2 with PID 9044 (C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud\target\classes started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 13:39:01.344  INFO 9044 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2020-07-04 13:39:05.812  INFO 9044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-04 13:39:05.832  INFO 9044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-04 13:39:05.832  INFO 9044 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-07-04 13:39:05.834  INFO 9044 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.14] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-07-04 13:39:05.835  INFO 9044 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2020-07-04 13:39:05.835  INFO 9044 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-07-04 13:39:05.835  INFO 9044 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-07-04 13:39:06.890  INFO 9044 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2020-07-04 13:39:07.090  INFO 9044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-04 13:39:07.090  INFO 9044 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5581 ms
+2020-07-04 13:39:07.742  INFO 9044 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 13:39:08.727  INFO 9044 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 13:39:10.624  INFO 9044 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 13:39:11.153  INFO 9044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-04 13:39:11.158  INFO 9044 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 10.957 seconds (JVM running for 12.149)
+2020-07-04 13:41:13.956  INFO 4648 --- [main] c.example.dcloud.DcloudApplicationTests  : Starting DcloudApplicationTests on LAPTOP-7JFC1EN2 with PID 4648 (started by Administrator in C:\Users\Administrator\Desktop\lastcode\Springboot-cloud\dcloud)
+2020-07-04 13:41:13.958  INFO 4648 --- [main] c.example.dcloud.DcloudApplicationTests  : No active profile set, falling back to default profiles: default
+2020-07-04 13:41:17.166  INFO 4648 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-04 13:41:18.237  INFO 4648 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-04 13:41:21.102  INFO 4648 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-04 13:41:21.951  INFO 4648 --- [main] c.example.dcloud.DcloudApplicationTests  : Started DcloudApplicationTests in 8.72 seconds (JVM running for 10.75)
+2020-07-04 13:41:22.663  INFO 4648 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-04 13:41:22.669  INFO 4648 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2020-07-04 13:41:22.696  INFO 4648 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2020-07-05 13:17:37.164  INFO 34748 --- [main] c.example.dcloud.DcloudApplicationTests  : Starting DcloudApplicationTests on LAPTOP-71E8V25C with PID 34748 (started by chenwenju in D:\Users\chenwenju\Documents\GitHub\Springboot-cloud\dcloud)
+2020-07-05 13:17:37.166  INFO 34748 --- [main] c.example.dcloud.DcloudApplicationTests  : No active profile set, falling back to default profiles: default
+2020-07-05 13:17:39.083  INFO 34748 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-05 13:17:40.062  INFO 34748 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-05 13:17:42.151  INFO 34748 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-05 13:17:42.644  INFO 34748 --- [main] c.example.dcloud.DcloudApplicationTests  : Started DcloudApplicationTests in 5.828 seconds (JVM running for 7.204)
+2020-07-05 13:17:43.044  INFO 34748 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-05 13:17:43.046  INFO 34748 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2020-07-05 13:17:43.060  INFO 34748 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2020-07-05 14:38:45.924  INFO 61608 --- [main] c.example.dcloud.DcloudApplicationTests  : Starting DcloudApplicationTests on LAPTOP-71E8V25C with PID 61608 (started by chenwenju in D:\Users\chenwenju\Documents\GitHub\Springboot-cloud\dcloud)
+2020-07-05 14:38:45.926  INFO 61608 --- [main] c.example.dcloud.DcloudApplicationTests  : No active profile set, falling back to default profiles: default
+2020-07-05 14:38:47.273  INFO 61608 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-05 14:38:47.920  INFO 61608 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-05 14:38:49.104  INFO 61608 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-05 14:38:49.452  INFO 61608 --- [main] c.example.dcloud.DcloudApplicationTests  : Started DcloudApplicationTests in 3.772 seconds (JVM running for 4.75)
+2020-07-05 14:38:49.664  INFO 61608 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-05 14:38:49.667  INFO 61608 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2020-07-05 14:38:49.677  INFO 61608 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2020-07-05 17:47:59.066  INFO 3924 --- [main] c.example.dcloud.DcloudApplicationTests  : Starting DcloudApplicationTests on LAPTOP-71E8V25C with PID 3924 (started by chenwenju in D:\Users\chenwenju\Documents\GitHub\Springboot-cloud\dcloud)
+2020-07-05 17:47:59.068  INFO 3924 --- [main] c.example.dcloud.DcloudApplicationTests  : No active profile set, falling back to default profiles: default
+2020-07-05 17:48:00.679  INFO 3924 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2020-07-05 17:48:01.415  INFO 3924 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2020-07-05 17:48:02.757  INFO 3924 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-05 17:48:03.162  INFO 3924 --- [main] c.example.dcloud.DcloudApplicationTests  : Started DcloudApplicationTests in 4.4 seconds (JVM running for 5.477)
+2020-07-05 17:48:03.413  INFO 3924 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-05 17:48:03.415  INFO 3924 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2020-07-05 17:48:03.429  INFO 3924 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
