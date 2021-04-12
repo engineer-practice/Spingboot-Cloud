@@ -11,26 +11,25 @@ private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-
     /**
      * 编码
      */
-    private String code;
+    private String code;//标识 数字（1/2/3之类的）
 
     /**
      * 类型编码
      */
-    private String typeCode;
+    private String typeCode;//分类 （应该是对应数据字典中的code、英文标识）
 
     /**
      * 数据项名称
      */
-    private String name;
+    private String name;//和数据字典中的name对应
 
     /**
      * 数据项值
      */
-    private String value;
+    private String value;//name的取值
 
     /**
      * 是否是默认值

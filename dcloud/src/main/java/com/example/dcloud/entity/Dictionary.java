@@ -18,7 +18,7 @@ private static final long serialVersionUID=1L;
      * 英文标识
      */
     @TableField(value = "code")
-    private String code;
+    private String code;//分类标识
 
     /**
      * 中文标识

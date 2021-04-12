@@ -45,7 +45,7 @@ public class RegisterController {
         else{
             //输出日志
             LOG.info("======register======email：{}, password：{}===注册成功",email,password);
-            
+
             User user1 = new User();
             //user1.setId(0);
             user1.setEmail(email);
@@ -64,7 +64,7 @@ public class RegisterController {
             user1.setSchoolCode("0");
             user1.setState(0);
             if(map.get("role_id")==null){
-                user1.setRoleId(0);
+                user1.setRoleId(0);//表示教师
             }else{
                 user1.setRoleId(3);
             }

@@ -64,7 +64,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 //    }
     @Override
     public int loginByCode(String email){
-        if(userMapper.checkEmail(email)==null){
+        if(userMapper.checkEmail(email)==null){//在数据库里面查找是否有这个账号
             return 0;
         }
         else{
@@ -143,15 +143,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             queryWrapper.like("state", s);
         }
         Page<User> page1 = new Page<>(page,10);  // 查询第1页，每页返回10条
-        IPage<User> iPage = userMapper.selectPage(page1,queryWrapper);
+        IPage<User> iPage = userMapper.selectPage(page1,queryWrapper);//查询到的所有用户信息数量
 
         JSONArray jsonArray = new JSONArray();
         JSONObject jsonObject2 = new JSONObject();
-        jsonObject2.put("totalCount",iPage.getTotal());
+        jsonObject2.put("totalCount",iPage.getTotal());//查询到的所有用户信息数量
         List<User> list = iPage.getRecords();
         int length = list.size();
         jsonArray.add(jsonObject2);
-        for(int i = 0;i<length;i++){
+        for(int i = 0;i<length;i++){//每查到一条用户信息 就放到array中
             JSONObject jsonObject1 = new JSONObject();
             jsonObject1.put("name",list.get(i).getName());
             jsonObject1.put("sex",list.get(i).getSex());
@@ -162,6 +162,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             jsonArray.add(jsonObject1);
         }
 //        return JSON.toJSONString(iPage);
-        return jsonArray.toString();
+        return jsonArray.toString();//放回数组
     }
 }

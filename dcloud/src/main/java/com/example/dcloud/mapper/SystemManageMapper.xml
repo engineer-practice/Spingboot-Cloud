@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dcloud.mapper.SystemManageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.dcloud.entity.SystemManage">
+        <id column="id" property="id" />
+        <result column="attend_exp" property="attendExp" />
+        <result column="activity_exp" property="activityExp" />
+        <result column="attend_level" property="attendLevel" />
+        <result column="attend_ratio" property="attendRatio" />
+        <result column="attend_distance" property="attendDistance" />
+        <result column="is_delete" property="isDelete" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, attend_exp, activity_exp, attend_level, attend_ratio, attend_distance, is_delete
+    </sql>
+
+</mapper>
