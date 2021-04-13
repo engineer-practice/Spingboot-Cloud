@@ -32,8 +32,6 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
     @Autowired
-    private AttendenceResultService attendenceResultService;
-    @Autowired
     private CourseStudentService courseStudentService;
     @Autowired
     private UserService userService;
@@ -197,7 +195,8 @@ public class CourseController {
     @RequestMapping(method = RequestMethod.POST)
     public String add(@RequestBody JSONObject jsonObject){
         Map map = JSON.toJavaObject(jsonObject, Map.class);
-        if(map.get("code") != null){//学生使用班课号加入班课
+        if(map.get("code") != null){
+            //学生使用班课号加入班课
             QueryWrapper<Course> queryWrapper = new QueryWrapper();
             queryWrapper.eq("code",map.get("code"))
                         .eq("isDelete",0);
@@ -233,6 +232,7 @@ public class CourseController {
                         return ResultUtil.success();
                     }
                 }else{
+                    //返回班课信息
                     JSONObject jsonObject1 = new JSONObject();
                     jsonObject1.put("class",course.getClassName());
                     jsonObject1.put("name",course.getName());
@@ -253,7 +253,8 @@ public class CourseController {
                 return ResultUtil.error("班课号不存在！");
             }
 
-        }else{//老师 创建班课
+        }else{
+            //老师 创建班课
             Course course = new Course();
             course.setClassName(map.get("class").toString());
             course.setName(map.get("name").toString());
@@ -291,21 +292,13 @@ public class CourseController {
             course.setIsJoin(1);
             course.setIsDelete(0);
             courseService.save(course);
+            //返回班课号
             return code;
         }
 
     }
 
-    //新增
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.PUT)
-    public String put(@RequestBody JSONObject jsonObject){
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
-        return "新增";
-    }
-
-
-    //编辑
+    //编辑班课信息
     @ResponseBody
     @RequestMapping(method = RequestMethod.PATCH)
     public String update(@RequestBody JSONObject jsonObject){
@@ -361,46 +354,6 @@ public class CourseController {
         }
         courseService.updateById(course);
 //        return JSON.toJSONString(courseService.getOne(queryWrapper));
-        return ResultUtil.success();
-    }
-
-    //删除
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.DELETE)
-    public String delete(@RequestBody JSONObject jsonObject){
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
-        QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code",map.get("code"));
-        Course course1 = courseService.getOne(queryWrapper);
-        if(map.get("email") != null){//退出班课
-            QueryWrapper<CourseStudent> queryWrapper1 = new QueryWrapper<>();
-            queryWrapper1.eq("student_email",map.get("email"))
-                    .eq("course_id",course1.getId());
-            CourseStudent courseStudent = new CourseStudent();
-            courseStudent.setIsDelete(1);
-            courseStudentService.update(courseStudent,queryWrapper1);
-
-            //清空签到历史记录
-            QueryWrapper<AttendenceResult> queryHistory = new QueryWrapper<>();
-            queryHistory.eq("code",map.get("code"))
-                        .eq("student_email",map.get("email"));
-            AttendenceResult attendenceResult = new AttendenceResult();
-            attendenceResult.setIsDelete(3);
-            attendenceResultService.update(attendenceResult,queryHistory);
-            return ResultUtil.success();
-        }
-        Course course = new Course();
-        course.setIsDelete(1);
-        boolean flag = courseService.update(course,queryWrapper);
-        //coursestudent表中对应的课程设置为删除状态
-        if(flag){
-            QueryWrapper<CourseStudent> queryWrapper1 = new QueryWrapper();
-            queryWrapper1.eq("course_id",course1.getId());
-            CourseStudent courseStudent = new CourseStudent();
-            courseStudent.setIsDelete(1);
-            courseStudentService.update(courseStudent,queryWrapper1);
-
-        }
         return ResultUtil.success();
     }
 }

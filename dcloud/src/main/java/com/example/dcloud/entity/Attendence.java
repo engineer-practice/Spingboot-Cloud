@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
+
 public class Attendence extends Model<Attendence> {
 
 private static final long serialVersionUID=1L;

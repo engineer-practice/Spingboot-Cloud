@@ -24,14 +24,7 @@ import java.util.Map;
 
 import static java.lang.Integer.parseInt;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author fifteen
- * @since 2020-04-01
- */
+
 @Controller
 @RequestMapping("/systems")
 public class SystemManageController {
