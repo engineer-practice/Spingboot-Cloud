@@ -9,19 +9,41 @@ public class UserDto {
     private String image;
     private String sno;
     private Integer sex;
-    private String telphone;
+    private String telephone;
     private String email;
     private String password;
     private String birth;
     private Integer roleId;
     private Integer exp;
     private Integer state;
-    private Integer schoolId;
+    private String schoolCode;
     private String powerId;
     private Integer education;
 
+    public UserDto() {
+
+    }
+
     public String getName() {
         return name;
+    }
+
+    public UserDto(String name, String nickname, String image, String sno, Integer sex, String telephone, String email, String password, String birth, Integer roleId, Integer exp, Integer state, String schoolCode, String powerId, Integer education) {
+        this.name = name;
+        this.nickname = nickname;
+        this.image = image;
+        this.sno = sno;
+        this.sex = sex;
+        this.telephone = telephone;
+        this.email = email;
+        this.password = password;
+        this.birth = birth;
+        this.roleId = roleId;
+        this.exp = exp;
+        this.state = state;
+        this.schoolCode = schoolCode;
+        this.powerId = powerId;
+        this.education = education;
     }
 
     public void setName(String name) {
@@ -60,12 +82,12 @@ public class UserDto {
         this.sex = sex;
     }
 
-    public String getTelphone() {
-        return telphone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getEmail() {
@@ -116,12 +138,12 @@ public class UserDto {
         this.state = state;
     }
 
-    public Integer getSchoolId() {
-        return schoolId;
+    public String getSchoolCode() {
+        return schoolCode;
     }
 
-    public void setSchoolId(Integer schoolId) {
-        this.schoolId = schoolId;
+    public void setSchoolCode(String schoolCode) {
+        this.schoolCode = schoolCode;
     }
 
     public String getPowerId() {
@@ -139,23 +161,5 @@ public class UserDto {
     public void setEducation(Integer education) {
         this.education = education;
     }
-
-    public UserDto() {
-        this.birth = "0";
-        this.education = 0;
-        this.email = "0";
-        this.exp = 0;
-        this.image = "0";
-        this.name = "0";
-        this.nickname = "0";
-        this.password = "0";
-        this.powerId = "0";
-        this.roleId = 0;
-        this.schoolId = 0;
-        this.state = 0;
-        this.telphone = "0";
-        this.sex = 0;
-    }
-
 }
 

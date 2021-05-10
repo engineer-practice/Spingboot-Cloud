@@ -1,11 +1,5 @@
 package test.com.example.dcloud; 
 
-import com.example.dcloud.convertor.UserConvertor;
-import com.example.dcloud.convertor.UserInputConvertor;
-import com.example.dcloud.dto.CreateUserInput;
-import com.example.dcloud.dto.UserDto;
-import com.example.dcloud.entity.User;
-import com.example.dcloud.entity.UserRole;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After; 

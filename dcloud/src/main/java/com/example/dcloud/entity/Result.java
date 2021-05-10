@@ -1,6 +1,7 @@
 package com.example.dcloud.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.dcloud.config.ResultCode;
 
 public class Result<T> {
     //操作代码

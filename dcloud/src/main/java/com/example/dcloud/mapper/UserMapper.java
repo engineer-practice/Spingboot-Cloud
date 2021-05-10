@@ -27,7 +27,9 @@ import java.util.Map;
 public interface UserMapper extends BaseMapper<User> {
     @Select("SELECT email FROM user WHERE email = #{email}")
     String checkEmail(String account);  //查询账号
-    @Insert("INSERT INTO user (name,nickname,image,sno,sex,telphone,email,password,birth,role_id,exp,state,school_code," +
+    @Select("SELECT telephone FROM user WHERE telephone = #{telephone}")
+    String checkTelephone(String account);  //查询账号
+    @Insert("INSERT INTO user (name,nickname,image,sno,sex,telephone,email,password,birth,role_id,exp,state,school_code," +
             "power_id,education,is_delete) VALUES('0','0','0','0','0','0',#{email},#{password},'0','0','0','0'," +
             "'0','0','0','0')")  //插入新账号
     void addUser(String email,String password);
@@ -36,11 +38,12 @@ public interface UserMapper extends BaseMapper<User> {
 
     @Select("SELECT role_id FROM user WHERE email = #{email}")
     int selRole(String account);  //查询角色
-
+    @Select("SELECT role_id FROM user WHERE telephone = #{telephone}")
+    int selRoleByTelephone(String telephone);  //查询角色
     @Select("SELECT name,sex,email,role_id,state,school_code FROM user WHERE is_delete = 0 AND role_id != 2 LIMIT #{offset},10")
     List<Map>selUser(int offset);  //查询用户列表
 
-    @Insert("INSERT INTO user (name,nickname,image,sno,sex,telphone,email,password,birth,role_id,exp,state,school_code," +
+    @Insert("INSERT INTO user (name,nickname,image,sno,sex,telephone,email,password,birth,role_id,exp,state,school_code," +
             "power_id,education,is_delete) VALUES(#{name},'0','0','0',#{sex},'0',#{email},#{password},'0',#{roleId},'0','0'," +
             "'0','0','0','0')")  //管理员新增用户
     void addUserByAdmin(String name,int sex,String email,String password,int roleId);
@@ -52,7 +55,7 @@ public interface UserMapper extends BaseMapper<User> {
     void delUser(String email);
 
     @Select("SELECT COUNT(*) FROM user where is_delete = 0")
-    int selUserNum();  //查询用户数
+    int selUserNum();  //查询用户数d
 
     @Select("SELECT name,sex,email,role_id,state,school_code FROM user WHERE is_delete = 0 AND role_id != 2 AND state = #{state} LIMIT #{offset},10")
     List<Map>selUserByState(int state,int offset);  //根据状态查询用户

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dcloud.mapper.CourseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.dcloud.entity.Course">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="code" property="code" />
+        <result column="className" property="className" />
+        <result column="semester" property="semester" />
+        <result column="image" property="image" />
+        <result column="learnRequire" property="learnRequire" />
+        <result column="teachProgress" property="teachProgress" />
+        <result column="examSchedule" property="examSchedule" />
+        <result column="school_code" property="schoolCode" />
+        <result column="flag" property="flag" />
+        <result column="student_id" property="studentId" />
+        <result column="activityId" property="activityId" />
+        <result column="messageId" property="messageId" />
+        <result column="isJoin" property="isJoin" />
+        <result column="isDelete" property="isDelete" />
+        <result column="teacher_id" property="teacherId" />
+        <result column="qr_code" property="qr_code" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, code, className, semester, image, learnRequire, teachProgress, examSchedule, school_code, flag, student_id, activityId, messageId, isJoin, isDelete, teacher_id,qr_code
+    </sql>
+
+</mapper>

@@ -46,7 +46,7 @@ private static final long serialVersionUID=1L;
     /**
      * 电话号码
      */
-    private String telphone;
+    private String telephone;
 
     /**
      * 邮箱
@@ -146,13 +146,7 @@ private static final long serialVersionUID=1L;
         this.sex = sex;
     }
 
-    public String getTelphone() {
-        return telphone;
-    }
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone;
-    }
 
     public String getEmail() {
         return email;
@@ -239,6 +233,14 @@ private static final long serialVersionUID=1L;
         return this.id;
     }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -248,7 +250,7 @@ private static final long serialVersionUID=1L;
         ", image=" + image +
         ", sno=" + sno +
         ", sex=" + sex +
-        ", telphone=" + telphone +
+        ", telephone=" + telephone +
         ", email=" + email +
         ", password=" + password +
         ", birth=" + birth +

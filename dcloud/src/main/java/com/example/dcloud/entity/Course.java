@@ -99,6 +99,18 @@ private static final long serialVersionUID=1L;
 
     private Long teacherId;
 
+    private String qr_code;
+
+    public String getQr_code() {
+        return qr_code;
+    }
+
+    public void setQr_code(String qr_code) {
+        this.qr_code = qr_code;
+    }
+
+
+
 
     public Long getId() {
         return id;
@@ -244,23 +256,24 @@ private static final long serialVersionUID=1L;
     @Override
     public String toString() {
         return "Course{" +
-        "id=" + id +
-        ", name=" + name +
-        ", code=" + code +
-        ", className=" + className +
-        ", semester=" + semester +
-        ", image=" + image +
-        ", learnRequire=" + learnRequire +
-        ", teachProgress=" + teachProgress +
-        ", examSchedule=" + examSchedule +
-        ", schoolCode=" + schoolCode +
-        ", flag=" + flag +
-        ", studentId=" + studentId +
-        ", activityId=" + activityId +
-        ", messageId=" + messageId +
-        ", isJoin=" + isJoin +
-        ", isDelete=" + isDelete +
-        ", teacherId=" + teacherId +
-        "}";
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", className='" + className + '\'' +
+                ", semester='" + semester + '\'' +
+                ", image='" + image + '\'' +
+                ", learnRequire='" + learnRequire + '\'' +
+                ", teachProgress='" + teachProgress + '\'' +
+                ", examSchedule='" + examSchedule + '\'' +
+                ", schoolCode='" + schoolCode + '\'' +
+                ", flag=" + flag +
+                ", studentId='" + studentId + '\'' +
+                ", activityId='" + activityId + '\'' +
+                ", messageId='" + messageId + '\'' +
+                ", isJoin=" + isJoin +
+                ", isDelete=" + isDelete +
+                ", teacherId=" + teacherId +
+                ", qr_code='" + qr_code + '\'' +
+                '}';
     }
 }

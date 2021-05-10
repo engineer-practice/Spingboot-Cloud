@@ -5,17 +5,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.dcloud.annotation.NoToken;
 import com.example.dcloud.service.MailService;
 import com.example.dcloud.util.ResultUtil;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 import java.util.Random;
-
+@Api(tags = "发送邮箱验证码接口")
 @CrossOrigin
 @RestController
 public class MailController {
@@ -27,10 +25,11 @@ public class MailController {
 
     @NoToken
     @PostMapping(value = "/sendCode")
-    public String sendCode(@RequestBody JSONObject jsonObject)
+    public String sendCode(@RequestParam(value="email")String email)
     {
-        Map map = JSON.toJavaObject(jsonObject,Map.class);
-        String email = (String) map.get("email");
+       // Map map = JSON.toJavaObject(jsonObject,Map.class);
+        //String email = (String) map.get("email");
+        LOG.info("ddd:已经连接上");
         String checkCode = String.valueOf(new Random().nextInt(899999)+100000);
         String message = "您的验证码为："+checkCode;
         try {
