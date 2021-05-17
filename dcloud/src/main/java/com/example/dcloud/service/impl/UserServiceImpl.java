@@ -144,8 +144,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("is_delete",0);
         queryWrapper.ne("role_id",2);
-        if(roleId==1)
-            queryWrapper.eq("role_id",0);
+
+
+
+        
         if(state!=null && name !=null) {
             queryWrapper
                     .like("state", state)
