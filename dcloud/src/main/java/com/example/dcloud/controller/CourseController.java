@@ -271,7 +271,117 @@ public class CourseController {
             }
 
     }
- 
+    @ApiOperation(value = "创建班课",notes = "get")
+    @ResponseBody
+    @RequestMapping(value = "/CreateClass",method = RequestMethod.POST)
+    public String CreateClass(@RequestBody CourseDto courseDto) {
+        //老师 创建班课
+            Course course = new Course();
+            course.setClassName(courseDto.getClassName());
+            course.setName(courseDto.getName());
+            course.setSchoolCode(courseDto.getSchool());
+            course.setFlag(courseDto.getIsSchoolLesson());
+            //随机生成课程号
+//        course.setCode("11111111");
+            int count = 1;
+            String code = "";
+            do{
+                StringBuilder str = new StringBuilder();
+                for (int i = 0; i < 7; i++) {
+                    if (i == 0 && 8 > 1){
+                        str.append(new Random().nextInt(9) + 1);
+                    }else {
+                        str.append(new Random().nextInt(10));
+                    }
+                }
+                code = str.toString();
+                //查看数据库中是否存在 若存在则重新生成
+                QueryWrapper codeQuery = new QueryWrapper();
+                codeQuery.eq("code",code);
+                count = courseService.count(codeQuery);
+            }while(count > 0);
+            course.setCode(code);
+
+         //   QRCodeGenUtil.generateQRCodeImage(code,350,350,System.getProperty("user.dir"));
+           // course.setQr_code(System.getProperty("user.dir")+);
+            course.setLearnRequire(courseDto.getRequire());
+            course.setExamSchedule(courseDto.getExamination());
+            course.setSemester(courseDto.getTerm());
+            //通过邮箱找userid
+            QueryWrapper queryWrapper = new QueryWrapper();
+            queryWrapper.eq("email",courseDto.getEmail());
+            User user = userService.getOne(queryWrapper);
+            course.setTeacherId(parseLong(user.getId().toString()));
+            course.setTeachProgress(courseDto.getProcess());
+            course.setIsJoin(1);
+            course.setIsDelete(0);
+            courseService.save(course);
+            return code;
+        }
+
+
+    //编辑
+    @ApiOperation(value = "编辑班课信息",notes = "get")
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.PATCH)
+    public String update(@RequestBody UpdateCourseDto updateCourseDto){
+        //        course.setCode(no);
+
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("code",updateCourseDto.getCode());
+        Course course = courseService.getOne(queryWrapper);
+        if(course == null)
+            return ResultUtil.error("没有这门课程!");
+        if(updateCourseDto.getName() != null){
+            course.setName(updateCourseDto.getName());
+        }
+        if(updateCourseDto.getTname()!= null){
+            QueryWrapper queryWrapper1 = new QueryWrapper();
+            queryWrapper1.eq("code",updateCourseDto.getCode());
+            Course course1 = courseService.getOne(queryWrapper);
+            QueryWrapper userWrapper2 = new QueryWrapper();
+            userWrapper2.eq("id",course.getTeacherId());
+            User user = new User();
+            user.setName(updateCourseDto.getTname());
+            userService.update(user,userWrapper2);
+        }
+        if(updateCourseDto.getTerm() != null){
+            course.setSemester(updateCourseDto.getTerm());
+        }
+        if(updateCourseDto.getIsjoin() != null){
+            if(updateCourseDto.getIsjoin().equals("false")){
+                course.setIsJoin(1);
+            }else{
+                course.setIsJoin(0);
+            }
+        }
+        if(updateCourseDto.getSchool() != null){
+            course.setSchoolCode(updateCourseDto.getSchool());
+        }
+        if(updateCourseDto.getRequire() != null){
+            course.setLearnRequire(updateCourseDto.getRequire());
+        }
+        if(updateCourseDto.getProcess() != null){
+            course.setTeachProgress(updateCourseDto.getProcess());
+        }
+        if(updateCourseDto.getExamination() != null){
+            course.setExamSchedule(updateCourseDto.getExamination());
+        }
+        if(updateCourseDto.getClassName() != null){
+            course.setClassName(updateCourseDto.getClassName());
+        }
+        if(updateCourseDto.getFlag() != null){
+            if(updateCourseDto.getFlag().equals("true")){
+                course.setFlag(1);
+            }else{
+                course.setFlag(0);
+            }
+        }
+        courseService.updateById(course);
+//        return JSON.toJSONString(courseService.getOne(queryWrapper));
+        return ResultUtil.success();
+    }
+
     //删除
     @ResponseBody
     @ApiOperation(value = "退出、删除班课",notes = "get")
