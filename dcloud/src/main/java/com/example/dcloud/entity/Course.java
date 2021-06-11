@@ -97,7 +97,7 @@ private static final long serialVersionUID=1L;
     @TableField("isDelete")
     private Integer isDelete;
 
-    private Long teacherId;
+    private Integer teacherId;
 
     private String qr_code;
 
@@ -240,11 +240,11 @@ private static final long serialVersionUID=1L;
         this.isDelete = isDelete;
     }
 
-    public Long getTeacherId() {
+    public Integer getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(Long teacherId) {
+    public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
 

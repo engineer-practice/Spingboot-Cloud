@@ -10,7 +10,7 @@
         <result column="image" property="image" />
         <result column="sno" property="sno" />
         <result column="sex" property="sex" />
-        <result column="telphone" property="telphone" />
+        <result column="telephone" property="telephone" />
         <result column="email" property="email" />
         <result column="password" property="password" />
         <result column="birth" property="birth" />
@@ -25,7 +25,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, nickname, image, sno, sex, telphone, email, password, birth, role_id, exp, state, school_code, power_id, education, is_delete
+        id, name, nickname, image, sno, sex, telephone, email, password, birth, role_id, exp, state, school_code, power_id, education, is_delete
     </sql>
 
 </mapper>

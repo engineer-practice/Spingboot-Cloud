@@ -5,5 +5,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 
 public interface SystemManageService extends IService<SystemManage> {
+    String pageList(Integer cur_page);
 
 }

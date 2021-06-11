@@ -1,15 +1,15 @@
 package com.example.dcloud.dto;
 
 public class CourseDto {
-    private String className;
-    private String name;
-    private String school;
-    private Integer isSchoolLesson;
-    private String require;
-    private String examination;
-    private String term;
-    private String email;
-    private String process;
+    private String className;//班级名字，比如一班、二班
+    private String name;//课程名，比如 数据结构，机器学习
+    private String school;//学校代码，比如123、134
+    private Integer isSchoolLesson;//是否学校课表班课
+    private String require;//学习要求
+    private String examination;//考试安排
+    private String term;//学期
+    private String telephone;//加入者的手机号
+    private String process;//教学进度
 
     public String getClassName() {
         return className;
@@ -67,12 +67,12 @@ public class CourseDto {
         this.term = term;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getProcess() {

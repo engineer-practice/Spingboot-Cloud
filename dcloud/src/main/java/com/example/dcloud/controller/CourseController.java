@@ -169,7 +169,7 @@ public class CourseController {
         for(int i = 0 ; i < list.size(); i++){
             JSONObject jsonObject = new JSONObject();
             QueryWrapper<User> queryUser = new QueryWrapper<>();
-            queryUser.eq("email",list.get(i).getStudentEmail());
+         //   queryUser.eq("email",list.get(i).getStudentEmail());
             User user = userService.getOne(queryUser);
             jsonObject.put("name",user.getName());
             jsonObject.put("sno",user.getSno());
@@ -211,7 +211,7 @@ public class CourseController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
     public String JoinClass(@RequestParam(value="code")String code,
-                             @RequestParam(value="email")String email) {
+                             @RequestParam(value="telephone")String telephone) {
             //学生使用班课号加入班课
             QueryWrapper<Course> queryWrapper = new QueryWrapper();
             queryWrapper.eq("code", code)
@@ -220,17 +220,26 @@ public class CourseController {
             if (course != null) {
               //  if (email != null) {
                     //不能加入自己创建的课程
-                    QueryWrapper<CourseStudent> queryMyCourse = new QueryWrapper();
-                    queryMyCourse.eq("course_id", course.getId())
-                            .eq("teacher_email", email);
-                    int count1 = courseStudentService.count(queryMyCourse);
-                    if (count1 > 0) {
-                        return ResultUtil.error("不能加入自己创建的班课！");
-                    }
+                    QueryWrapper<User> queryUser = new QueryWrapper();
+                queryUser.eq("telephone", telephone)
+                        .eq("is_delete", 0);
+                User user1 = userService.getOne(queryUser);
+                if(user1.getId()==course.getTeacherId())
+                {
+                    return ResultUtil.error("不能加入自己创建的班课！");
+                }
+//                    QueryWrapper<CourseStudent> queryMyCourse = new QueryWrapper();
+//                    queryMyCourse.eq("course_id", course.getId())
+//                            .eq("teacher_email", email);
+//
+//                    int count1 = courseStudentService.count(queryMyCourse);
+//                    if (count1 > 0) {
+//                        return ResultUtil.error("不能加入自己创建的班课！");
+//                    }
                     //判断是否已经加入过
                     QueryWrapper<CourseStudent> queryJoined = new QueryWrapper();
                     queryJoined.eq("course_id", course.getId())
-                            .eq("student_email", email)
+                            .eq("student_id", user1.getId())
                             .eq("is_delete", 0);
                     int count = courseStudentService.count(queryJoined);
                     if (count > 0) {
@@ -239,11 +248,12 @@ public class CourseController {
                         //courseStudent更新
                         CourseStudent courseStudent = new CourseStudent();
                         courseStudent.setCourseId(course.getId());
-                        QueryWrapper<User> queryWrapper1 = new QueryWrapper();
-                        queryWrapper1.eq("id", course.getTeacherId());
-                        User user = userService.getOne(queryWrapper1);
-                        courseStudent.setTeacherEmail(user.getEmail());
-                        courseStudent.setStudentEmail(email);//学生
+                        courseStudent.setStudentId(user1.getId());
+//                        QueryWrapper<User> queryWrapper1 = new QueryWrapper();
+//                        queryWrapper1.eq("id", course.getTeacherId());
+//                        User user = userService.getOne(queryWrapper1);
+//                        courseStudent.setTeacherEmail(user.getEmail());
+//                        courseStudent.setStudentEmail(email);//学生
                         courseStudentService.save(courseStudent);
                         return ResultUtil.success();
                     }
@@ -271,54 +281,117 @@ public class CourseController {
             }
 
     }
+//    @ApiOperation(value = "创建班课",notes = "get")
+//    @ResponseBody
+//    @RequestMapping(value = "/CreateClass",method = RequestMethod.POST)
+//    public String CreateClass(CourseDto courseDto) {
+//        //老师 创建班课
+//            Course course = new Course();
+//            course.setClassName(courseDto.getClassName());
+//            course.setName(courseDto.getName());
+//            course.setSchoolCode(courseDto.getSchool());
+//            course.setFlag(courseDto.getIsSchoolLesson());
+//            //随机生成课程号
+////        course.setCode("11111111");
+//            int count = 1;
+//            String code = "";
+//            do{
+//                StringBuilder str = new StringBuilder();
+//                for (int i = 0; i < 7; i++) {
+//                    if (i == 0 && 8 > 1){
+//                        str.append(new Random().nextInt(9) + 1);
+//                    }else {
+//                        str.append(new Random().nextInt(10));
+//                    }
+//                }
+//                code = str.toString();
+//                //查看数据库中是否存在 若存在则重新生成
+//                QueryWrapper codeQuery = new QueryWrapper();
+//                codeQuery.eq("code",code);
+//                count = courseService.count(codeQuery);
+//            }while(count > 0);
+//            course.setCode(code);
+//
+//         //   QRCodeGenUtil.generateQRCodeImage(code,350,350,System.getProperty("user.dir"));
+//           // course.setQr_code(System.getProperty("user.dir")+);
+//            course.setLearnRequire(courseDto.getRequire());
+//            course.setExamSchedule(courseDto.getExamination());
+//            course.setSemester(courseDto.getTerm());
+//            //通过邮箱找userid
+//            QueryWrapper queryWrapper = new QueryWrapper();
+//            queryWrapper.eq("telephone",courseDto.getTelephone());
+//            User user = userService.getOne(queryWrapper);
+//            course.setTeacherId(parseInt(user.getId().toString()));
+//            course.setTeachProgress(courseDto.getProcess());
+//            course.setIsJoin(1);
+//            course.setIsDelete(0);
+//            courseService.save(course);
+//            return code;
+//        }
+
+
     @ApiOperation(value = "创建班课",notes = "get")
     @ResponseBody
     @RequestMapping(value = "/CreateClass",method = RequestMethod.POST)
-    public String CreateClass(@RequestBody CourseDto courseDto) {
+    public String CreateClass(@RequestParam(value="className")String className,
+                              @RequestParam(value="name")String name,
+                              @RequestParam(value="school",required = false)String school,
+                              @RequestParam(value="isSchoolLesson",required = false)Integer isSchoolLesson,
+                              @RequestParam(value="require",required = false)String require,
+                              @RequestParam(value="term",required = false)String term,
+                              @RequestParam(value="examination",required = false)String examination,
+                              @RequestParam(value="telephone")String telephone,
+                              @RequestParam(value="process",required = false)String process
+                              ) {
         //老师 创建班课
-            Course course = new Course();
-            course.setClassName(courseDto.getClassName());
-            course.setName(courseDto.getName());
-            course.setSchoolCode(courseDto.getSchool());
-            course.setFlag(courseDto.getIsSchoolLesson());
-            //随机生成课程号
-//        course.setCode("11111111");
-            int count = 1;
-            String code = "";
-            do{
-                StringBuilder str = new StringBuilder();
-                for (int i = 0; i < 7; i++) {
-                    if (i == 0 && 8 > 1){
-                        str.append(new Random().nextInt(9) + 1);
-                    }else {
-                        str.append(new Random().nextInt(10));
-                    }
+        Course course = new Course();
+        course.setClassName(className);
+        course.setName(name);
+        if(school!=null)
+            course.setSchoolCode(school);
+        if(isSchoolLesson!=null)
+            course.setFlag(isSchoolLesson);
+        //随机生成课程号
+    //        course.setCode("11111111");
+        int count = 1;
+        String code = "";
+        do{
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < 7; i++) {
+                if (i == 0 && 8 > 1){
+                    str.append(new Random().nextInt(9) + 1);
+                }else {
+                    str.append(new Random().nextInt(10));
                 }
-                code = str.toString();
-                //查看数据库中是否存在 若存在则重新生成
-                QueryWrapper codeQuery = new QueryWrapper();
-                codeQuery.eq("code",code);
-                count = courseService.count(codeQuery);
-            }while(count > 0);
-            course.setCode(code);
+            }
+            code = str.toString();
+            //查看数据库中是否存在 若存在则重新生成
+            QueryWrapper codeQuery = new QueryWrapper();
+            codeQuery.eq("code",code);
+            count = courseService.count(codeQuery);
+        }while(count > 0);
+        course.setCode(code);
 
-         //   QRCodeGenUtil.generateQRCodeImage(code,350,350,System.getProperty("user.dir"));
-           // course.setQr_code(System.getProperty("user.dir")+);
-            course.setLearnRequire(courseDto.getRequire());
-            course.setExamSchedule(courseDto.getExamination());
-            course.setSemester(courseDto.getTerm());
-            //通过邮箱找userid
-            QueryWrapper queryWrapper = new QueryWrapper();
-            queryWrapper.eq("email",courseDto.getEmail());
-            User user = userService.getOne(queryWrapper);
-            course.setTeacherId(parseLong(user.getId().toString()));
-            course.setTeachProgress(courseDto.getProcess());
-            course.setIsJoin(1);
-            course.setIsDelete(0);
-            courseService.save(course);
-            return code;
-        }
-
+        //   QRCodeGenUtil.generateQRCodeImage(code,350,350,System.getProperty("user.dir"));
+        // course.setQr_code(System.getProperty("user.dir")+);
+        if(require!=null)
+             course.setLearnRequire(require);
+        if(examination!=null)
+            course.setExamSchedule(examination);
+        if(term!=null)
+            course.setSemester(term);
+        //通过邮箱找userid
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("telephone",telephone);
+        User user = userService.getOne(queryWrapper);
+        course.setTeacherId(parseInt(user.getId().toString()));
+        if(process!=null)
+            course.setTeachProgress(process);
+        course.setIsJoin(1);
+        course.setIsDelete(0);
+        courseService.save(course);
+        return code;
+    }
 
     //编辑
     @ApiOperation(value = "编辑班课信息",notes = "get")

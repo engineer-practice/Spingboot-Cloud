@@ -15,9 +15,9 @@ private static final long serialVersionUID=1L;
 
     private Long courseId;
 
-    private String studentEmail;
+    private Integer studentId;
 
-    private String teacherEmail;
+    //private String teacherEmail;
 
     private Integer exp;
 
@@ -28,20 +28,8 @@ private static final long serialVersionUID=1L;
         this.exp = 0;
     }
 
-    public Integer getExp() {
-        return exp;
-    }
-
-    public void setExp(Integer exp) {
-        this.exp = exp;
-    }
-
-    public int getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(int isDelete) {
-        this.isDelete = isDelete;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Long getId() {
@@ -60,34 +48,27 @@ private static final long serialVersionUID=1L;
         this.courseId = courseId;
     }
 
-    public String getStudentEmail() {
-        return studentEmail;
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
 
-    public String getTeacherEmail() {
-        return teacherEmail;
+    public Integer getExp() {
+        return exp;
     }
 
-    public void setTeacherEmail(String teacherEmail) {
-        this.teacherEmail = teacherEmail;
+    public void setExp(Integer exp) {
+        this.exp = exp;
     }
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
+    public int getIsDelete() {
+        return isDelete;
     }
 
-    @Override
-    public String toString() {
-        return "CourseStudent{" +
-        "id=" + id +
-        ", courseId=" + courseId +
-        ", studentEmail=" + studentEmail +
-        ", teacherEmail=" + teacherEmail +
-        "}";
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
     }
 }

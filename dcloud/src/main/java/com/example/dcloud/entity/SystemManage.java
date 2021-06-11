@@ -1,6 +1,7 @@
 package com.example.dcloud.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -15,32 +16,29 @@ private static final long serialVersionUID=1L;
     private Long id;
 
     /**
-     * 签到经验值
+     * 参数名称
      */
-    private Integer attendExp;
+    @TableField(value = "para_name")
+    private String paraName;
 
     /**
-     * 活动经验值
+     * 关键字
      */
-    private Integer activityExp;
+    @TableField(value = "key_name")
+    private String keyName;
 
     /**
-     * 出勤等级
+     * 值
      */
-    private Integer attendLevel;
+    @TableField(value = "key_value")
+    private Integer keyValue;
 
-    /**
-     * 出勤率
-     */
-    private Integer attendRatio;
-
-    /**
-     * 签到距离
-     */
-    private Integer attendDistance;
-
+    @TableField(value = "is_delete")
     private Integer isDelete;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Long getId() {
         return id;
@@ -50,44 +48,28 @@ private static final long serialVersionUID=1L;
         this.id = id;
     }
 
-    public Integer getAttendExp() {
-        return attendExp;
+    public String getParaName() {
+        return paraName;
     }
 
-    public void setAttendExp(Integer attendExp) {
-        this.attendExp = attendExp;
+    public void setParaName(String paraName) {
+        this.paraName = paraName;
     }
 
-    public Integer getActivityExp() {
-        return activityExp;
+    public String getKeyName() {
+        return keyName;
     }
 
-    public void setActivityExp(Integer activityExp) {
-        this.activityExp = activityExp;
+    public void setKeyName(String keyName) {
+        this.keyName = keyName;
     }
 
-    public Integer getAttendLevel() {
-        return attendLevel;
+    public Integer getKeyValue() {
+        return keyValue;
     }
 
-    public void setAttendLevel(Integer attendLevel) {
-        this.attendLevel = attendLevel;
-    }
-
-    public Integer getAttendRatio() {
-        return attendRatio;
-    }
-
-    public void setAttendRatio(Integer attendRatio) {
-        this.attendRatio = attendRatio;
-    }
-
-    public Integer getAttendDistance() {
-        return attendDistance;
-    }
-
-    public void setAttendDistance(Integer attendDistance) {
-        this.attendDistance = attendDistance;
+    public void setKeyValue(Integer keyValue) {
+        this.keyValue = keyValue;
     }
 
     public Integer getIsDelete() {
@@ -96,23 +78,5 @@ private static final long serialVersionUID=1L;
 
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
-    }
-
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
-
-    @Override
-    public String toString() {
-        return "SystemManage{" +
-        "id=" + id +
-        ", attendExp=" + attendExp +
-        ", activityExp=" + activityExp +
-        ", attendLevel=" + attendLevel +
-        ", attendRatio=" + attendRatio +
-        ", attendDistance=" + attendDistance +
-        ", isDelete=" + isDelete +
-        "}";
     }
 }
