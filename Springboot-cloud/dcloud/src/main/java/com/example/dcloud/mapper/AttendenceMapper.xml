@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dcloud.mapper.AttendenceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.dcloud.entity.Attendence">
+        <id column="id" property="id" />
+        <result column="start_time" property="startTime" />
+        <result column="local" property="local" />
+        <result column="is_delete" property="isDelete" />
+        <result column="code" property="code" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, start_time, local, is_delete, code
+    </sql>
+
+</mapper>
