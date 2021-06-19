@@ -64,10 +64,9 @@ public class AttendenceController {
     @ResponseBody
     @ApiOperation(value = "结束这个签到",notes = "get")
     @RequestMapping(value = "/end",method = RequestMethod.POST)
-    public String endPriorAttendence(@RequestBody JSONObject jsonObject) {
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
+    public String endPriorAttendence(@RequestParam(value="code")String code) {
         QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code",map.get("code").toString())
+        queryWrapper.eq("code",code)
                     .eq("is_delete",0);
         Attendence attendence = new Attendence();
         attendence.setIsDelete(2);
@@ -86,24 +85,53 @@ public class AttendenceController {
     @ResponseBody
     @ApiOperation(value = "发起签到",notes = "get")
     @RequestMapping(method = RequestMethod.POST)
-    public int createAttendence(@RequestBody JSONObject jsonObject) {
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
+    public int createAttendence(@RequestParam(value="code")String code,
+                                @RequestParam(value="start_time")String start_time,
+                                @RequestParam(value="end_time",required = false)String end_time,
+                                @RequestParam(value="count",required = false)Integer count,
+                                @RequestParam(value="longitude")String longitude,
+                                @RequestParam(value="latitude")String latitude,
+                                @RequestParam(value="attendance_type")Integer attendance_type,
+                                @RequestParam(value="telephone")String telephone
+                                ) {
+
         Attendence attendence = new Attendence();
-        attendence.setCode(map.get("code").toString());
-        attendence.setLocal(map.get("local").toString());
-        Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
-        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+        QueryWrapper<Course> queryCourse = new QueryWrapper<>();
+        queryCourse.eq("code",code)
+        .eq("idDelete",0);
+        Course course = courseService.getOne(queryCourse);
+        attendence.setCourseId(course.getId());
+        attendence.setLongitude(longitude);
+        attendence.setLatitude(latitude);
+        attendence.setAttendanceType(attendance_type);
+        QueryWrapper<User> queryUser = new QueryWrapper<>();
+        queryUser.eq("telephone",telephone)
+                .eq("is_delete",0);
+        User user = userService.getOne(queryUser);
+        attendence.setCreater(user.getName());
+        attendence.setStartTime(start_time);
+        attendence.setCreateTime(start_time);
+        if(end_time!=null)
+        {
+            attendence.setEndTime(end_time);
+        }
+        if (count!=null)
+        {
+            attendence.setCount(count);
+        }
+//        Date d = new Date();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
+//        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+//
+//        //输出日志
+//        LOG.info("======attendence签到===开始时间：{}===code：{}, local：{}",sdf.format(d),map.get("code").toString(),map.get("local").toString());
 
-        //输出日志
-        LOG.info("======attendence签到===开始时间：{}===code：{}, local：{}",sdf.format(d),map.get("code").toString(),map.get("local").toString());
-
-        attendence.setStartTime(sdf.format(d));
+     //   attendence.setStartTime(sdf.format(d));
         attendence.setIsDelete(0);
         attendenceService.saveOrUpdate(attendence);
         QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code", map.get("code").toString())
-                .eq("start_time", sdf.format(d))
+        queryWrapper.eq("course_id", course.getId())
+                .eq("start_time", start_time)
                 .eq("is_delete",0);
         Attendence attendence1 = attendenceService.getOne(queryWrapper);
         return attendence1.getId();
@@ -179,40 +207,40 @@ public class AttendenceController {
         return attendId;
     }
 
-    @ResponseBody
-    @ApiOperation(value = "查看某门课学生的签到情况",notes = "get")
-    @RequestMapping(method = RequestMethod.PUT)
-    public String getAttendence(@RequestBody JSONObject jsonObject) {
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
-        String code = map.get("code").toString();
-//        System.out.println(map.get("attend_id").toString());
-        int attend_id = Integer.parseInt(map.get("attend_id").toString());
-        QueryWrapper<AttendenceResult> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("attend_id",attend_id);
-        List<AttendenceResult> list = attendenceResultService.list(queryWrapper);
-        String[] name = new String[list.size()];
-        for(int i=0;i<list.size();i++){
-            String studentEmail = list.get(i).getStudentEmail();
-            QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
-            queryWrapper1.eq("email",studentEmail);
-            User user = userService.getOne(queryWrapper1);
-            name[i] = user.getName();
-        }
-        //根据课程号查找课程id
-        QueryWrapper<Course> queryWrapper2= new QueryWrapper<>();
-        queryWrapper2.eq("code",code);
-        Course course = courseService.getOne(queryWrapper2);
-        long courseId = course.getId();
-        //查询该课程总学生数
-        QueryWrapper<CourseStudent> queryWrapper3 = new QueryWrapper<>();
-        queryWrapper3.eq("course_id",courseId)
-                    .eq("is_delete",0);
-        JSONObject jsonObject1 = new JSONObject();
-        jsonObject1.put("name",name);
-        jsonObject1.put("count",attendenceResultService.count(queryWrapper));
-        jsonObject1.put("total",courseStudentService.count(queryWrapper3));
-        return jsonObject1.toString();
-    }
+//    @ResponseBody
+//    @ApiOperation(value = "查看某门课学生的签到情况",notes = "get")
+//    @RequestMapping(method = RequestMethod.PUT)
+//    public String getAttendence(@RequestBody JSONObject jsonObject) {
+//        Map map = JSON.toJavaObject(jsonObject, Map.class);
+//        String code = map.get("code").toString();
+////        System.out.println(map.get("attend_id").toString());
+//        int attend_id = Integer.parseInt(map.get("attend_id").toString());
+//        QueryWrapper<AttendenceResult> queryWrapper = new QueryWrapper<>();
+//        queryWrapper.eq("attend_id",attend_id);
+//        List<AttendenceResult> list = attendenceResultService.list(queryWrapper);
+//        String[] name = new String[list.size()];
+//        for(int i=0;i<list.size();i++){
+//            String studentEmail = list.get(i).getStudentEmail();
+//            QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
+//            queryWrapper1.eq("email",studentEmail);
+//            User user = userService.getOne(queryWrapper1);
+//            name[i] = user.getName();
+//        }
+//        //根据课程号查找课程id
+//        QueryWrapper<Course> queryWrapper2= new QueryWrapper<>();
+//        queryWrapper2.eq("code",code);
+//        Course course = courseService.getOne(queryWrapper2);
+//        long courseId = course.getId();
+//        //查询该课程总学生数
+//        QueryWrapper<CourseStudent> queryWrapper3 = new QueryWrapper<>();
+//        queryWrapper3.eq("course_id",courseId)
+//                    .eq("is_delete",0);
+//        JSONObject jsonObject1 = new JSONObject();
+//        jsonObject1.put("name",name);
+//        jsonObject1.put("count",attendenceResultService.count(queryWrapper));
+//        jsonObject1.put("total",courseStudentService.count(queryWrapper3));
+//        return jsonObject1.toString();
+//    }
 
     @ResponseBody
     @ApiOperation(value = "查看这个签到是否结束",notes = "get")

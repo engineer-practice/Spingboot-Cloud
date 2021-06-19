@@ -14,14 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author fifteen
- * @since 2020-04-12
- */
 @CrossOrigin
 @Controller
 @RequestMapping("/role")

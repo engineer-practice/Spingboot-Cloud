@@ -1,9 +1,11 @@
 package com.example.dcloud.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.List;
 
 
 public class DictionaryDetail extends Model<DictionaryDetail> {
@@ -40,6 +42,7 @@ private static final long serialVersionUID=1L;
     private Integer dictOrder;
 
     private Integer isDelete;
+
 
     public Integer getDictOrder() {
         return dictOrder;

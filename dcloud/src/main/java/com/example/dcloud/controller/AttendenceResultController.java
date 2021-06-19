@@ -19,14 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author fifteen
- * @since 2020-06-18
- */
+
 @Controller
 @CrossOrigin
 @RequestMapping("/attendenceResult")
@@ -303,29 +296,7 @@ public class AttendenceResultController {
 //                else if(type==2&&flag==1)
 //                    exp2 = exp1-(systemExp/2);
 //                else if(type==1&&flag==0)
-//                    exp2 = exp1-(systemExp/2);
-//                else if(type==1&&flag==2)
-//                    exp2 = exp1+(systemExp/2);
-//                else if(type==0&&flag==1)
-//                    exp2 = exp1+(systemExp/2);
-//                else
-//                    exp2 = exp1+systemExp;
-//                CourseStudent courseStudent1 = new CourseStudent();
-//                courseStudent1.setExp(exp2);
-//                courseStudentService.update(courseStudent1,queryWrapper3);
 //
-//                QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
-//                queryWrapper1.eq("email",email);
-//                User user = userService.getOne(queryWrapper1);
-//                int exp;
-//                if(type==2&&flag==0)
-//                    exp = user.getExp()-systemExp;
-//                else if(type==2&&flag==1)
-//                    exp = user.getExp()-(systemExp/2);
-//                else if(type==1&&flag==0)
-//                    exp = user.getExp()-(systemExp/2);
-//                else if(type==1&&flag==2)
-//                    exp = user.getExp()+(systemExp/2);
 //                else if(type==0&&flag==1)
 //                    exp = user.getExp()+(systemExp/2);
 //                else

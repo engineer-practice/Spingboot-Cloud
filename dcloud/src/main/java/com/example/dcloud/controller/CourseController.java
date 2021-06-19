@@ -7,12 +7,15 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.example.dcloud.common.ServerResponse;
 import com.example.dcloud.dto.CourseDto;
 import com.example.dcloud.dto.UpdateCourseDto;
 import com.example.dcloud.entity.*;
 import com.example.dcloud.service.*;
 import com.example.dcloud.util.QRCodeGenUtil;
 import com.example.dcloud.util.ResultUtil;
+import com.example.dcloud.vo.CourseStudentVo;
+import com.example.dcloud.vo.CourseVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.tomcat.util.json.JSONParser;
@@ -45,167 +48,171 @@ public class CourseController {
     private static final Logger LOG = LoggerFactory.getLogger(CourseController.class);
 
     @ResponseBody
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "获取班课列表",notes = "get")
-    public String get(@RequestParam(value="student_email",required = false)String student_email,
-                      @RequestParam(value="teacher_email",required = false)String teacher_email,
-                      @RequestParam(value="search",required = false)String search,
-                      @RequestParam(value="code",required = false)String code){
+    @RequestMapping(value = "/courseInfo",method = RequestMethod.GET)
+    @ApiOperation(value = "根据班课号，获取具体班课信息",notes = "get")
+    public ServerResponse<Course> courseInfo(@RequestParam(value="code")String code) {
+        ServerResponse<Course> response = new ServerResponse<>();
 
-        if(code != null){//获得班课详情
-        //传过来的参数如果有code（班课号），就查找具体的班课详情 并返回
-            //输出日志
-            LOG.info("======CourseController======");
-            //code表示班课号
-            QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("code",code);
-            Course course = courseService.getOne(queryWrapper);
-            JSONObject result = new JSONObject();
-            result.put("no",course.getCode());
-            result.put("name",course.getName());
-//            result.put("type",course.getFlag());
-            if(course.getFlag() == 1){
-                result.put("type",true);
-            }else{
-                result.put("type",false);
-            }
-            if(course.getIsJoin() == 1){
-                result.put("checked",true);
-            }else{
-                result.put("checked",false);
-            }
-            QueryWrapper<User> userQuery = new QueryWrapper();
-            userQuery.eq("id",course.getTeacherId().toString());
-            User user = userService.getOne(userQuery);
-            result.put("tname",user.getName());
-            result.put("term",course.getSemester());
-            result.put("school",course.getSchoolCode());
-            result.put("require",course.getLearnRequire());
-            result.put("process",course.getTeachProgress());
-            result.put("test",course.getExamSchedule());
-            result.put("class",course.getClassName());
-            return JSON.toJSONString(result);
-
-        }else if(student_email != null) {//加入的班课
-            //如果code为空 则查找这个学生加入的所有班课 并返回Jason的数组 因为学生有可能加入了很多班课
-            QueryWrapper<CourseStudent> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("student_email",student_email)
-            .eq("is_delete",0);
-            //找到对应的课程id
-            List<CourseStudent> list = courseStudentService.list(queryWrapper);
-            JSONArray jsonArray = new JSONArray();
-            for (int i = 0; i < list.size(); i++) {
-                JSONObject result = new JSONObject();
-                QueryWrapper<Course> queryWrapper1 = new QueryWrapper<>();
-                queryWrapper1.eq("id", list.get(i).getCourseId());
-                Course course = courseService.getOne(queryWrapper1);
-                result.put("name", course.getName());
-                //根据教师id找教师名字
-                QueryWrapper<User> queryWrapper2 = new QueryWrapper<>();
-                queryWrapper2.eq("id", course.getTeacherId());
-                User user = userService.getOne(queryWrapper2);
-                result.put("tname", user.getName());
-                result.put("class", course.getClassName());
-                result.put("term", course.getSemester());
-                result.put("no", course.getCode());
-                jsonArray.add(result);
-            }
-            if(search != null){//搜索
-                //如果搜索不为空 额外放入index
-                return courseService.searchLesson(JSON.toJSONString(jsonArray),search);
-            }
-            return JSON.toJSONString(jsonArray);
-        }else if(teacher_email != null){//创建的班课
-            QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("email",teacher_email);
-            User user = userService.getOne(queryWrapper);
-            //找到该userid对应的课程
-            QueryWrapper<Course> courseQueryWrapper = new QueryWrapper<>();
-            courseQueryWrapper.eq("teacher_id",user.getId())
-                                .eq("isDelete",0);
-            List<Course> list = courseService.list(courseQueryWrapper);
-            JSONArray jsonArray = new JSONArray();
-            for(int i = 0 ; i < list.size(); i++){
-                JSONObject result = new JSONObject();
-                result.put("name",list.get(i).getName());
-                result.put("tname",user.getName());
-                result.put("class",list.get(i).getClassName());
-                result.put("term",list.get(i).getSemester());
-                result.put("no",list.get(i).getCode());
-                jsonArray.add(result);
-            }
-            if(search != null){//搜索
-                //调这个函数额外放进去了index 和上面一个else if一样
-                return courseService.searchLesson(JSON.toJSONString(jsonArray),search);
-            }
-            return JSON.toJSONString(jsonArray);
+        QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("code",code);
+        int count = courseService.count(queryWrapper);
+        if(count == 0)
+        {
+            response.setMsg("不存在此班课");
+            response.setResult(false);
+            return response;
         }
-        //都为code、XXXemail都为空 不显示 直接返回 1
-        return "1";
+        Course course = courseService.getOne(queryWrapper);
+        List<Course> dataList = new ArrayList<>();
+        dataList.add(course);
+        response.setDataList(dataList);
+        response.setResult(true);
+        response.setMsg("查询成功");
+//        CourseVo courseVo = new CourseVo();
+//        courseVo.setCode(course.getCode());
+//        courseVo.setName(course.getName());
+//        courseVo.setFlag(course.getFlag());
+//        courseVo.setIsJoin(course.getIsJoin());
+
+        return response;
     }
     @ResponseBody
+    @RequestMapping(value = "/hasJoined",method = RequestMethod.GET)
+    @ApiOperation(value = "根据手机号，查询用户已经加入的课程",notes = "get")
+    public ServerResponse<CourseVo> hasJoined(@RequestParam(value="telephone")String telephone) {
+
+        ServerResponse<CourseVo> response = new ServerResponse<>();
+        QueryWrapper<User> queryUser = new QueryWrapper<>();
+        queryUser.eq("telephone",telephone)
+                .eq("is_delete",0);
+        User user = userService.getOne(queryUser);
+        QueryWrapper<CourseStudent> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("student_id",user.getId())
+                .eq("is_delete",0);
+        int count = courseStudentService.count(queryWrapper);
+        if(count == 0)
+        {
+            response.setMsg("没有加入任何班课！");
+            response.setResult(false);
+            return response;
+        }
+
+        //找到对应的课程id
+        List<CourseStudent> list = courseStudentService.list(queryWrapper);
+
+        List<CourseVo> dataList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            CourseVo courseVo = new CourseVo();
+            QueryWrapper<Course> queryWrapper1 = new QueryWrapper<>();
+            queryWrapper1.eq("id", list.get(i).getCourseId());
+            Course course = courseService.getOne(queryWrapper1);
+            courseVo.setName(course.getName());
+            //根据教师id找教师名字
+            QueryWrapper<User> queryWrapper2 = new QueryWrapper<>();
+            queryWrapper2.eq("id", course.getTeacherId());
+            User user1 = userService.getOne(queryWrapper2);
+            courseVo.setTeacherName(user1.getName());
+            courseVo.setClassName(course.getClassName());
+            courseVo.setSemester(course.getSemester());
+            courseVo.setCode(course.getCode());
+            dataList.add(courseVo);
+        }
+        response.setDataList(dataList);
+        response.setMsg("查询成功");
+        response.setResult(true);
+        response.setTotal((long)list.size());
+        return response;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/hasCreated",method = RequestMethod.GET)
+    @ApiOperation(value = "根据手机号，查询用户已经创建的课程",notes = "get")
+    public ServerResponse<CourseVo> hasCreated(@RequestParam(value="telephone")String telephone) {
+
+        ServerResponse<CourseVo> response = new ServerResponse<>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("telephone",telephone);
+        User user = userService.getOne(queryWrapper);
+        //找到该userid对应的课程
+        QueryWrapper<Course> courseQueryWrapper = new QueryWrapper<>();
+        courseQueryWrapper.eq("teacher_id",user.getId())
+                .eq("isDelete",0);
+        int count = courseService.count(courseQueryWrapper);
+        if(count == 0)
+        {
+            response.setMsg("没有创建任何班课！");
+            response.setResult(false);
+            return response;
+        }
+        List<Course> list = courseService.list(courseQueryWrapper);
+
+        List<CourseVo> dataList = new ArrayList<>();
+        for(int i = 0 ; i < list.size(); i++) {
+            CourseVo courseVo = new CourseVo();
+            courseVo.setCode(list.get(i).getCode());
+            courseVo.setSemester(list.get(i).getSemester());
+            courseVo.setClassName(list.get(i).getClassName());
+            courseVo.setTeacherName(user.getName());
+            courseVo.setName(list.get(i).getName());
+            dataList.add(courseVo);
+        }
+        response.setDataList(dataList);
+        response.setTotal((long)list.size());
+        response.setResult(true);
+        response.setMsg("查询成功!");
+        return response;
+    }
+
+
+
+    @ResponseBody
     @ApiOperation(value = "获取班课成员",notes = "get")
-    @RequestMapping(value = "/GetMember",method = RequestMethod.GET)
+    @RequestMapping(value = "/getMember",method = RequestMethod.GET)
     //获取班课成员
-    public String getMember(@RequestParam(value="code")String code,
-                            @RequestParam(value="order",required = false)String order,
-                            @RequestParam(value="search",required = false)String search,
-                            @RequestParam(value="email",required = false)String email){
+    public ServerResponse<CourseStudentVo> getMember(@RequestParam(value="code")String code
+                            //@RequestParam(value="order",required = false)String order,
+                            //@RequestParam(value="search",required = false)String search,
+                           // @RequestParam(value="email",required = false)String email
+    ){
+        ServerResponse<CourseStudentVo> response = new ServerResponse<CourseStudentVo>();
         QueryWrapper<Course> courseQuery = new QueryWrapper<>();
         courseQuery.eq("code",code);
         Course course = courseService.getOne(courseQuery);
         QueryWrapper<CourseStudent> courseId = new QueryWrapper<>();
         courseId.eq("course_id",course.getId())
         .eq("is_delete",0);
-        //获得课程的所有学生email
+        //获得课程的所有学生id
 
         List<CourseStudent> list = courseStudentService.list(courseId);
         if(list.size()==0){
-            return ResultUtil.error("该课程没有学生");
+            response.setMsg("该课程暂无学生！");
+            response.setResult(false);
+            return response;
         }
-        System.out.println("code:"+code);
-        System.out.println("order:"+order);
-        JSONArray jsonArray = new JSONArray();
+//        System.out.println("code:"+code);
+//        System.out.println("order:"+order);
+        List<CourseStudentVo> dataList= new ArrayList<>();
+        CourseStudentVo courseStudentVo = new CourseStudentVo();
         for(int i = 0 ; i < list.size(); i++){
-            JSONObject jsonObject = new JSONObject();
-            QueryWrapper<User> queryUser = new QueryWrapper<>();
-         //   queryUser.eq("email",list.get(i).getStudentEmail());
-            User user = userService.getOne(queryUser);
-            jsonObject.put("name",user.getName());
-            jsonObject.put("sno",user.getSno());
-            jsonObject.put("sex",user.getSex());
-            jsonObject.put("email",user.getEmail());
-            if(list.get(i).getExp() == null){
-                jsonObject.put("exp",0);
-            }else{
-                jsonObject.put("exp",list.get(i).getExp());
-            }
 
-            jsonObject.put("email",user.getEmail());
-            jsonArray.add(jsonObject);
-            System.out.println("1111");
+            QueryWrapper<User> queryUser = new QueryWrapper<>();
+            queryUser.eq("id",list.get(i).getStudentId());
+            User user = userService.getOne(queryUser);
+            if(list.get(i).getExp() == null){
+               courseStudentVo.setExp(0);
+            }else{
+                courseStudentVo.setExp(list.get(i).getExp());
+            }
+            courseStudentVo.setName(user.getName());
+            courseStudentVo.setSno(user.getSno());
+            courseStudentVo.setSex(user.getSex());
+            dataList.add(courseStudentVo);
         }
-        //order一定要传值进来
-        System.out.println("code:"+code);
-        System.out.println("order:"+order);
-        if(order.equals("1")){
-            System.out.println("2222");
-            String searchResult = courseService.jsonArraySort(JSON.toJSONString(jsonArray),"sno");
-            if(search != null){//搜索
-                return courseService.searchArray(searchResult,search);
-            }
-            return searchResult;
-        }else{
-            System.out.println("1111");
-            String searchResult = courseService.jsonArraySort(JSON.toJSONString(jsonArray),"exp");
-            if(search != null){//搜索
-                return courseService.searchArray(searchResult,search);
-            }
-            if(email != null){
-                return courseService.getRank(searchResult,email);
-            }
-            return searchResult;
-        }
+        response.setResult(true);
+        response.setMsg("查询成功");
+        response.setDataList(dataList);
+        response.setTotal((long)list.size());
+        return response;
+
     }
     @ApiOperation(value = "学生使用班课号加入班课",notes = "get")
     @ResponseBody
@@ -216,7 +223,14 @@ public class CourseController {
             QueryWrapper<Course> queryWrapper = new QueryWrapper();
             queryWrapper.eq("code", code)
                     .eq("isDelete", 0);
+            int count1 = courseService.count(queryWrapper);
+            if(count1 == 0)
+                return ResultUtil.error("班课号不存在！");
             Course course = courseService.getOne(queryWrapper);
+            if(course.getFlag()==1)
+                return ResultUtil.error("班课已经结束！");
+        if(course.getIsJoin()==0)
+            return ResultUtil.error("班课不允许加入！");
             if (course != null) {
               //  if (email != null) {
                     //不能加入自己创建的课程
@@ -336,7 +350,7 @@ public class CourseController {
     public String CreateClass(@RequestParam(value="className")String className,
                               @RequestParam(value="name")String name,
                               @RequestParam(value="school",required = false)String school,
-                              @RequestParam(value="isSchoolLesson",required = false)Integer isSchoolLesson,
+                              @RequestParam(value="isFinish",required = false)Integer isFinish,
                               @RequestParam(value="require",required = false)String require,
                               @RequestParam(value="term",required = false)String term,
                               @RequestParam(value="examination",required = false)String examination,
@@ -349,8 +363,8 @@ public class CourseController {
         course.setName(name);
         if(school!=null)
             course.setSchoolCode(school);
-        if(isSchoolLesson!=null)
-            course.setFlag(isSchoolLesson);
+        if(isFinish!=null)
+            course.setFlag(isFinish);
         //随机生成课程号
     //        course.setCode("11111111");
         int count = 1;
@@ -397,58 +411,55 @@ public class CourseController {
     @ApiOperation(value = "编辑班课信息",notes = "get")
     @ResponseBody
     @RequestMapping(method = RequestMethod.PATCH)
-    public String update(@RequestBody UpdateCourseDto updateCourseDto){
+    public String update(
+            //@RequestBody UpdateCourseDto updateCourseDto
+            @RequestParam(value="code")String code,
+            @RequestParam(value="className",required = false)String className,
+            @RequestParam(value="name",required = false)String name,
+            @RequestParam(value="isJoin",required = false)Integer isJoin,
+            @RequestParam(value="school",required = false)String school,
+            @RequestParam(value="isFinish",required = false)Integer isFinish,
+            @RequestParam(value="require",required = false)String require,
+            @RequestParam(value="term",required = false)String term,
+            @RequestParam(value="examination",required = false)String examination,
+            @RequestParam(value="process",required = false)String process
+    ){
         //        course.setCode(no);
 
-        QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("code",updateCourseDto.getCode());
+        QueryWrapper<Course> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("code",code);
         Course course = courseService.getOne(queryWrapper);
         if(course == null)
             return ResultUtil.error("没有这门课程!");
-        if(updateCourseDto.getName() != null){
-            course.setName(updateCourseDto.getName());
+        if( name != null){
+            course.setName(name);
         }
-        if(updateCourseDto.getTname()!= null){
-            QueryWrapper queryWrapper1 = new QueryWrapper();
-            queryWrapper1.eq("code",updateCourseDto.getCode());
-            Course course1 = courseService.getOne(queryWrapper);
-            QueryWrapper userWrapper2 = new QueryWrapper();
-            userWrapper2.eq("id",course.getTeacherId());
-            User user = new User();
-            user.setName(updateCourseDto.getTname());
-            userService.update(user,userWrapper2);
+
+        if(term != null){
+            course.setSemester(term);
         }
-        if(updateCourseDto.getTerm() != null){
-            course.setSemester(updateCourseDto.getTerm());
+        if(isJoin != null){
+                course.setIsJoin(isJoin);
         }
-        if(updateCourseDto.getIsjoin() != null){
-            if(updateCourseDto.getIsjoin().equals("false")){
-                course.setIsJoin(1);
-            }else{
-                course.setIsJoin(0);
-            }
+        if(school!= null){
+            course.setSchoolCode(school);
         }
-        if(updateCourseDto.getSchool() != null){
-            course.setSchoolCode(updateCourseDto.getSchool());
+        if(require != null){
+            course.setLearnRequire(require);
         }
-        if(updateCourseDto.getRequire() != null){
-            course.setLearnRequire(updateCourseDto.getRequire());
+        if(process != null){
+            course.setTeachProgress(process);
         }
-        if(updateCourseDto.getProcess() != null){
-            course.setTeachProgress(updateCourseDto.getProcess());
+        if(examination != null){
+            course.setExamSchedule(examination);
         }
-        if(updateCourseDto.getExamination() != null){
-            course.setExamSchedule(updateCourseDto.getExamination());
+        if(className != null){
+            course.setClassName(className);
         }
-        if(updateCourseDto.getClassName() != null){
-            course.setClassName(updateCourseDto.getClassName());
-        }
-        if(updateCourseDto.getFlag() != null){
-            if(updateCourseDto.getFlag().equals("true")){
-                course.setFlag(1);
-            }else{
-                course.setFlag(0);
-            }
+        if(isFinish != null){
+
+                course.setFlag(isFinish);
+
         }
         courseService.updateById(course);
 //        return JSON.toJSONString(courseService.getOne(queryWrapper));

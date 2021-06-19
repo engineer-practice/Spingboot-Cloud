@@ -11,6 +11,7 @@ import com.example.dcloud.entity.DictionaryDetail;
 import com.example.dcloud.service.DictionaryDetailService;
 import com.example.dcloud.service.DictionaryService;
 import com.example.dcloud.util.ResultUtil;
+import io.swagger.annotations.Api;
 import org.apache.tomcat.jni.Directory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ import java.util.*;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
-
+@Api(tags = "数据字典管理接口")
 @RestController
 @RequestMapping("/dictionaries")
 public class DictionaryController {

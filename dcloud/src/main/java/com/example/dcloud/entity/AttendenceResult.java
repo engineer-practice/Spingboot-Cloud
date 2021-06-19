@@ -13,16 +13,23 @@ private static final long serialVersionUID=1L;
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String studentEmail;
+    private Integer studentId;
 
     private String attendTime;
 
     private Integer isDelete;
 
+    private Integer courseId;
     private Integer attendId;
+    private String longitude;
+    private String latitude;
+    private String distance;
+    private String creater;
+    private String createTime;
 
-    private String code;
-
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Integer getId() {
         return id;
@@ -32,12 +39,12 @@ private static final long serialVersionUID=1L;
         this.id = id;
     }
 
-    public String getStudentEmail() {
-        return studentEmail;
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
 
     public String getAttendTime() {
@@ -56,6 +63,14 @@ private static final long serialVersionUID=1L;
         this.isDelete = isDelete;
     }
 
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
+
     public Integer getAttendId() {
         return attendId;
     }
@@ -64,28 +79,43 @@ private static final long serialVersionUID=1L;
         this.attendId = attendId;
     }
 
-    public String getCode() {
-        return code;
+    public String getLongitude() {
+        return longitude;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
+    public String getLatitude() {
+        return latitude;
     }
 
-    @Override
-    public String toString() {
-        return "AttendenceResult{" +
-        "id=" + id +
-        ", studentEmail=" + studentEmail +
-        ", attendTime=" + attendTime +
-        ", isDelete=" + isDelete +
-        ", attendId=" + attendId +
-        ", code=" + code +
-        "}";
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public String getCreater() {
+        return creater;
+    }
+
+    public void setCreater(String creater) {
+        this.creater = creater;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 }

@@ -64,7 +64,7 @@ private static final long serialVersionUID=1L;
     private String schoolCode;
 
     /**
-     * 是否学校课表班课
+     * 班课是否结束
      */
     private Integer flag;
 

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.dcloud.common.ServerResponse;
 import com.example.dcloud.entity.School;
 import com.example.dcloud.mapper.SchoolMapper;
 import com.example.dcloud.service.SchoolService;
@@ -77,23 +78,37 @@ public class SchoolServiceImpl extends ServiceImpl<SchoolMapper, School> impleme
     }
 
     @Override
-    public String getAcademiesByCode(String schoolCode) {
+    public ServerResponse<School> getAcademiesByCode(String schoolCode) {
         //通过父级code找到父级Id
+        ServerResponse<School> response = new ServerResponse<>();
         QueryWrapper<School> parentQuery = new QueryWrapper();
         parentQuery.eq("code",schoolCode);
         School school = schoolMapper.selectOne(parentQuery);
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("is_delete",0);
         queryWrapper.eq("parent_id",school.getId());
-        return JSON.toJSONString(schoolMapper.selectList(queryWrapper));
+        List<School> schools = schoolMapper.selectList(queryWrapper);
+        response.setDataList(schools);
+        response.setTotal((long)schools.size());
+        response.setMsg("查询成功！");
+        response.setResult(true);
+
+        //return JSON.toJSONString(schoolMapper.selectList(queryWrapper));
+        return response;
     }
 
     @Override
-    public String getSchools() {
-        QueryWrapper queryWrapper = new QueryWrapper();
+    public ServerResponse getSchools() {
+        ServerResponse<School> response = new ServerResponse<>();
+        QueryWrapper<School> queryWrapper = new QueryWrapper();
         queryWrapper.eq("is_delete",0);
         queryWrapper.eq("parent_id",0);
-        return JSON.toJSONString(schoolMapper.selectList(queryWrapper));
+        List<School> schools = schoolMapper.selectList(queryWrapper);
+        response.setTotal((long)(schools.size()));
+        response.setDataList(schools);
+        response.setResult(true);
+        response.setMsg("查询成功！");
+        return response;
     }
 
     public List<String> getChildrenIds(String id){

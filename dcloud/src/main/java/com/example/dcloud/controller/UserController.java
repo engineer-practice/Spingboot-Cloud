@@ -202,7 +202,7 @@ public class UserController {
     //显示个人信息 根据邮箱来查找用户 并显示到前端个人信息页面
     public String getInfo(@RequestParam(value="account")String account) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("email",account);
+        queryWrapper.eq("telephone",account);
         try{
             User user = userService.getOne(queryWrapper);
             JSONObject jsonObject = new JSONObject();

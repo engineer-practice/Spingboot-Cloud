@@ -1,12 +1,18 @@
 package com.example.dcloud.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
+import com.example.dcloud.common.ServerResponse;
+import com.example.dcloud.entity.Course;
 import com.example.dcloud.entity.Dictionary;
 import com.example.dcloud.entity.DictionaryDetail;
+import com.example.dcloud.entity.School;
 import com.example.dcloud.mapper.DictionaryDetailMapper;
 import com.example.dcloud.mapper.DictionaryMapper;
+import com.example.dcloud.service.CourseStudentService;
 import com.example.dcloud.service.DictionaryDetailService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.dcloud.vo.CourseVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +26,8 @@ import java.util.Map;
 @Service
 public class DictionaryDetailServiceImpl extends ServiceImpl<DictionaryDetailMapper, DictionaryDetail> implements DictionaryDetailService {
 
+    @Autowired
+    private DictionaryDetailService dictionaryDetailService;
     @Resource
     private DictionaryDetailMapper dictionaryDetailMapper;
     @Resource
@@ -40,5 +48,19 @@ public class DictionaryDetailServiceImpl extends ServiceImpl<DictionaryDetailMap
         list.put("detail",list2);
         System.out.println(list);
         return list;
+    }
+    public ServerResponse<DictionaryDetail> getDetail1(String typeCode) {
+        ServerResponse<DictionaryDetail> response = new ServerResponse<>();
+
+        QueryWrapper<DictionaryDetail> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("type_code",typeCode)
+                .eq("is_delete",0);
+        List<DictionaryDetail> list = dictionaryDetailService.list(queryWrapper);
+        response.setDataList(list);
+        response.setTotal((long)list.size());
+        response.setResult(true);
+        response.setMsg("查询成功！");
+
+        return response;
     }
 }
