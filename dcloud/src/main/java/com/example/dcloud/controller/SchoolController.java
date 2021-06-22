@@ -29,93 +29,93 @@ public class SchoolController {
     @Autowired
     private SchoolService schoolService;
 
-    //新增
-//    @ResponseBody
-//    @RequestMapping(method = RequestMethod.POST)
-//    public String add(@RequestBody JSONObject jsonObject) {
-//        Map map = JSON.toJavaObject(jsonObject, Map.class);
-//        //code不能重复
-//        QueryWrapper<School> queryCode = new QueryWrapper();
-//        queryCode.eq("code",map.get("code").toString())
-//                .eq("is_delete",0);
-//        int count1 = schoolService.count(queryCode);
-//        if(count1 > 0){
-//            return ResultUtil.error("编码不能重复！");
-//        }
-//        //name不能重复
-//        QueryWrapper<School> queryName = new QueryWrapper();
-//        queryName.eq("name",map.get("name").toString())
-//                 .eq("is_delete",0);
-//        int count2 = schoolService.count(queryName);
-//        if(count2 > 0){
-//            return ResultUtil.error("学校或学院名称不能重复！");
-//        }
-//        School school = new School();
-//        school.setCode(map.get("code").toString());
-//        school.setName(map.get("name").toString());
-//        school.setParentId(map.get("parent_id").toString());
-//        school.setIsDelete(0);
-//        schoolService.save(school);
-//        return ResultUtil.success();
-//    }
-//    //编辑
-//    @ResponseBody
-//    @RequestMapping(method = RequestMethod.PATCH)
-//    public String edit(@RequestBody JSONObject jsonObject) {
-//        Map map = JSON.toJavaObject(jsonObject, Map.class);
-//        School school = new School();
-//        //名字不能跟数据库中的重复
-//        QueryWrapper<School> queryWrapper = new QueryWrapper();
-//        queryWrapper.eq("code",map.get("name").toString())
-//                    .eq("is_delete",0)
-//                    .ne("id",parseInt(map.get("id").toString()));
-//        int count = schoolService.count(queryWrapper);
-//        if(count > 0){
-//            return ResultUtil.error("该名称已存在！");
-//        }
-//        school.setId(parseInt(map.get("id").toString()));
-//        school.setName(map.get("name").toString());
-//        schoolService.updateById(school);
-//        return ResultUtil.success();
-//    }
-//    //删除 传ids
-//    @ResponseBody
-//    @RequestMapping(method = RequestMethod.DELETE)
-//    public String delByIds(@RequestParam(value = "ids") List list) {
-//        boolean flag = false;
-//        for(int i = 0; i < list.size(); i++){
-//            QueryWrapper<School> queryWrapper = new QueryWrapper();
-//            queryWrapper.eq("parent_id",list.get(i))
-//                        .eq("is_delete",0);
-//            int count = schoolService.count(queryWrapper);
-//            if(count > 0){//说明该id作为父亲
-//                flag = true;
-//            }else{
-//                School school = new School();
-//                school.setId(parseInt(list.get(i).toString()));
-//                school.setIsDelete(1);
-//                schoolService.updateById(school);
-//            }
-//        }
-//        if(flag){
-//            return ResultUtil.error("选中的节点中存在父节点，请先删除他们的子节点！");
-//        }else{
-//            return ResultUtil.success();
-//        }
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/getCode",method = RequestMethod.GET)
-//    public String getCode(@RequestParam(value="code",required = false)String code){
-//        if(code == null || code.equals("0")){
-//            return "未设置";
-//        }
-//        QueryWrapper<School> queryWrapper = new QueryWrapper();
-//        queryWrapper.eq("code",code)
-//                    .eq("is_delete",0);
-//        School school1 = schoolService.getOne(queryWrapper);
-//        return school1.getName();
-//    }
+   // 新增
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.POST)
+    public String add(@RequestBody JSONObject jsonObject) {
+        Map map = JSON.toJavaObject(jsonObject, Map.class);
+        //code不能重复
+        QueryWrapper<School> queryCode = new QueryWrapper();
+        queryCode.eq("code",map.get("code").toString())
+                .eq("is_delete",0);
+        int count1 = schoolService.count(queryCode);
+        if(count1 > 0){
+            return ResultUtil.error("编码不能重复！");
+        }
+        //name不能重复
+        QueryWrapper<School> queryName = new QueryWrapper();
+        queryName.eq("name",map.get("name").toString())
+                 .eq("is_delete",0);
+        int count2 = schoolService.count(queryName);
+        if(count2 > 0){
+            return ResultUtil.error("学校或学院名称不能重复！");
+        }
+        School school = new School();
+        school.setCode(map.get("code").toString());
+        school.setName(map.get("name").toString());
+        school.setParentId(map.get("parent_id").toString());
+        school.setIsDelete(0);
+        schoolService.save(school);
+        return ResultUtil.success();
+    }
+    //编辑
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.PATCH)
+    public String edit(@RequestBody JSONObject jsonObject) {
+        Map map = JSON.toJavaObject(jsonObject, Map.class);
+        School school = new School();
+        //名字不能跟数据库中的重复
+        QueryWrapper<School> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("code",map.get("name").toString())
+                    .eq("is_delete",0)
+                    .ne("id",parseInt(map.get("id").toString()));
+        int count = schoolService.count(queryWrapper);
+        if(count > 0){
+            return ResultUtil.error("该名称已存在！");
+        }
+        school.setId(parseInt(map.get("id").toString()));
+        school.setName(map.get("name").toString());
+        schoolService.updateById(school);
+        return ResultUtil.success();
+    }
+    //删除 传ids
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.DELETE)
+    public String delByIds(@RequestParam(value = "ids") List list) {
+        boolean flag = false;
+        for(int i = 0; i < list.size(); i++){
+            QueryWrapper<School> queryWrapper = new QueryWrapper();
+            queryWrapper.eq("parent_id",list.get(i))
+                        .eq("is_delete",0);
+            int count = schoolService.count(queryWrapper);
+            if(count > 0){//说明该id作为父亲
+                flag = true;
+            }else{
+                School school = new School();
+                school.setId(parseInt(list.get(i).toString()));
+                school.setIsDelete(1);
+                schoolService.updateById(school);
+            }
+        }
+        if(flag){
+            return ResultUtil.error("选中的节点中存在父节点，请先删除他们的子节点！");
+        }else{
+            return ResultUtil.success();
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getCode",method = RequestMethod.GET)
+    public String getCode(@RequestParam(value="code",required = false)String code){
+        if(code == null || code.equals("0")){
+            return "未设置";
+        }
+        QueryWrapper<School> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("code",code)
+                    .eq("is_delete",0);
+        School school1 = schoolService.getOne(queryWrapper);
+        return school1.getName();
+    }
     //查询（学校，学院）
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
@@ -138,11 +138,11 @@ public class SchoolController {
         }else if(info != null) {
             return schoolService.getAll(info);
         }else if(school != null) {//获取学校列表
-          //  return schoolService.getSchools();
-            return "0";
+           return schoolService.getSchools();
+           // return "0";
         }else if(schoolCode !=null){//获取学院列表
-           return "0";
-            // return schoolService.getAcademiesByCode(schoolCode);
+          // return "0";
+             return schoolService.getAcademiesByCode(schoolCode);
         }else if(parentId != null){
             return schoolService.getAcademies(parentId);
         }else{//获取树 含children的列表
@@ -155,13 +155,13 @@ public class SchoolController {
     @ApiOperation(value = "获取学校列表",notes = "get")
     @RequestMapping(value = "/getSchools",method = RequestMethod.GET)
     public ServerResponse<School> getSchools(){
-        return schoolService.getSchools();
+        return schoolService.getSchools1();
     }
     @ResponseBody
     @ApiOperation(value = "获取学校的代码获取该学校的学院列表",notes = "get")
     @RequestMapping(value = "/getAcademies",method = RequestMethod.GET)
     public ServerResponse<School> Academies(@RequestParam(value="schoolCode")String schoolCode){
-        return schoolService.getAcademiesByCode(schoolCode);
+        return schoolService.getAcademiesByCode1(schoolCode);
     }
 }
 

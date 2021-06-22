@@ -3,7 +3,10 @@ package com.example.dcloud.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
+
 import java.io.Serializable;
+import java.util.Date;
 
 
 public class AttendenceResult extends Model<AttendenceResult> {
@@ -15,17 +18,16 @@ private static final long serialVersionUID=1L;
 
     private Integer studentId;
 
-    private String attendTime;
+    private Date attendTime;
 
     private Integer isDelete;
 
-    private Integer courseId;
+    private Long courseId;
     private Integer attendId;
-    private String longitude;
-    private String latitude;
-    private String distance;
-    private String creater;
-    private String createTime;
+    private Double longitude;
+    private Double latitude;
+    private Double distance;
+
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -47,11 +49,11 @@ private static final long serialVersionUID=1L;
         this.studentId = studentId;
     }
 
-    public String getAttendTime() {
+    public Date getAttendTime() {
         return attendTime;
     }
 
-    public void setAttendTime(String attendTime) {
+    public void setAttendTime(Date attendTime) {
         this.attendTime = attendTime;
     }
 
@@ -63,11 +65,11 @@ private static final long serialVersionUID=1L;
         this.isDelete = isDelete;
     }
 
-    public Integer getCourseId() {
+    public Long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Integer courseId) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 
@@ -79,43 +81,28 @@ private static final long serialVersionUID=1L;
         this.attendId = attendId;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public String getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
-    public String getCreater() {
-        return creater;
-    }
-
-    public void setCreater(String creater) {
-        this.creater = creater;
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
 }

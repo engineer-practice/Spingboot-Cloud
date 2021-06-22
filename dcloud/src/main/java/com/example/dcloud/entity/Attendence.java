@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.Date;
 
 
 public class Attendence extends Model<Attendence> {
@@ -16,13 +17,28 @@ private static final long serialVersionUID=1L;
     /**
      * 老师开始签到的时间，存长整型
      */
-    private String startTime;
-    private String endTime;
+    private Date startTime;
+    private Date endTime;
+    //是否结束
+    private Integer isEnd;
+
+    public Integer getIsEnd() {
+        return isEnd;
+    }
+
+    public void setIsEnd(Integer isEnd) {
+        this.isEnd = isEnd;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
     /**
      * 老师发起签到位置
      */
-    private String longitude;
-    private String latitude;
+    private Double longitude;
+    private Double latitude;
     //倒计时
     private Integer count;
     //签到类型
@@ -30,7 +46,7 @@ private static final long serialVersionUID=1L;
 
     //创建者、创建时间
     private String creater;
-    private String createTime;
+    private Date createTime;
     //课程id
     private Long courseId;
     /**
@@ -50,35 +66,35 @@ private static final long serialVersionUID=1L;
         this.id = id;
     }
 
-    public String getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
@@ -106,11 +122,11 @@ private static final long serialVersionUID=1L;
         this.creater = creater;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 

@@ -68,7 +68,24 @@ public class SchoolServiceImpl extends ServiceImpl<SchoolMapper, School> impleme
         List result = getAllSchool(info);
         return JSON.toJSONString(result);
     }
+    public String getAcademiesByCode(String schoolCode) {
+        //通过父级code找到父级Id
+        QueryWrapper<School> parentQuery = new QueryWrapper();
+        parentQuery.eq("code",schoolCode);
+        School school = schoolMapper.selectOne(parentQuery);
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("is_delete",0);
+        queryWrapper.eq("parent_id",school.getId());
+        return JSON.toJSONString(schoolMapper.selectList(queryWrapper));
+    }
 
+    @Override
+    public String getSchools() {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("is_delete",0);
+        queryWrapper.eq("parent_id",0);
+        return JSON.toJSONString(schoolMapper.selectList(queryWrapper));
+    }
     @Override
     public String getAcademies(Integer parentId) {
         QueryWrapper<School> queryWrapper = new QueryWrapper<>();
@@ -78,7 +95,7 @@ public class SchoolServiceImpl extends ServiceImpl<SchoolMapper, School> impleme
     }
 
     @Override
-    public ServerResponse<School> getAcademiesByCode(String schoolCode) {
+    public ServerResponse<School> getAcademiesByCode1(String schoolCode) {
         //通过父级code找到父级Id
         ServerResponse<School> response = new ServerResponse<>();
         QueryWrapper<School> parentQuery = new QueryWrapper();
@@ -98,7 +115,7 @@ public class SchoolServiceImpl extends ServiceImpl<SchoolMapper, School> impleme
     }
 
     @Override
-    public ServerResponse getSchools() {
+    public ServerResponse getSchools1() {
         ServerResponse<School> response = new ServerResponse<>();
         QueryWrapper<School> queryWrapper = new QueryWrapper();
         queryWrapper.eq("is_delete",0);

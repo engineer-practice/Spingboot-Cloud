@@ -11,6 +11,8 @@ public interface SchoolService extends IService<School> {
     String getChildList(Integer page,Integer id,Integer info);
     String getAll(Integer info);
     String getAcademies(Integer parentId);
-    ServerResponse<School> getAcademiesByCode(String schoolCode);
-    ServerResponse<School> getSchools();
+    ServerResponse<School> getAcademiesByCode1(String schoolCode);
+    ServerResponse<School> getSchools1();
+    String getAcademiesByCode(String schoolCode);
+    String getSchools();
 }

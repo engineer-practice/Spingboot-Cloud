@@ -5,16 +5,19 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.example.dcloud.entity.AttendenceResult">
         <id column="id" property="id" />
-        <result column="student_email" property="studentEmail" />
+        <result column="student_id" property="studentId" />
         <result column="attend_time" property="attendTime" />
         <result column="is_delete" property="isDelete" />
+        <result column="course_id" property="courseId" />
         <result column="attend_id" property="attendId" />
-        <result column="code" property="code" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="distance" property="distance" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, student_email, attend_time, is_delete, attend_id, code
+        id, student_id, attend_time, is_delete,course_id, attend_id, longitude,latitude,distance
     </sql>
 
 </mapper>
