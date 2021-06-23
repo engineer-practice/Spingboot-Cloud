@@ -37,125 +37,125 @@ public class AttendenceResultController {
     @Autowired
     private SystemManageService systemManageService;
 
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.POST)
-    public String addResult(@RequestBody JSONObject jsonObject) {
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
-        String code = map.get("code").toString();
-        String email = map.get("student_email").toString();
-        String studentLocal = map.get("local").toString();
-        System.out.println(map);
-        QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code", code)
-                .eq("is_delete", 0);
-
-        if (attendenceService.count(queryWrapper) == 0)
-            return ResultUtil.error("当前无签到");
-        else {
-            Attendence attendence = attendenceService.getOne(queryWrapper);
-            int attendId = attendence.getId();
-            QueryWrapper<AttendenceResult> queryWrapper1 = new QueryWrapper<>();
-            queryWrapper1.eq("student_email", email)
-                    .eq("attend_id", attendId);
-
-            String teacherLocal = attendence.getLocal();
-            Double distance = DistanceUtil.getDistanceMeter(teacherLocal,studentLocal);
-            System.out.println(distance);
-
-            //获取设定的距离参数
-            List<SystemManage> list = systemManageService.list();
-         //   int systemDistance = list.get(0).getAttendDistance();
-
-            Date d = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
-            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-            AttendenceResult attendenceResult = new AttendenceResult();
-            attendenceResult.setAttendTime(sdf.format(d));
-            attendenceResult.setCode(code);
-            attendenceResult.setStudentEmail(email);
-            attendenceResult.setAttendId(attendId);
-            attendenceResult.setIsDelete(0);
-
-            if (attendenceResultService.count(queryWrapper1) != 0)
-                return ResultUtil.error("请勿重复签到！");
-
-//            if(systemDistance==0&&distance<=systemDistance){
-//                attendenceResultService.save(attendenceResult);
-//                return sdf.format(d);
-//            }else{
-//                return ResultUtil.error("签到位置过远！");
-//            }
-        }
-        return ResultUtil.error("签到位置过远！");//原本没有的
-    }
+//    @ResponseBody
+//    @RequestMapping(method = RequestMethod.POST)
+//    public String addResult(@RequestBody JSONObject jsonObject) {
+//        Map map = JSON.toJavaObject(jsonObject, Map.class);
+//        String code = map.get("code").toString();
+//        String email = map.get("student_email").toString();
+//        String studentLocal = map.get("local").toString();
+//        System.out.println(map);
+//        QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
+//        queryWrapper.eq("code", code)
+//                .eq("is_delete", 0);
+//
+//        if (attendenceService.count(queryWrapper) == 0)
+//            return ResultUtil.error("当前无签到");
+//        else {
+//            Attendence attendence = attendenceService.getOne(queryWrapper);
+//            int attendId = attendence.getId();
+//            QueryWrapper<AttendenceResult> queryWrapper1 = new QueryWrapper<>();
+//            queryWrapper1.eq("student_email", email)
+//                    .eq("attend_id", attendId);
+//
+//            String teacherLocal = attendence.getLocal();
+//            Double distance = DistanceUtil.getDistanceMeter(teacherLocal,studentLocal);
+//            System.out.println(distance);
+//
+//            //获取设定的距离参数
+//            List<SystemManage> list = systemManageService.list();
+//         //   int systemDistance = list.get(0).getAttendDistance();
+//
+//            Date d = new Date();
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
+//            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+//            AttendenceResult attendenceResult = new AttendenceResult();
+//            attendenceResult.setAttendTime(sdf.format(d));
+//            attendenceResult.setCode(code);
+//            attendenceResult.setStudentEmail(email);
+//            attendenceResult.setAttendId(attendId);
+//            attendenceResult.setIsDelete(0);
+//
+//            if (attendenceResultService.count(queryWrapper1) != 0)
+//                return ResultUtil.error("请勿重复签到！");
+//
+////            if(systemDistance==0&&distance<=systemDistance){
+////                attendenceResultService.save(attendenceResult);
+////                return sdf.format(d);
+////            }else{
+////                return ResultUtil.error("签到位置过远！");
+////            }
+//        }
+//        return ResultUtil.error("签到位置过远！");//原本没有的
+//    }
 
     //某学生在某课程的签到历史记录
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.PUT)
-    public String historyAttendenceResult(@RequestBody JSONObject jsonObject) {
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
-        String code = map.get("code").toString();
-        String email = map.get("student_email").toString();
-        QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code", code)
-                .eq("is_delete", 1)
-                .orderByDesc("id");
-        //该课程所有的签到
-        List<Attendence> list = attendenceService.list(queryWrapper);
-        int k = 0;//该生的签到次数
-        int total = list.size();//总次数
-        JSONArray jsonArray = new JSONArray();
-        for (int i = 0; i < list.size(); i++) {
-            String startTime = list.get(i).getStartTime();
-            int attendId = list.get(i).getId();
-            QueryWrapper<AttendenceResult> queryWrapper1 = new QueryWrapper<>();
-            queryWrapper1.eq("attend_id", attendId)
-                    .eq("student_email", email);
-            AttendenceResult attendenceResult = attendenceResultService.getOne(queryWrapper1);
-            int count;
-            int flag;
-            if(attendenceResult==null)
-            {
-                flag=0;
-                count=0;
-            }else{
-                flag = attendenceResult.getIsDelete();
-                if(flag==3){
-                    total = total - 1;
-                    continue;
-                }
-                else
-                    count=1;
-            }
-            JSONObject jsonObject1 = new JSONObject();
-            jsonObject1.put("time", startTime);
-
-            if(count==0){
-                jsonObject1.put("type", "缺勤");
-            }else{
-                if (flag == 2)
-                    jsonObject1.put("type", "缺勤");
-                else if(flag==0){
-                    jsonObject1.put("type", "已签到");
-                    k++;
-                }
-                else
-                    jsonObject1.put("type", "请假");
-            }
-            jsonArray.add(jsonObject1);
-        }
-        String strPer;
-        if(total==0)
-            strPer = "";
-        else{
-            int per = k * 100/ total ;
-            strPer = per + "%";
-        }
-        JSONObject jsonObject1 = new JSONObject();
-        jsonObject1.put("per", strPer);
-        jsonArray.add(jsonObject1);
-        return jsonArray.toString();
-    }
+//    @ResponseBody
+//    @RequestMapping(method = RequestMethod.PUT)
+//    public String historyAttendenceResult(@RequestBody JSONObject jsonObject) {
+//        Map map = JSON.toJavaObject(jsonObject, Map.class);
+//        String code = map.get("code").toString();
+//        String email = map.get("student_email").toString();
+//        QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
+//        queryWrapper.eq("code", code)
+//                .eq("is_delete", 1)
+//                .orderByDesc("id");
+//        //该课程所有的签到
+//        List<Attendence> list = attendenceService.list(queryWrapper);
+//        int k = 0;//该生的签到次数
+//        int total = list.size();//总次数
+//        JSONArray jsonArray = new JSONArray();
+//        for (int i = 0; i < list.size(); i++) {
+//            String startTime = list.get(i).getStartTime();
+//            int attendId = list.get(i).getId();
+//            QueryWrapper<AttendenceResult> queryWrapper1 = new QueryWrapper<>();
+//            queryWrapper1.eq("attend_id", attendId)
+//                    .eq("student_email", email);
+//            AttendenceResult attendenceResult = attendenceResultService.getOne(queryWrapper1);
+//            int count;
+//            int flag;
+//            if(attendenceResult==null)
+//            {
+//                flag=0;
+//                count=0;
+//            }else{
+//                flag = attendenceResult.getIsDelete();
+//                if(flag==3){
+//                    total = total - 1;
+//                    continue;
+//                }
+//                else
+//                    count=1;
+//            }
+//            JSONObject jsonObject1 = new JSONObject();
+//            jsonObject1.put("time", startTime);
+//
+//            if(count==0){
+//                jsonObject1.put("type", "缺勤");
+//            }else{
+//                if (flag == 2)
+//                    jsonObject1.put("type", "缺勤");
+//                else if(flag==0){
+//                    jsonObject1.put("type", "已签到");
+//                    k++;
+//                }
+//                else
+//                    jsonObject1.put("type", "请假");
+//            }
+//            jsonArray.add(jsonObject1);
+//        }
+//        String strPer;
+//        if(total==0)
+//            strPer = "";
+//        else{
+//            int per = k * 100/ total ;
+//            strPer = per + "%";
+//        }
+//        JSONObject jsonObject1 = new JSONObject();
+//        jsonObject1.put("per", strPer);
+//        jsonArray.add(jsonObject1);
+//        return jsonArray.toString();
+//    }
 
     //签到结果
     @ResponseBody
@@ -225,109 +225,87 @@ public class AttendenceResultController {
     }
 
     //修改结果
-    @ResponseBody
-    @RequestMapping(value = "/change",method = RequestMethod.PUT)
-    public String changeAttendenceResult(@RequestBody List<Map> list) {
-        for(int i=0;i<list.size();i++){
-            int attendId = Integer.parseInt(list.get(i).get("attend_id").toString());
-            String email = list.get(i).get("student_email").toString();
-            String code = list.get(i).get("code").toString();
-            int type = Integer.parseInt(list.get(i).get("type").toString());
-            Date d = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
-            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-
-            QueryWrapper<AttendenceResult> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("student_email",email)
-                    .eq("attend_id",attendId);
-            int count = attendenceResultService.count(queryWrapper);
-
-            //获取设定的经验值参数
-            List<SystemManage> list1 = systemManageService.list();
-        //    int systemExp = list1.get(0).getAttendExp();
-
-            QueryWrapper<Course> queryWrapper2 = new QueryWrapper<>();
-            queryWrapper2.eq("code",code);
-            Course course = courseService.getOne(queryWrapper2);
-            long courseId = course.getId();
-            QueryWrapper<CourseStudent> queryWrapper3 = new QueryWrapper<>();
-            queryWrapper3.eq("course_id",courseId)
-                    .eq("student_email",email);
-            CourseStudent courseStudent = courseStudentService.getOne(queryWrapper3);
-            int exp1 = courseStudent.getExp();
-
-            if(count==0){
-                AttendenceResult attendenceResult = new AttendenceResult();
-                attendenceResult.setAttendTime(sdf.format(d));
-                attendenceResult.setCode(code);
-                attendenceResult.setStudentEmail(email);
-                attendenceResult.setAttendId(attendId);
-                attendenceResult.setIsDelete(type);
-                attendenceResultService.save(attendenceResult);
-
-                //增加该课程经验值
-                CourseStudent courseStudent1 = new CourseStudent();
-             //   courseStudent1.setExp(exp1+systemExp);
-                courseStudentService.update(courseStudent1,queryWrapper3);
-
-                QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
-                queryWrapper1.eq("email",email);
-                User user = userService.getOne(queryWrapper1);
-                int exp;
-//                if(type==0)
-//               //     exp = user.getExp()+systemExp;
-//                else
-//                    exp = user.getExp()+systemExp/2;
-//                user.setExp(exp);
-                userService.update(user,queryWrapper1);
-            }
-            else{
-                AttendenceResult attendenceResult1 = attendenceResultService.getOne(queryWrapper);
-                int flag = attendenceResult1.getIsDelete();
-
-                AttendenceResult attendenceResult = new AttendenceResult();
-                attendenceResult.setAttendTime(sdf.format(d));
-                attendenceResult.setIsDelete(type);
-                attendenceResultService.update(attendenceResult,queryWrapper);
+//    @ResponseBody
+//    @RequestMapping(value = "/change",method = RequestMethod.PUT)
+//    public String changeAttendenceResult(@RequestBody List<Map> list) {
+//        for(int i=0;i<list.size();i++){
+//            int attendId = Integer.parseInt(list.get(i).get("attend_id").toString());
+//            String email = list.get(i).get("student_email").toString();
+//            String code = list.get(i).get("code").toString();
+//            int type = Integer.parseInt(list.get(i).get("type").toString());
+//            Date d = new Date();
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
+//            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 //
-//                int exp2;
-//                if(type==2&&flag==0)
-//                    exp2 = exp1-systemExp;
-//                else if(type==2&&flag==1)
-//                    exp2 = exp1-(systemExp/2);
-//                else if(type==1&&flag==0)
-//                    exp2 = exp1-(systemExp/2);
-//                else if(type==1&&flag==2)
-//                    exp2 = exp1+(systemExp/2);
-//                else if(type==0&&flag==1)
-//                    exp2 = exp1+(systemExp/2);
-//                else
-//                    exp2 = exp1+systemExp;
+//            QueryWrapper<AttendenceResult> queryWrapper = new QueryWrapper<>();
+//            queryWrapper.eq("student_email",email)
+//                    .eq("attend_id",attendId);
+//            int count = attendenceResultService.count(queryWrapper);
+//
+//            //获取设定的经验值参数
+//            List<SystemManage> list1 = systemManageService.list();
+//        //    int systemExp = list1.get(0).getAttendExp();
+//
+//            QueryWrapper<Course> queryWrapper2 = new QueryWrapper<>();
+//            queryWrapper2.eq("code",code);
+//            Course course = courseService.getOne(queryWrapper2);
+//            long courseId = course.getId();
+//            QueryWrapper<CourseStudent> queryWrapper3 = new QueryWrapper<>();
+//            queryWrapper3.eq("course_id",courseId)
+//                    .eq("student_email",email);
+//            CourseStudent courseStudent = courseStudentService.getOne(queryWrapper3);
+//            int exp1 = courseStudent.getExp();
+//
+//            if(count==0){
+//                AttendenceResult attendenceResult = new AttendenceResult();
+//                attendenceResult.setAttendTime(sdf.format(d));
+////                attendenceResult.setCode(code);
+////                attendenceResult.setStudentEmail(email);
+//                attendenceResult.setAttendId(attendId);
+//                attendenceResult.setIsDelete(type);
+//                attendenceResultService.save(attendenceResult);
+//
+//                //增加该课程经验值
 //                CourseStudent courseStudent1 = new CourseStudent();
-//                courseStudent1.setExp(exp2);
+//             //   courseStudent1.setExp(exp1+systemExp);
 //                courseStudentService.update(courseStudent1,queryWrapper3);
 //
 //                QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
 //                queryWrapper1.eq("email",email);
 //                User user = userService.getOne(queryWrapper1);
 //                int exp;
-//                if(type==2&&flag==0)
-//                    exp = user.getExp()-systemExp;
-//                else if(type==2&&flag==1)
-//                    exp = user.getExp()-(systemExp/2);
-//                else if(type==1&&flag==0)
-//                    exp = user.getExp()-(systemExp/2);
-//                else if(type==1&&flag==2)
-//                    exp = user.getExp()+(systemExp/2);
-//                else if(type==0&&flag==1)
-//                    exp = user.getExp()+(systemExp/2);
-//                else
-//                    exp = user.getExp()+systemExp;
-//                user.setExp(exp);
+////                if(type==0)
+////               //     exp = user.getExp()+systemExp;
+////                else
+////                    exp = user.getExp()+systemExp/2;
+////                user.setExp(exp);
 //                userService.update(user,queryWrapper1);
-            }
-        }
-        return ResultUtil.success();
-    }
+//            }
+//            else{
+//                AttendenceResult attendenceResult1 = attendenceResultService.getOne(queryWrapper);
+//                int flag = attendenceResult1.getIsDelete();
+//
+//                AttendenceResult attendenceResult = new AttendenceResult();
+//                attendenceResult.setAttendTime(sdf.format(d));
+//                attendenceResult.setIsDelete(type);
+//                attendenceResultService.update(attendenceResult,queryWrapper);
+////
+////                int exp2;
+////                if(type==2&&flag==0)
+////                    exp2 = exp1-systemExp;
+////                else if(type==2&&flag==1)
+////                    exp2 = exp1-(systemExp/2);
+////                else if(type==1&&flag==0)
+////
+////                else if(type==0&&flag==1)
+////                    exp = user.getExp()+(systemExp/2);
+////                else
+////                    exp = user.getExp()+systemExp;
+////                user.setExp(exp);
+////                userService.update(user,queryWrapper1);
+//            }
+//        }
+//        return ResultUtil.success();
+//    }
 }
 

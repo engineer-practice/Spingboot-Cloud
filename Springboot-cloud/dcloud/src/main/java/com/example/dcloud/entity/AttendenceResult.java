@@ -3,7 +3,10 @@ package com.example.dcloud.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
+
 import java.io.Serializable;
+import java.util.Date;
 
 
 public class AttendenceResult extends Model<AttendenceResult> {
@@ -13,16 +16,22 @@ private static final long serialVersionUID=1L;
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String studentEmail;
+    private Integer studentId;
 
-    private String attendTime;
+    private Date attendTime;
 
     private Integer isDelete;
 
+    private Long courseId;
     private Integer attendId;
+    private Double longitude;
+    private Double latitude;
+    private Double distance;
 
-    private String code;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Integer getId() {
         return id;
@@ -32,19 +41,19 @@ private static final long serialVersionUID=1L;
         this.id = id;
     }
 
-    public String getStudentEmail() {
-        return studentEmail;
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
     }
 
-    public String getAttendTime() {
+    public Date getAttendTime() {
         return attendTime;
     }
 
-    public void setAttendTime(String attendTime) {
+    public void setAttendTime(Date attendTime) {
         this.attendTime = attendTime;
     }
 
@@ -56,6 +65,14 @@ private static final long serialVersionUID=1L;
         this.isDelete = isDelete;
     }
 
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
     public Integer getAttendId() {
         return attendId;
     }
@@ -64,28 +81,28 @@ private static final long serialVersionUID=1L;
         this.attendId = attendId;
     }
 
-    public String getCode() {
-        return code;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    @Override
-    public String toString() {
-        return "AttendenceResult{" +
-        "id=" + id +
-        ", studentEmail=" + studentEmail +
-        ", attendTime=" + attendTime +
-        ", isDelete=" + isDelete +
-        ", attendId=" + attendId +
-        ", code=" + code +
-        "}";
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
+
 }

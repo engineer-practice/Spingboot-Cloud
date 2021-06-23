@@ -1,410 +1,599 @@
-2021-06-15 09:57:36.995  INFO 20108 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 20108 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 09:57:37.030  INFO 20108 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 09:57:40.981  INFO 20108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 09:57:41.015  INFO 20108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 09:57:41.015  INFO 20108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 09:57:41.243  INFO 20108 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 09:57:41.243  INFO 20108 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3917 ms
-2021-06-15 09:57:42.086  INFO 20108 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 09:57:44.019  INFO 20108 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 09:57:46.674  INFO 20108 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 09:57:46.831  INFO 20108 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 09:57:47.228  INFO 20108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 09:57:47.288  INFO 20108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 09:57:47.484  INFO 20108 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 09:57:47.885  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 09:57:47.921  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 09:57:48.005  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 09:57:48.007  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 09:57:48.009  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 09:57:48.037  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 09:57:48.038  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 09:57:48.042  INFO 20108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 09:57:48.202  INFO 20108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 09:57:48.233  INFO 20108 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 13.925 seconds (JVM running for 19.134)
-2021-06-15 09:59:35.367  INFO 20108 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 09:59:35.368  INFO 20108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 09:59:35.379  INFO 20108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-2021-06-15 10:14:10.373  WARN 20108 --- [http-nio-8080-exec-4] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@65e332ea (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:14:15.394  WARN 20108 --- [http-nio-8080-exec-4] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4e2c7122 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:14:20.408  WARN 20108 --- [http-nio-8080-exec-4] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@8f90d79 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:41:19.198  INFO 4672 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 4672 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 10:41:19.200  INFO 4672 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 10:41:20.968  INFO 4672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 10:41:20.979  INFO 4672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 10:41:20.979  INFO 4672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 10:41:21.125  INFO 4672 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 10:41:21.126  INFO 4672 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1869 ms
-2021-06-15 10:41:21.408  INFO 4672 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 10:41:22.117  INFO 4672 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 10:41:23.597  INFO 4672 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 10:41:23.691  INFO 4672 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 10:41:23.871  INFO 4672 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 10:41:23.894  INFO 4672 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 10:41:23.954  INFO 4672 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 10:41:24.153  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 10:41:24.157  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 10:41:24.174  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 10:41:24.175  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 10:41:24.176  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 10:41:24.201  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 10:41:24.202  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 10:41:24.206  INFO 4672 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 10:41:24.266  INFO 4672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 10:41:24.269  INFO 4672 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.486 seconds (JVM running for 8.13)
-2021-06-15 10:41:27.781  INFO 4672 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 10:41:27.782  INFO 4672 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 10:41:27.797  INFO 4672 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
-2021-06-15 10:48:41.241  WARN 4672 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5387315 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:48:46.247  WARN 4672 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6b9677bf (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:48:51.264  WARN 4672 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2df01103 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:48:56.280  WARN 4672 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3d5c657 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:53:52.497  WARN 4672 --- [http-nio-8080-exec-6] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2280582b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:53:57.509  WARN 4672 --- [http-nio-8080-exec-6] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4a60e96a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:54:02.530  WARN 4672 --- [http-nio-8080-exec-6] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5ac1ffd4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:54:07.549  WARN 4672 --- [http-nio-8080-exec-6] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7efdd11d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 10:54:12.563  WARN 4672 --- [http-nio-8080-exec-6] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@54c57a3e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 11:02:50.342  INFO 16624 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 16624 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 11:02:50.345  INFO 16624 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 11:02:51.939  INFO 16624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 11:02:51.948  INFO 16624 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 11:02:51.948  INFO 16624 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 11:02:52.101  INFO 16624 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 11:02:52.101  INFO 16624 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1704 ms
-2021-06-15 11:02:52.381  INFO 16624 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 11:02:53.345  INFO 16624 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 11:02:54.493  INFO 16624 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 11:02:54.580  INFO 16624 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 11:02:54.745  INFO 16624 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 11:02:54.763  INFO 16624 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 11:02:54.829  INFO 16624 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 11:02:55.023  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 11:02:55.028  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 11:02:55.045  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 11:02:55.047  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 11:02:55.048  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 11:02:55.074  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 11:02:55.075  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 11:02:55.078  INFO 16624 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 11:02:55.137  INFO 16624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 11:02:55.140  INFO 16624 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.186 seconds (JVM running for 7.387)
-2021-06-15 11:03:10.301  INFO 16624 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 11:03:10.301  INFO 16624 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 11:03:10.310  INFO 16624 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
-2021-06-15 11:15:08.842  INFO 16392 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 16392 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 11:15:08.845  INFO 16392 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 11:15:10.545  INFO 16392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 11:15:10.557  INFO 16392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 11:15:10.558  INFO 16392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 11:15:10.710  INFO 16392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 11:15:10.710  INFO 16392 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1810 ms
-2021-06-15 11:15:11.046  INFO 16392 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 11:15:11.874  INFO 16392 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 11:15:13.119  INFO 16392 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 11:15:13.222  INFO 16392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 11:15:13.440  INFO 16392 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 11:15:13.463  INFO 16392 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 11:15:13.548  INFO 16392 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 11:15:13.810  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 11:15:13.814  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 11:15:13.844  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 11:15:13.845  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 11:15:13.848  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 11:15:13.879  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 11:15:13.880  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 11:15:13.886  INFO 16392 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 11:15:13.956  INFO 16392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 11:15:13.962  INFO 16392 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.531 seconds (JVM running for 7.683)
-2021-06-15 11:15:14.021  INFO 16392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 11:15:14.021  INFO 16392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 11:15:14.029  INFO 16392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2021-06-15 11:30:56.003  WARN 16392 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7a415b8d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 11:31:01.019  WARN 16392 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3c2d8978 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 11:31:06.034  WARN 16392 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@49d5e295 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 11:31:11.045  WARN 16392 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@61a870d4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 11:31:16.051  WARN 16392 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7c942f4f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 12:38:07.327  INFO 4172 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 4172 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 12:38:07.331  INFO 4172 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 12:38:09.075  INFO 4172 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 12:38:09.087  INFO 4172 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 12:38:09.087  INFO 4172 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 12:38:09.227  INFO 4172 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 12:38:09.227  INFO 4172 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1836 ms
-2021-06-15 12:38:09.551  INFO 4172 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 12:38:10.374  INFO 4172 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 12:38:11.533  INFO 4172 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 12:38:11.628  INFO 4172 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 12:38:11.800  INFO 4172 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 12:38:11.821  INFO 4172 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 12:38:11.879  INFO 4172 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 12:38:12.087  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 12:38:12.094  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 12:38:12.118  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 12:38:12.120  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 12:38:12.121  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 12:38:12.150  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 12:38:12.151  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 12:38:12.155  INFO 4172 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 12:38:12.219  INFO 4172 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 12:38:12.223  INFO 4172 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.315 seconds (JVM running for 8.211)
-2021-06-15 12:38:19.447  INFO 4172 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 12:38:19.448  INFO 4172 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 12:38:19.458  INFO 4172 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
-2021-06-15 12:44:40.833  INFO 13820 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 13820 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 12:44:40.837  INFO 13820 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 12:44:51.165  INFO 4176 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 4176 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 12:44:51.169  INFO 4176 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 12:44:52.910  INFO 4176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 12:44:52.919  INFO 4176 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 12:44:52.919  INFO 4176 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 12:44:53.039  INFO 4176 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 12:44:53.039  INFO 4176 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1747 ms
-2021-06-15 12:44:53.318  INFO 4176 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 12:44:54.089  INFO 4176 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 12:44:55.277  INFO 4176 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 12:44:55.388  INFO 4176 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 12:44:55.605  INFO 4176 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 12:44:55.625  INFO 4176 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 12:44:55.684  INFO 4176 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 12:44:55.890  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 12:44:55.895  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 12:44:55.920  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 12:44:55.922  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 12:44:55.923  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 12:44:55.952  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 12:44:55.954  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 12:44:55.958  INFO 4176 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 12:44:56.024  INFO 4176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 12:44:56.028  INFO 4176 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.254 seconds (JVM running for 7.477)
-2021-06-15 12:45:01.103  INFO 4176 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 12:45:01.104  INFO 4176 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 12:45:01.115  INFO 4176 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-2021-06-15 12:46:54.618  INFO 19196 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 19196 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 12:46:54.621  INFO 19196 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 12:46:56.204  INFO 19196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 12:46:56.215  INFO 19196 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 12:46:56.215  INFO 19196 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 12:46:56.421  INFO 19196 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 12:46:56.421  INFO 19196 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1747 ms
-2021-06-15 12:46:56.748  INFO 19196 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 12:46:57.622  INFO 19196 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 12:46:59.065  INFO 19196 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 12:46:59.162  INFO 19196 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 12:46:59.371  INFO 19196 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 12:46:59.404  INFO 19196 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 12:46:59.496  INFO 19196 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 12:46:59.825  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 12:46:59.835  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 12:46:59.872  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 12:46:59.873  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 12:46:59.875  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 12:46:59.911  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 12:46:59.913  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 12:46:59.916  INFO 19196 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 12:46:59.990  INFO 19196 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 12:46:59.997  INFO 19196 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.756 seconds (JVM running for 7.952)
-2021-06-15 12:47:00.065  INFO 19196 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 12:47:00.066  INFO 19196 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 12:47:00.130  INFO 19196 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 64 ms
-2021-06-15 13:01:33.491  INFO 8848 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 8848 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 13:01:33.494  INFO 8848 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 13:01:35.039  INFO 8848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 13:01:35.049  INFO 8848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 13:01:35.050  INFO 8848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 13:01:35.176  INFO 8848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 13:01:35.176  INFO 8848 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1626 ms
-2021-06-15 13:01:35.464  INFO 8848 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 13:01:36.232  INFO 8848 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 13:01:37.399  INFO 8848 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 13:01:37.518  INFO 8848 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 13:01:37.709  INFO 8848 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 13:01:37.726  INFO 8848 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 13:01:37.786  INFO 8848 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 13:01:38.025  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 13:01:38.029  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 13:01:38.058  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 13:01:38.059  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 13:01:38.061  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 13:01:38.089  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 13:01:38.091  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 13:01:38.094  INFO 8848 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 13:01:38.165  INFO 8848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 13:01:38.169  INFO 8848 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.056 seconds (JVM running for 7.396)
-2021-06-15 13:01:54.562  INFO 8848 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 13:01:54.565  INFO 8848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 13:01:54.579  INFO 8848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
-2021-06-15 13:09:53.982  INFO 8548 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 8548 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 13:09:53.986  INFO 8548 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 13:09:55.768  INFO 8548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 13:09:55.779  INFO 8548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 13:09:55.779  INFO 8548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 13:09:55.927  INFO 8548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 13:09:55.931  INFO 8548 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1889 ms
-2021-06-15 13:09:56.260  INFO 8548 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 13:09:57.030  INFO 8548 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 13:09:58.175  INFO 8548 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 13:09:58.273  INFO 8548 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 13:09:58.458  INFO 8548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 13:09:58.481  INFO 8548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 13:09:58.538  INFO 8548 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 13:09:58.798  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 13:09:58.801  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 13:09:58.826  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 13:09:58.828  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 13:09:58.830  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 13:09:58.857  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 13:09:58.858  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 13:09:58.863  INFO 8548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 13:09:58.924  INFO 8548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 13:09:58.927  INFO 8548 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.329 seconds (JVM running for 7.975)
-2021-06-15 13:10:00.874  INFO 8548 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 13:10:00.875  INFO 8548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 13:10:00.888  INFO 8548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
-2021-06-15 13:15:22.888  INFO 18916 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 18916 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 13:15:22.894  INFO 18916 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 13:15:24.397  INFO 18916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 13:15:24.407  INFO 18916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 13:15:24.407  INFO 18916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 13:15:24.525  INFO 18916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 13:15:24.525  INFO 18916 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1566 ms
-2021-06-15 13:15:24.804  INFO 18916 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 13:15:25.537  INFO 18916 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 13:15:26.955  INFO 18916 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 13:15:27.087  INFO 18916 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 13:15:27.342  INFO 18916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 13:15:27.374  INFO 18916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 13:15:27.437  INFO 18916 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 13:15:27.729  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 13:15:27.741  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 13:15:27.783  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 13:15:27.787  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 13:15:27.789  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 13:15:27.823  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 13:15:27.825  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 13:15:27.829  INFO 18916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 13:15:27.919  INFO 18916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 13:15:27.922  INFO 18916 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 5.441 seconds (JVM running for 7.642)
-2021-06-15 13:15:45.790  INFO 18916 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 13:15:45.790  INFO 18916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 13:15:45.804  INFO 18916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
-2021-06-15 13:31:20.988  WARN 18916 --- [http-nio-8080-exec-7] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4b2acf14 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 13:31:26.005  WARN 18916 --- [http-nio-8080-exec-7] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@520f7759 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 13:31:31.021  WARN 18916 --- [http-nio-8080-exec-7] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@ffefd27 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 13:31:36.034  WARN 18916 --- [http-nio-8080-exec-7] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@16c72e38 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 13:31:41.046  WARN 18916 --- [http-nio-8080-exec-7] com.zaxxer.hikari.pool.PoolBase          : DatebookHikariCP - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@23e682f5 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
-2021-06-15 16:57:29.008  INFO 20200 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 20200 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 16:57:29.033  INFO 20200 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 16:57:56.719  INFO 5756 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 5756 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 16:57:56.725  INFO 5756 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 16:58:02.028  INFO 5756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 16:58:02.093  INFO 5756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 16:58:02.094  INFO 5756 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 16:58:02.697  INFO 5756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 16:58:02.697  INFO 5756 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5818 ms
-2021-06-15 16:58:04.205  INFO 5756 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 16:58:05.873  INFO 5756 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 16:58:10.000  INFO 5756 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 16:58:10.912  INFO 5756 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 16:58:12.582  INFO 5756 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 16:58:13.296  INFO 5756 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 16:58:13.820  INFO 5756 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 16:58:15.662  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 16:58:15.668  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 16:58:15.700  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 16:58:15.702  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 16:58:15.703  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 16:58:15.750  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 16:58:15.752  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 16:58:15.762  INFO 5756 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 16:58:16.165  INFO 5756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 16:58:16.185  INFO 5756 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 20.213 seconds (JVM running for 23.53)
-2021-06-15 16:58:22.243  INFO 5756 --- [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 16:58:22.244  INFO 5756 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 16:58:22.331  INFO 5756 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 87 ms
-2021-06-15 16:59:11.741  INFO 5756 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-06-15 16:59:11.749  INFO 5756 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
-2021-06-15 16:59:11.768  INFO 5756 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
-2021-06-15 16:59:26.086  INFO 4892 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 4892 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 16:59:26.089  INFO 4892 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 16:59:29.889  INFO 4892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 16:59:29.938  INFO 4892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 16:59:29.939  INFO 4892 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 16:59:30.347  INFO 4892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 16:59:30.348  INFO 4892 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4165 ms
-2021-06-15 16:59:31.339  INFO 4892 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 16:59:32.481  INFO 4892 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 16:59:34.953  INFO 4892 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 16:59:35.104  INFO 4892 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 16:59:35.649  INFO 4892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 16:59:35.681  INFO 4892 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 16:59:35.769  INFO 4892 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 16:59:36.116  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 16:59:36.121  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 16:59:36.169  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 16:59:36.170  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 16:59:36.172  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 16:59:36.212  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 16:59:36.214  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 16:59:36.219  INFO 4892 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 16:59:36.315  INFO 4892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 16:59:36.319  INFO 4892 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 10.866 seconds (JVM running for 14.323)
-2021-06-15 16:59:48.216  INFO 4892 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 16:59:48.217  INFO 4892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 16:59:48.235  INFO 4892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
-2021-06-15 17:00:26.228  INFO 4892 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-06-15 17:00:26.239  INFO 4892 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
-2021-06-15 17:00:26.293  INFO 4892 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
-2021-06-15 17:00:37.017  INFO 5808 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 5808 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 17:00:37.021  INFO 5808 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 17:00:39.517  INFO 5808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 17:00:39.534  INFO 5808 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 17:00:39.535  INFO 5808 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 17:00:39.774  INFO 5808 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 17:00:39.775  INFO 5808 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2604 ms
-2021-06-15 17:00:40.386  INFO 5808 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 17:00:41.329  INFO 5808 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 17:00:43.219  INFO 5808 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 17:00:43.401  INFO 5808 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 17:00:43.739  INFO 5808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 17:00:43.772  INFO 5808 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 17:00:43.873  INFO 5808 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 17:00:44.247  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 17:00:44.252  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 17:00:44.288  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 17:00:44.289  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 17:00:44.290  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 17:00:44.325  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 17:00:44.330  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 17:00:44.334  INFO 5808 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 17:00:44.419  INFO 5808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 17:00:44.425  INFO 5808 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 8.059 seconds (JVM running for 11.715)
-2021-06-15 17:01:23.375  INFO 5808 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2021-06-15 17:01:23.379  INFO 5808 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
-2021-06-15 17:01:23.391  INFO 5808 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
-2021-06-15 17:01:39.423  INFO 3612 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on MingYX with PID 3612 (G:\Springboot-cloud\dcloud\target\classes started by 杨铭 in G:\Springboot-cloud)
-2021-06-15 17:01:39.428  INFO 3612 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
-2021-06-15 17:01:41.686  INFO 3612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-06-15 17:01:41.695  INFO 3612 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-06-15 17:01:41.696  INFO 3612 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2021-06-15 17:01:41.870  INFO 3612 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-06-15 17:01:41.871  INFO 3612 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2325 ms
-2021-06-15 17:01:42.445  INFO 3612 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
-2021-06-15 17:01:43.547  INFO 3612 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
-2021-06-15 17:01:45.436  INFO 3612 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-06-15 17:01:45.803  INFO 3612 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-15 17:01:46.075  INFO 3612 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-06-15 17:01:46.107  INFO 3612 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-06-15 17:01:46.187  INFO 3612 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-06-15 17:01:46.509  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
-2021-06-15 17:01:46.518  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
-2021-06-15 17:01:46.590  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
-2021-06-15 17:01:46.592  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
-2021-06-15 17:01:46.593  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
-2021-06-15 17:01:46.638  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
-2021-06-15 17:01:46.640  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
-2021-06-15 17:01:46.659  INFO 3612 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
-2021-06-15 17:01:46.962  INFO 3612 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-06-15 17:01:46.972  INFO 3612 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 8.142 seconds (JVM running for 11.983)
-2021-06-15 17:01:49.727  INFO 3612 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-06-15 17:01:49.728  INFO 3612 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-06-15 17:01:49.770  INFO 3612 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 29 ms
+2021-06-23 21:40:50.962  INFO 7920 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 7920 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:40:50.966  INFO 7920 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:40:54.064  INFO 7920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:40:54.089  INFO 7920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:40:54.089  INFO 7920 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:40:54.211  INFO 7920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:40:54.211  INFO 7920 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2695 ms
+2021-06-23 21:40:54.644  INFO 7920 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:40:56.127  INFO 7920 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:40:58.392  INFO 7920 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:40:58.471  INFO 7920 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:40:58.990  INFO 7920 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:40:59.003  INFO 7920 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:40:59.069  INFO 7920 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:40:59.317  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:40:59.319  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:40:59.333  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:40:59.333  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:40:59.334  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:40:59.349  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:40:59.349  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:40:59.351  INFO 7920 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:40:59.590  INFO 7920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:40:59.593  INFO 7920 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 12.079 seconds (JVM running for 23.518)
+2021-06-23 21:44:01.467  INFO 17164 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 17164 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:44:01.469  INFO 17164 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:44:02.359  INFO 17164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:44:02.364  INFO 17164 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:44:02.364  INFO 17164 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:44:02.418  INFO 17164 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:44:02.419  INFO 17164 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 916 ms
+2021-06-23 21:44:02.569  INFO 17164 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:44:03.156  INFO 17164 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:44:03.729  INFO 17164 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:44:03.779  INFO 17164 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:44:03.869  INFO 17164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:44:03.879  INFO 17164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:44:03.908  INFO 17164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:44:04.022  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:44:04.025  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:44:04.039  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:44:04.040  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:44:04.040  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:44:04.056  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:44:04.056  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:44:04.058  INFO 17164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:44:04.091  INFO 17164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:44:04.093  INFO 17164 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.847 seconds (JVM running for 3.379)
+2021-06-23 21:45:30.479  INFO 7328 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 7328 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:45:30.481  INFO 7328 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:45:31.323  INFO 7328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:45:31.328  INFO 7328 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:45:31.329  INFO 7328 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:45:31.398  INFO 7328 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:45:31.398  INFO 7328 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 885 ms
+2021-06-23 21:45:31.544  INFO 7328 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:45:32.152  INFO 7328 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:45:32.717  INFO 7328 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:45:32.765  INFO 7328 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:45:32.854  INFO 7328 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:45:32.863  INFO 7328 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:45:32.892  INFO 7328 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:45:33.004  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:45:33.007  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:45:33.020  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:45:33.021  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:45:33.022  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:45:33.038  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:45:33.038  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:45:33.040  INFO 7328 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:45:33.078  INFO 7328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:45:33.080  INFO 7328 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.812 seconds (JVM running for 3.443)
+2021-06-23 21:45:38.374  INFO 7328 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 21:45:38.374  INFO 7328 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 21:45:38.378  INFO 7328 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-06-23 21:50:23.057  INFO 15464 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 15464 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:50:23.060  INFO 15464 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:50:23.859  INFO 15464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:50:23.864  INFO 15464 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:50:23.864  INFO 15464 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:50:23.914  INFO 15464 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:50:23.914  INFO 15464 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 821 ms
+2021-06-23 21:50:24.059  INFO 15464 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:50:24.681  INFO 15464 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:50:25.256  INFO 15464 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:50:25.305  INFO 15464 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:50:25.396  INFO 15464 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:50:25.406  INFO 15464 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:50:25.435  INFO 15464 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:50:25.551  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:50:25.555  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:50:25.572  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:50:25.573  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:50:25.573  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:50:25.591  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:50:25.591  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:50:25.593  INFO 15464 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:50:25.629  INFO 15464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:50:25.631  INFO 15464 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.8 seconds (JVM running for 3.318)
+2021-06-23 21:50:30.494  INFO 15464 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 21:50:30.494  INFO 15464 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 21:50:30.497  INFO 15464 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-06-23 21:51:59.769  INFO 15820 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 15820 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:51:59.772  INFO 15820 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:52:00.755  INFO 15820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:52:00.761  INFO 15820 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:52:00.761  INFO 15820 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:52:00.823  INFO 15820 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:52:00.823  INFO 15820 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1018 ms
+2021-06-23 21:52:00.992  INFO 15820 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:52:01.542  INFO 15820 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:52:02.208  INFO 15820 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:52:02.267  INFO 15820 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:52:02.371  INFO 15820 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:52:02.383  INFO 15820 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:52:02.419  INFO 15820 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:52:02.546  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:52:02.548  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:52:02.563  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:52:02.564  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:52:02.564  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:52:02.580  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:52:02.581  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:52:02.583  INFO 15820 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:52:02.620  INFO 15820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:52:02.622  INFO 15820 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 3.127 seconds (JVM running for 5.038)
+2021-06-23 21:52:05.096  INFO 15820 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 21:52:05.096  INFO 15820 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 21:52:05.100  INFO 15820 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-06-23 21:53:18.327  WARN 15820 --- [DatebookHikariCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : DatebookHikariCP - Thread starvation or clock leap detected (housekeeper delta=1m16s679ms625µs500ns).
+2021-06-23 21:54:03.668  WARN 15820 --- [DatebookHikariCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : DatebookHikariCP - Thread starvation or clock leap detected (housekeeper delta=45s340ms76µs400ns).
+2021-06-23 21:54:03.803  INFO 15820 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:54:03.805  INFO 15820 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2021-06-23 21:54:03.807  INFO 15820 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2021-06-23 21:54:18.450  INFO 24556 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 24556 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:54:18.452  INFO 24556 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:54:19.235  INFO 24556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:54:19.240  INFO 24556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:54:19.241  INFO 24556 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:54:19.300  INFO 24556 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:54:19.300  INFO 24556 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 814 ms
+2021-06-23 21:54:19.443  INFO 24556 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:54:19.973  INFO 24556 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:54:20.567  INFO 24556 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:54:20.615  INFO 24556 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:54:20.701  INFO 24556 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:54:20.711  INFO 24556 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:54:20.739  INFO 24556 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:54:20.850  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:54:20.853  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:54:20.867  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:54:20.868  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:54:20.868  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:54:20.884  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:54:20.885  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:54:20.887  INFO 24556 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:54:20.922  INFO 24556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:54:20.923  INFO 24556 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.691 seconds (JVM running for 3.188)
+2021-06-23 21:54:24.599  INFO 24556 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 21:54:24.599  INFO 24556 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 21:54:24.602  INFO 24556 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-06-23 21:55:26.522  INFO 9140 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 9140 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:55:26.524  INFO 9140 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:55:27.435  INFO 9140 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:55:27.441  INFO 9140 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:55:27.441  INFO 9140 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:55:27.522  INFO 9140 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:55:27.522  INFO 9140 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 962 ms
+2021-06-23 21:55:27.693  INFO 9140 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:55:28.280  INFO 9140 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:55:28.919  INFO 9140 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:55:28.979  INFO 9140 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:55:29.084  INFO 9140 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:55:29.095  INFO 9140 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:55:29.131  INFO 9140 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:55:29.257  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:55:29.260  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:55:29.275  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:55:29.276  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:55:29.276  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:55:29.295  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:55:29.295  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:55:29.297  INFO 9140 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:55:29.338  INFO 9140 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:55:29.340  INFO 9140 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 3.082 seconds (JVM running for 3.952)
+2021-06-23 21:55:31.371  INFO 9140 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 21:55:31.372  INFO 9140 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 21:55:31.376  INFO 9140 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-06-23 21:57:39.555  WARN 9140 --- [DatebookHikariCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : DatebookHikariCP - Thread starvation or clock leap detected (housekeeper delta=2m11s160ms643µs900ns).
+2021-06-23 21:57:39.661  INFO 9140 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:57:39.663  INFO 9140 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2021-06-23 21:57:39.665  INFO 9140 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2021-06-23 21:57:39.687  WARN 9140 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.ProxyConnection   : DatebookHikariCP - Connection com.mysql.cj.jdbc.ConnectionImpl@743adea9 marked as broken because of SQLSTATE(08S01), ErrorCode(0)
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 6 milliseconds ago. The last packet sent successfully to the server was 59 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-3.4.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) [HikariCP-3.4.2.jar:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) [mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) [mybatis-3.5.1.jar:3.5.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63) [mybatis-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy136.query(Unknown Source) [na:na]
+	at com.baomidou.mybatisplus.core.executor.MybatisSimpleExecutor.doQuery(MybatisSimpleExecutor.java:67) [mybatis-plus-core-3.1.1.jar:3.1.1]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324) [mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) [mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) [mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83) [mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) [mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) [mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76) [mybatis-3.5.1.jar:3.5.1]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) [mybatis-spring-2.0.1.jar:2.0.1]
+	at com.sun.proxy.$Proxy82.selectOne(Unknown Source) [na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166) [mybatis-spring-2.0.1.jar:2.0.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:89) [mybatis-plus-core-3.1.1.jar:3.1.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:62) [mybatis-plus-core-3.1.1.jar:3.1.1]
+	at com.sun.proxy.$Proxy84.selectCount(Unknown Source) [na:na]
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.count(ServiceImpl.java:271) [mybatis-plus-extension-3.1.1.jar:3.1.1]
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$76535273.invoke(<generated>) [mybatis-plus-extension-3.1.1.jar:3.1.1]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) [spring-core-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685) [spring-aop-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at com.example.dcloud.service.impl.AttendenceServiceImpl$$EnhancerBySpringCGLIB$$94a4dd6e.count(<generated>) [classes/:na]
+	at com.example.dcloud.controller.AttendenceController.endPriorAttendence(AttendenceController.java:77) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 6 milliseconds ago. The last packet sent successfully to the server was 59 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_60]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422) ~[na:1.8.0_60]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:539) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:703) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:642) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:941) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:1075) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:930) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	... 85 common frames omitted
+Caused by: java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_60]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[na:1.8.0_60]
+	at java.net.SocketInputStream.read(SocketInputStream.java:170) ~[na:1.8.0_60]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[na:1.8.0_60]
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:465) ~[na:1.8.0_60]
+	at sun.security.ssl.InputRecord.read(InputRecord.java:503) ~[na:1.8.0_60]
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:973) ~[na:1.8.0_60]
+	at sun.security.ssl.SSLSocketImpl.readDataRecord(SSLSocketImpl.java:930) ~[na:1.8.0_60]
+	at sun.security.ssl.AppInputStream.read(AppInputStream.java:105) ~[na:1.8.0_60]
+	at java.io.FilterInputStream.read(FilterInputStream.java:133) ~[na:1.8.0_60]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:533) ~[mysql-connector-java-8.0.19.jar:8.0.19]
+	... 90 common frames omitted
+
+2021-06-23 21:57:39.712  WARN 9140 --- [http-nio-8080-exec-2] o.s.jdbc.support.SQLErrorCodesFactory    : Error while extracting database name - falling back to empty error codes
+
+org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data; nested exception is org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (DatebookHikariCP) has been closed.
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:345) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:373) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.jdbc.support.SQLErrorCodesFactory.getErrorCodes(SQLErrorCodesFactory.java:215) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.setDataSource(SQLErrorCodeSQLExceptionTranslator.java:137) [spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.<init>(SQLErrorCodeSQLExceptionTranslator.java:100) [spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.mybatis.spring.MyBatisExceptionTranslator.initExceptionTranslator(MyBatisExceptionTranslator.java:87) [mybatis-spring-2.0.1.jar:2.0.1]
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:72) [mybatis-spring-2.0.1.jar:2.0.1]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446) [mybatis-spring-2.0.1.jar:2.0.1]
+	at com.sun.proxy.$Proxy82.selectOne(Unknown Source) [na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166) [mybatis-spring-2.0.1.jar:2.0.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:89) [mybatis-plus-core-3.1.1.jar:3.1.1]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:62) [mybatis-plus-core-3.1.1.jar:3.1.1]
+	at com.sun.proxy.$Proxy84.selectCount(Unknown Source) [na:na]
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl.count(ServiceImpl.java:271) [mybatis-plus-extension-3.1.1.jar:3.1.1]
+	at com.baomidou.mybatisplus.extension.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$76535273.invoke(<generated>) [mybatis-plus-extension-3.1.1.jar:3.1.1]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) [spring-core-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685) [spring-aop-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at com.example.dcloud.service.impl.AttendenceServiceImpl$$EnhancerBySpringCGLIB$$94a4dd6e.count(<generated>) [classes/:na]
+	at com.example.dcloud.controller.AttendenceController.endPriorAttendence(AttendenceController.java:77) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_60]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_60]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_60]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_60]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_60]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_60]
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (DatebookHikariCP) has been closed.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:82) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:336) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 68 common frames omitted
+Caused by: java.sql.SQLException: HikariDataSource HikariDataSource (DatebookHikariCP) has been closed.
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:96) ~[HikariCP-3.4.2.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79) ~[spring-jdbc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 69 common frames omitted
+
+2021-06-23 21:57:44.291  INFO 8252 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 8252 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 21:57:44.293  INFO 8252 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 21:57:45.081  INFO 8252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 21:57:45.087  INFO 8252 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 21:57:45.087  INFO 8252 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 21:57:45.145  INFO 8252 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 21:57:45.145  INFO 8252 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 818 ms
+2021-06-23 21:57:45.287  INFO 8252 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 21:57:45.828  INFO 8252 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 21:57:46.409  INFO 8252 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 21:57:46.460  INFO 8252 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 21:57:46.550  INFO 8252 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 21:57:46.560  INFO 8252 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 21:57:46.591  INFO 8252 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 21:57:46.703  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 21:57:46.706  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 21:57:46.721  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 21:57:46.722  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 21:57:46.722  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 21:57:46.738  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 21:57:46.738  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 21:57:46.740  INFO 8252 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 21:57:46.775  INFO 8252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 21:57:46.777  INFO 8252 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.702 seconds (JVM running for 3.176)
+2021-06-23 21:57:49.803  INFO 8252 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 21:57:49.803  INFO 8252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 21:57:49.807  INFO 8252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-06-23 22:32:25.873  INFO 12916 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 12916 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 22:32:25.874  INFO 12916 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 22:32:26.658  INFO 12916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 22:32:26.663  INFO 12916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 22:32:26.663  INFO 12916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 22:32:26.715  INFO 12916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 22:32:26.715  INFO 12916 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 809 ms
+2021-06-23 22:32:26.861  INFO 12916 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 22:32:27.385  INFO 12916 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 22:32:27.952  INFO 12916 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 22:32:28.002  INFO 12916 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:32:28.098  INFO 12916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 22:32:28.108  INFO 12916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 22:32:28.138  INFO 12916 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 22:32:28.251  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 22:32:28.253  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 22:32:28.267  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 22:32:28.268  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 22:32:28.269  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 22:32:28.284  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 22:32:28.285  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 22:32:28.287  INFO 12916 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 22:32:28.319  INFO 12916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 22:32:28.321  INFO 12916 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.675 seconds (JVM running for 3.149)
+2021-06-23 22:32:44.283  INFO 12916 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 22:32:44.283  INFO 12916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 22:32:44.287  INFO 12916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-06-23 22:38:20.605  INFO 23428 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 23428 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 22:38:20.608  INFO 23428 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 22:38:21.507  INFO 23428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 22:38:21.513  INFO 23428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 22:38:21.513  INFO 23428 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 22:38:21.572  INFO 23428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 22:38:21.572  INFO 23428 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 931 ms
+2021-06-23 22:38:21.750  INFO 23428 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 22:38:22.340  INFO 23428 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 22:38:22.961  INFO 23428 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 22:38:23.018  INFO 23428 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:38:23.119  INFO 23428 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 22:38:23.131  INFO 23428 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 22:38:23.165  INFO 23428 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 22:38:23.293  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 22:38:23.296  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 22:38:23.309  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 22:38:23.310  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 22:38:23.311  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 22:38:23.328  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 22:38:23.328  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 22:38:23.330  INFO 23428 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 22:38:23.368  INFO 23428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 22:38:23.370  INFO 23428 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 3.057 seconds (JVM running for 3.788)
+2021-06-23 22:38:24.743  INFO 23428 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 22:38:24.743  INFO 23428 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 22:38:24.747  INFO 23428 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-06-23 22:38:32.058  INFO 23428 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:38:32.061  INFO 23428 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2021-06-23 22:38:32.062  INFO 23428 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2021-06-23 22:38:34.725  INFO 23188 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 23188 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 22:38:34.726  INFO 23188 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 22:38:35.597  INFO 23188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 22:38:35.603  INFO 23188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 22:38:35.603  INFO 23188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 22:38:35.662  INFO 23188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 22:38:35.662  INFO 23188 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 906 ms
+2021-06-23 22:38:35.838  INFO 23188 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 22:38:36.404  INFO 23188 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 22:38:37.026  INFO 23188 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 22:38:37.085  INFO 23188 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:38:37.187  INFO 23188 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 22:38:37.199  INFO 23188 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 22:38:37.234  INFO 23188 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 22:38:37.361  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 22:38:37.364  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 22:38:37.377  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 22:38:37.378  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 22:38:37.379  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 22:38:37.395  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 22:38:37.395  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 22:38:37.397  INFO 23188 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 22:38:37.435  INFO 23188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 22:38:37.437  INFO 23188 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.977 seconds (JVM running for 3.812)
+2021-06-23 22:38:52.704  INFO 23188 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 22:38:52.705  INFO 23188 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 22:38:52.709  INFO 23188 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-06-23 22:41:39.740  INFO 23188 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:41:39.742  INFO 23188 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown initiated...
+2021-06-23 22:41:39.744  INFO 23188 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Shutdown completed.
+2021-06-23 22:41:44.382  INFO 5864 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 5864 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 22:41:44.384  INFO 5864 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 22:41:45.139  INFO 5864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 22:41:45.144  INFO 5864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 22:41:45.144  INFO 5864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 22:41:45.195  INFO 5864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 22:41:45.195  INFO 5864 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 781 ms
+2021-06-23 22:41:45.337  INFO 5864 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 22:41:45.879  INFO 5864 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 22:41:46.432  INFO 5864 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 22:41:46.480  INFO 5864 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:41:46.568  INFO 5864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 22:41:46.577  INFO 5864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 22:41:46.606  INFO 5864 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 22:41:46.717  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 22:41:46.720  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 22:41:46.733  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 22:41:46.734  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 22:41:46.734  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 22:41:46.748  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 22:41:46.749  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 22:41:46.751  INFO 5864 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 22:41:46.784  INFO 5864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 22:41:46.786  INFO 5864 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.619 seconds (JVM running for 3.119)
+2021-06-23 22:41:52.822  INFO 5864 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 22:41:52.822  INFO 5864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 22:41:52.825  INFO 5864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-06-23 22:44:08.423  INFO 9444 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 9444 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 22:44:08.425  INFO 9444 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 22:44:09.214  INFO 9444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 22:44:09.220  INFO 9444 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 22:44:09.220  INFO 9444 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 22:44:09.310  INFO 9444 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 22:44:09.310  INFO 9444 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 853 ms
+2021-06-23 22:44:09.474  INFO 9444 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 22:44:10.028  INFO 9444 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 22:44:10.662  INFO 9444 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 22:44:10.731  INFO 9444 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:44:10.823  INFO 9444 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 22:44:10.833  INFO 9444 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 22:44:10.864  INFO 9444 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 22:44:10.990  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 22:44:10.993  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 22:44:11.008  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 22:44:11.009  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 22:44:11.010  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 22:44:11.026  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 22:44:11.027  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 22:44:11.029  INFO 9444 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 22:44:11.065  INFO 9444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 22:44:11.067  INFO 9444 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.861 seconds (JVM running for 3.329)
+2021-06-23 22:44:16.833  INFO 9444 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-23 22:44:16.834  INFO 9444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-23 22:44:16.837  INFO 9444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-06-23 22:53:29.789  INFO 23240 --- [main] com.example.dcloud.DcloudApplication     : Starting DcloudApplication on DESKTOP-49UQ0KP with PID 23240 (F:\Springboot-cloud\dcloud\target\classes started by paranoid in F:\Springboot-cloud)
+2021-06-23 22:53:29.792  INFO 23240 --- [main] com.example.dcloud.DcloudApplication     : No active profile set, falling back to default profiles: default
+2021-06-23 22:53:30.645  INFO 23240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-06-23 22:53:30.650  INFO 23240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-23 22:53:30.650  INFO 23240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-06-23 22:53:30.702  INFO 23240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-23 22:53:30.702  INFO 23240 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 856 ms
+2021-06-23 22:53:30.842  INFO 23240 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Starting...
+2021-06-23 22:53:31.360  INFO 23240 --- [main] com.zaxxer.hikari.HikariDataSource       : DatebookHikariCP - Start completed.
+2021-06-23 22:53:31.939  INFO 23240 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-06-23 22:53:31.996  INFO 23240 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-23 22:53:32.086  INFO 23240 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-06-23 22:53:32.096  INFO 23240 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-06-23 22:53:32.126  INFO 23240 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-06-23 22:53:32.240  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_1
+2021-06-23 22:53:32.243  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_2
+2021-06-23 22:53:32.257  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: delMenuUsingDELETE_1
+2021-06-23 22:53:32.258  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getListUsingGET_1
+2021-06-23 22:53:32.258  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: saveOneUsingPOST_1
+2021-06-23 22:53:32.274  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: addOneUsingPOST_1
+2021-06-23 22:53:32.274  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2021-06-23 22:53:32.276  INFO 23240 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPATCH_3
+2021-06-23 22:53:32.311  INFO 23240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-06-23 22:53:32.313  INFO 23240 --- [main] com.example.dcloud.DcloudApplication     : Started DcloudApplication in 2.817 seconds (JVM running for 3.324)

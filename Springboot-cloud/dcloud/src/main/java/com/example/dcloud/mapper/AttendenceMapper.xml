@@ -5,15 +5,22 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.example.dcloud.entity.Attendence">
         <id column="id" property="id" />
+        <result column="course_id" property="courseId" />
         <result column="start_time" property="startTime" />
-        <result column="local" property="local" />
+        <result column="end_time" property="end_time" />
+        <result column="count" property="count" />
+        <result column="is_end" property="isEnd" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="attendance_type" property="attendanceType" />
+        <result column="creater" property="creater" />
+        <result column="create_time" property="createTime" />
         <result column="is_delete" property="isDelete" />
-        <result column="code" property="code" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, start_time, local, is_delete, code
+        id, course_id, start_time, end_time, count,is_end,longitude,latitude,attendance_type,creater,create_time,is_delete
     </sql>
 
 </mapper>

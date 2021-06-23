@@ -39,7 +39,8 @@ import static java.lang.Long.parseLong;
 public class CourseController {
     @Autowired
     private CourseService courseService;
-
+    @Autowired
+    private AttendenceResultService attendenceResultService;
     @Autowired
     private CourseStudentService courseStudentService;
     @Autowired
@@ -471,15 +472,19 @@ public class CourseController {
     @ApiOperation(value = "退出、删除班课",notes = "get")
     @RequestMapping(method = RequestMethod.DELETE)
     public String delete(@RequestParam(value="code")String code,
-                         @RequestParam(value="email",required = false)String email
+                         @RequestParam(value="telephone",required = false)String telephone
                          ){
 
         QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("code",code);
         Course course1 = courseService.getOne(queryWrapper);
-        if(email != null){//退出班课
+        if(telephone != null){//退出班课
+            QueryWrapper<User> queryUser = new QueryWrapper<>();
+            queryUser.eq("telephone",telephone)
+                    .eq("is_delete",0);
+            User user = userService.getOne(queryUser);
             QueryWrapper<CourseStudent> queryWrapper1 = new QueryWrapper<>();
-            queryWrapper1.eq("student_email",email)
+            queryWrapper1.eq("student_id",user.getId())
                     .eq("course_id",course1.getId());
             CourseStudent courseStudent = new CourseStudent();
             courseStudent.setIsDelete(1);
@@ -487,10 +492,10 @@ public class CourseController {
 
             //清空签到历史记录
             QueryWrapper<AttendenceResult> queryHistory = new QueryWrapper<>();
-            queryHistory.eq("code",code)
-                        .eq("student_email",email);
-            AttendenceResult attendenceResult = new AttendenceResult();
-            attendenceResult.setIsDelete(3);
+            queryHistory.eq("course_id",course1.getId())
+                        .eq("student_id",user.getId());
+            AttendenceResult attendenceResult = attendenceResultService.getOne(queryHistory);
+            attendenceResultService.removeById(attendenceResult.getId());
          //   attendenceResultService.update(attendenceResult,queryHistory);
             return ResultUtil.success();
         }

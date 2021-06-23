@@ -10,6 +10,7 @@ import com.example.dcloud.service.*;
 import com.example.dcloud.util.ResultUtil;
 import com.example.dcloud.vo.CourseVo;
 import com.example.dcloud.vo.getAttendenceVo;
+import com.example.dcloud.vo.historyAttendenceVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -48,8 +49,12 @@ public class AttendenceController {
     @ApiOperation(value = "查看这个签到是否结束",notes = "get")
     @RequestMapping(value = "/isEnd",method = RequestMethod.POST)
     public String hasAttendence(@RequestParam(value="code")String code) {
+        QueryWrapper<Course> queryCourse = new QueryWrapper<>();
+        queryCourse.eq("code",code)
+                .eq("isDelete",0);
+        Course course = courseService.getOne(queryCourse);
         QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code",code)
+        queryWrapper.eq("course_id",course.getId())
                     .eq("is_delete",0);
         int count = attendenceService.count(queryWrapper);
         if(count > 0){
@@ -155,10 +160,10 @@ public class AttendenceController {
         return attendence1.getId();
     }
 
-
+//一开始签到距离过远，之后再次签到
     @ResponseBody
     @RequestMapping(value = "/checkIn",method = RequestMethod.PUT)
-    @ApiOperation(value = "签到",notes = "get")
+    @ApiOperation(value = "学生签到",notes = "get")
     public String checkIn(@RequestParam(value="code")String code,
                        @RequestParam(value="telephone")String telephone,
                        @RequestParam(value="longitude")Double longitude,
@@ -232,7 +237,7 @@ public class AttendenceController {
         attendenceResult.setLatitude(latitude);
         attendenceResult.setDistance(distance1);
         attendenceResult.setAttendId(attendence.getId());
-        attendenceResultService.save(attendenceResult);
+        attendenceResultService.saveOrUpdate(attendenceResult);
         //对应课程加经验值，课程学生表course_student
         QueryWrapper<CourseStudent> queryCourseStudent = new QueryWrapper<>();
         queryCourseStudent.eq("course_id",course.getId())
@@ -254,8 +259,62 @@ public class AttendenceController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/checkHelp",method = RequestMethod.PUT)
+    @ApiOperation(value = "老师直接帮学生补签",notes = "get")
+    public String checkHelp(@RequestParam(value="code")String code,
+                          @RequestParam(value="student_id")Integer student_id,
+                          @RequestParam(value="attend_time")String attend_time,
+                          @RequestParam(value="attend_id")Integer attend_id
+
+    ){
+        QueryWrapper<Course> queryCourse = new QueryWrapper<>();
+        queryCourse.eq("code",code)
+                .eq("isDelete",0);
+        Course course = courseService.getOne(queryCourse);
+//        QueryWrapper<AttendenceResult> queryAttendenceResult = new QueryWrapper<>();
+//        queryAttendenceResult.eq("course_id",course.getId())
+//                .eq("is_delete",0);
+        AttendenceResult attendenceResult = new AttendenceResult();
+        attendenceResult.setCourseId(course.getId());
+        attendenceResult.setStudentId(student_id);
+        attendenceResult.setAttendId(attend_id);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try{
+            Date date = sdf.parse(attend_time);
+            attendenceResult.setAttendTime(date);
+        }catch (Exception ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+        attendenceResult.setIsDelete(0);
+        attendenceResultService.save(attendenceResult);
+        //对应课程加经验值，课程学生表course_student
+        QueryWrapper<CourseStudent> queryCourseStudent = new QueryWrapper<>();
+        queryCourseStudent.eq("course_id",course.getId())
+                .eq("student_id",student_id)
+                .eq("is_delete",0);
+        CourseStudent courseStudent = courseStudentService.getOne(queryCourseStudent);
+        //获取系统参数
+        QueryWrapper<SystemManage> querySystem1 = new QueryWrapper();
+        querySystem1.eq("key_name","experience")
+                .eq("is_delete",0);
+        SystemManage systemManage1 = systemManageService.getOne(querySystem1);
+        //增加该门课程的经验值
+        courseStudent.setExp(courseStudent.getExp()+systemManage1.getKeyValue());
+        courseStudentService.update(courseStudent,queryCourseStudent);
+        //增加总的经验值
+        QueryWrapper<User> queryUser = new QueryWrapper<>();
+        queryUser.eq("id",student_id)
+                .eq("is_delete",0);
+        User user = userService.getOne(queryUser);
+        user.setExp(user.getExp()+systemManage1.getKeyValue());
+        userService.update(user,queryUser);
+        return ResultUtil.success();
+    }
+
+    @ResponseBody
     @ApiOperation(value = "查看某门课，某次学生的签到情况",notes = "get")
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(value = "/getAttendence",method = RequestMethod.PUT)
     public ServerResponse<getAttendenceVo> getAttendence(@RequestParam(value="code")String code,
                                                          @RequestParam(value="attend_id")Integer attend_id) {
 
@@ -278,6 +337,7 @@ public class AttendenceController {
             QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
             queryWrapper1.eq("id",studentId);
             User user = userService.getOne(queryWrapper1);
+            getAttendenceVo.setStudentId(studentId);
             getAttendenceVo.setName(user.getName());
             getAttendenceVo.setAttendTime(list.get(i).getAttendTime());
             getAttendenceVo.setDistance(list.get(i).getDistance());
@@ -289,8 +349,51 @@ public class AttendenceController {
         response.setResult(true);
         response.setDataList(dataList);
         response.setTotal((long)list.size());
-        response.setMsg("查询成功！");
+        response.setMsg("hasAttendence值为0表示已签到，1为未签到。");
 
+        return response;
+    }
+    @ResponseBody
+    @ApiOperation(value = "教师发起签到的历史记录",notes = "get")
+    @RequestMapping(value = "/historyAttendence",method = RequestMethod.PUT)
+    public ServerResponse<historyAttendenceVo> historyAttendence(@RequestParam(value="code")String code) {
+        ServerResponse<historyAttendenceVo> response = new ServerResponse<>();
+        QueryWrapper<Course> queryWrapper31= new QueryWrapper<>();
+        queryWrapper31.eq("code",code);
+        Course course1 = courseService.getOne(queryWrapper31);
+        QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("course_id",course1.getId())
+                .eq("is_delete",1)
+                .orderByDesc("id");
+        List<Attendence> list = attendenceService.list(queryWrapper);
+        //通过课程号查找课程id
+        QueryWrapper<Course> queryWrapper1= new QueryWrapper<>();
+        queryWrapper1.eq("code",code);
+        Course course = courseService.getOne(queryWrapper1);
+        long courseId = course.getId();
+        //通过该课程总学生数
+        QueryWrapper<CourseStudent> queryWrapper2 = new QueryWrapper<>();
+        queryWrapper2.eq("course_id",courseId)
+                .eq("is_delete",0);
+        int total = courseStudentService.count(queryWrapper2);
+        List<historyAttendenceVo> dataList = new ArrayList<>();
+        for(int i=0;i<list.size();i++){
+            historyAttendenceVo historyAttendenceVo = new historyAttendenceVo();
+            historyAttendenceVo.setStartTime(list.get(i).getStartTime());
+            int attendId = list.get(i).getId();
+            QueryWrapper<AttendenceResult> queryWrapper3 = new QueryWrapper<>();
+            queryWrapper3.eq("attend_id",attendId)
+                    .eq("is_delete",0);
+            int count = attendenceResultService.count(queryWrapper3);
+            historyAttendenceVo.setCount(count);
+            historyAttendenceVo.setTotal(total);
+            historyAttendenceVo.setAttendId(attendId);
+            dataList.add(historyAttendenceVo);
+        }
+        response.setTotal((long)total);
+        response.setDataList(dataList);
+        response.setResult(true);
+        response.setMsg("total表示课程学生数，count表示签到的人数");
         return response;
     }
 
@@ -451,43 +554,6 @@ public class AttendenceController {
 //        return ResultUtil.success();
 //    }
 
-    //教师发起签到的历史记录
-//    @ResponseBody
-//    @RequestMapping(method = RequestMethod.PATCH)
-//    public String historyAttendence(@RequestBody JSONObject jsonObject) {
-//        Map map = JSON.toJavaObject(jsonObject, Map.class);
-//        String code = map.get("code").toString();
-//        QueryWrapper<Attendence> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("code",code)
-//                .eq("is_delete",1)
-//                .orderByDesc("id");
-//        List<Attendence> list = attendenceService.list(queryWrapper);
-//        //根据课程号查找课程id
-//        QueryWrapper<Course> queryWrapper1= new QueryWrapper<>();
-//        queryWrapper1.eq("code",code);
-//        Course course = courseService.getOne(queryWrapper1);
-//        long courseId = course.getId();
-//        //查询该课程总学生数
-//        QueryWrapper<CourseStudent> queryWrapper2 = new QueryWrapper<>();
-//        queryWrapper2.eq("course_id",courseId)
-//                .eq("is_delete",0);
-//        int total = courseStudentService.count(queryWrapper2);
-//        JSONArray jsonArray = new JSONArray();
-//        for(int i=0;i<list.size();i++){
-//            String startTime = list.get(i).getStartTime();
-//            int attendId = list.get(i).getId();
-//            QueryWrapper<AttendenceResult> queryWrapper3 = new QueryWrapper<>();
-//            queryWrapper3.eq("attend_id",attendId)
-//                .eq("is_delete",0);
-//            int count = attendenceResultService.count(queryWrapper3);
-//            JSONObject jsonObject1 = new JSONObject();
-//            jsonObject1.put("time",startTime);
-//            jsonObject1.put("count",count);
-//            jsonObject1.put("total",total);
-//            jsonObject1.put("attend_id",attendId);
-//            jsonArray.add(jsonObject1);
-//        }
-//        return jsonArray.toString();
-//    }
+
 }
 
