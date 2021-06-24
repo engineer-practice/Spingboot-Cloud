@@ -41,9 +41,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
                     .like("name",name);
         }
 
-//        queryWrapper.lambda().eq(Menu::getIsDeleted, 0).and(
-//                queryWrapper1 -> queryWrapper1.eq(Menu::getIsVisible,is_visible)
-//                        .like(Menu::getName,name));
         Page<Menu> page1 = new Page<>(page,10);  // 查询第1页，每页返回10条
         IPage<Menu> iPage = menuMapper.selectPage(page1,queryWrapper);
         return JSON.toJSONString(iPage);

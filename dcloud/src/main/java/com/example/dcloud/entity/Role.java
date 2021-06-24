@@ -12,28 +12,12 @@ private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
-    /**
-     * 角色名称
-     */
     private String name;
-
     private Integer isStudent;
-
-    /**
-     * 描述
-     */
     private String description;
-
     private String powerId;
-
-    /**
-     * 状态
-     */
     private Integer state;
-
     private Integer isDelete;
-
 
     public Integer getId() {
         return id;

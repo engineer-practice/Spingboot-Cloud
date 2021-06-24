@@ -495,7 +495,8 @@ public class CourseController {
             queryHistory.eq("course_id",course1.getId())
                         .eq("student_id",user.getId());
             AttendenceResult attendenceResult = attendenceResultService.getOne(queryHistory);
-            attendenceResultService.removeById(attendenceResult.getId());
+            if(attendenceResult != null)
+                attendenceResultService.removeById(attendenceResult.getId());
          //   attendenceResultService.update(attendenceResult,queryHistory);
             return ResultUtil.success();
         }

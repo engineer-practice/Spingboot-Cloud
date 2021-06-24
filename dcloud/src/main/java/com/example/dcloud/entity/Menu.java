@@ -13,43 +13,17 @@ private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-
     private Long parentId;
-
     private String name;
-
-    /**
-     * 排序
-     */
     private Integer menuOrder;
-    /**
-     * 层级
-     */
     private Integer menuLevel;
-
-    /**
-     * 图标
-     */
     private String icon;
-
-    /**
-     * 路径
-     */
     private String url;
-
-    /**
-     * 类型(1:菜单2:按钮)
-     */
     private Integer type;
-
     private Integer isMenu;
-
     private Integer isVisible;
-
     private Integer isPage;
-
     private Integer isDeleted;
-
     public Integer getMenuLevel() {
         return menuLevel;
     }
