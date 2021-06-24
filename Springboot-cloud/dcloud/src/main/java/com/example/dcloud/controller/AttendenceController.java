@@ -88,8 +88,6 @@ public class AttendenceController {
         attendenceService.update(attendence,queryWrapper1);
         return ResultUtil.success();
     }
-
-    //老师发起签到
     @ResponseBody
     @ApiOperation(value = "发起签到。返回一个签到id，根据签到id去结束签到。返回0说明有签到正在进行，不能再次发起签到",notes = "get")
     @RequestMapping(value = "/createAttendence",method = RequestMethod.POST)
@@ -320,36 +318,54 @@ public class AttendenceController {
 
         ServerResponse<getAttendenceVo> response = new ServerResponse<>();
 
-        QueryWrapper<AttendenceResult> queryWrapper = new QueryWrapper<>();
+      //  QueryWrapper<AttendenceResult> queryWrapper = new QueryWrapper<>();
         QueryWrapper<Course> queryWrapper2= new QueryWrapper<>();
         queryWrapper2.eq("code",code);
         Course course = courseService.getOne(queryWrapper2);
-        queryWrapper.eq("attend_id",attend_id)
-        .eq("course_id",course.getId());
+        //queryWrapper.eq("attend_id",attend_id)
+        //.eq("course_id",course.getId());
 //        QueryWrapper<Attendence> queryAttendence = new QueryWrapper<>();
 //        queryAttendence.eq("id",attend_id);
 //        Attendence attendence = attendenceService.getOne(queryAttendence);
-        List<AttendenceResult> list = attendenceResultService.list(queryWrapper);
+      //  List<AttendenceResult> list = attendenceResultService.list(queryWrapper);
         List<getAttendenceVo> dataList = new ArrayList<>();
-        for(int i=0;i<list.size();i++){
+        QueryWrapper<CourseStudent> courseStudentQueryWrapper = new QueryWrapper<>();
+        courseStudentQueryWrapper.eq("course_id",course.getId());
+        //获取学生列表
+        List<CourseStudent> listStudent = courseStudentService.list(courseStudentQueryWrapper);
+        for(int i=0;i<listStudent.size();i++){
             getAttendenceVo getAttendenceVo = new getAttendenceVo();
-            int studentId = list.get(i).getStudentId();
+            int studentId = listStudent.get(i).getStudentId();
             QueryWrapper<User> queryWrapper1 = new QueryWrapper<>();
             queryWrapper1.eq("id",studentId);
             User user = userService.getOne(queryWrapper1);
             getAttendenceVo.setStudentId(studentId);
             getAttendenceVo.setName(user.getName());
-            getAttendenceVo.setAttendTime(list.get(i).getAttendTime());
-            getAttendenceVo.setDistance(list.get(i).getDistance());
-            getAttendenceVo.setHasAttendence(list.get(i).getIsDelete());//0代表已签到，1代表未签到
-            getAttendenceVo.setLongitude(list.get(i).getLongitude());
-            getAttendenceVo.setLatitude(list.get(i).getLatitude());
+            //看下签到结果表里是否有签到记录
+            QueryWrapper<AttendenceResult> attendenceResultQueryWrapper = new QueryWrapper<>();
+            attendenceResultQueryWrapper.eq("attend_id",attend_id)
+            .eq("student_id",studentId);
+            AttendenceResult attendenceResult = attendenceResultService.getOne(attendenceResultQueryWrapper);
+            if(attendenceResult!=null) {
+                getAttendenceVo.setAttendTime(attendenceResult.getAttendTime());
+                getAttendenceVo.setDistance(attendenceResult.getDistance());
+                getAttendenceVo.setHasAttendence(attendenceResult.getIsDelete());//0代表已签到，1代表未签到
+                getAttendenceVo.setLongitude(attendenceResult.getLongitude());
+                getAttendenceVo.setLatitude(attendenceResult.getLatitude());
+            }
+            //如果attendenceResult为空，说明还没签到
+            else {
+                getAttendenceVo.setHasAttendence(1);
+            }
             dataList.add(getAttendenceVo);
         }
+//        QueryWrapper<CourseStudent> courseStudentQueryWrapper = new QueryWrapper<>();
+//        courseStudentQueryWrapper.eq("course_id",course.getId());
+//        int count = courseStudentService.count(courseStudentQueryWrapper);
         response.setResult(true);
         response.setDataList(dataList);
-        response.setTotal((long)list.size());
-        response.setMsg("hasAttendence值为0表示已签到，1为未签到。");
+        response.setTotal((long)listStudent.size());
+        response.setMsg("hasAttendence值为0表示已签到，1为未签到。total值为该门课的学生人数。");
 
         return response;
     }

@@ -73,8 +73,6 @@ public class RegisterController {
     @PostMapping("/registerByMessage")
     public String registerByMessage(@RequestParam(value="telephone")String telephone)
     {
-
-
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("telephone",telephone);
         int count = userService.count(queryWrapper);

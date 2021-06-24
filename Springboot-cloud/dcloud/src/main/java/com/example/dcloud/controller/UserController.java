@@ -30,7 +30,6 @@ public class UserController {
 
     @Autowired
     UserService userService;
-
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
     public ServerResponse<UserListVo> userList(//通过一些参数查找符合条件的用户信息 返回的是用户列表

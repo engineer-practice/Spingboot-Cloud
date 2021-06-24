@@ -33,8 +33,8 @@ public class DictionaryDetailServiceImpl extends ServiceImpl<DictionaryDetailMap
     @Resource
     private DictionaryMapper dictionaryMapper;
     @Override
+    //查询数据字典明细
     public Map<Object,List> getDetail(String code) {
-        //放回字典明细
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code", code);
         map.put("is_delete", 0);
@@ -49,9 +49,9 @@ public class DictionaryDetailServiceImpl extends ServiceImpl<DictionaryDetailMap
         System.out.println(list);
         return list;
     }
+    //查询数据字典明细
     public ServerResponse<DictionaryDetail> getDetail1(String typeCode) {
         ServerResponse<DictionaryDetail> response = new ServerResponse<>();
-
         QueryWrapper<DictionaryDetail> queryWrapper = new QueryWrapper();
         queryWrapper.eq("type_code",typeCode)
                 .eq("is_delete",0);
@@ -60,7 +60,6 @@ public class DictionaryDetailServiceImpl extends ServiceImpl<DictionaryDetailMap
         response.setTotal((long)list.size());
         response.setResult(true);
         response.setMsg("查询成功！");
-
         return response;
     }
 }

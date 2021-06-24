@@ -14,13 +14,9 @@ private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-
     private Long roleId;
-
     private Long powerId;
-
     private Integer isDelete;
-
     public RolePower(){
         this.isDelete = 0;
         this.powerId = Long.valueOf(0);

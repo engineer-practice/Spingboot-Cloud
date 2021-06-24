@@ -11,14 +11,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author fifteen
- * @since 2020-06-18
- */
 @Service
 public class CourseManageServiceImpl extends ServiceImpl<CourseManageMapper, CourseManage> implements CourseManageService {
 
@@ -26,11 +18,11 @@ public class CourseManageServiceImpl extends ServiceImpl<CourseManageMapper, Cou
     private CourseManageMapper courseManageMapper;
     @Override
     public String pageListforQuery(String name, Integer page) {
+        //根据课程名搜索课程
         QueryWrapper<CourseManage> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("is_deleted",0);
-        queryWrapper
-                .like("name",name);
-        Page<CourseManage> page1 = new Page<>(page,10);  // 查询第1页，每页返回10条
+        queryWrapper.like("name",name);
+        Page<CourseManage> page1 = new Page<>(page,10);
         IPage<CourseManage> iPage = courseManageMapper.selectPage(page1,queryWrapper);
         return JSON.toJSONString(iPage);
     }

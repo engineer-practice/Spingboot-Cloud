@@ -10,6 +10,8 @@ import com.example.dcloud.entity.User;
 import com.example.dcloud.service.CourseManageService;
 import com.example.dcloud.service.UserService;
 import com.example.dcloud.util.ResultUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +32,7 @@ import static java.lang.Long.parseLong;
 @CrossOrigin
 @Controller
 @RequestMapping("/courseManage")
+@Api(tags = "菜单管理接口")
 public class CourseManageController {
     @Autowired
     private CourseManageService courseManageService;
@@ -38,23 +41,16 @@ public class CourseManageController {
     //获取 查询
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "获取课程列表",notes = "get")
     public String get(@RequestParam(value="name",required = false)String name,
                       @RequestParam(value = "page",required = false)Integer page){
-        if(name != null){//搜索课程
+        //根据课程名搜索课程
+        if(name != null){
             return courseManageService.pageListforQuery(name,page);
-        }else if(page != null){
+        }else if(page != null){//获取某一页
             return courseManageService.pageList(page);
-        }else{//获取所有课程名称
+        }else{//获取所有课程
             return courseManageService.getCourseName();
-//            List<CourseManage> list = courseManageService.list();
-//            JSONArray jsonArray = new JSONArray();
-//            for (int i = 0; i < list.size(); i++) {
-//                JSONObject result = new JSONObject();
-//                result.put("id",list.get(i).getId().toString());
-//                result.put("name",list.get(i).getName().toString());
-//                jsonArray.add(result);
-//            }
-//            return JSON.toJSONString(jsonArray);
         }
     }
 
