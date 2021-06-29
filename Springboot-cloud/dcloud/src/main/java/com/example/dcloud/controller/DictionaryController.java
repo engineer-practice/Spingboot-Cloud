@@ -29,35 +29,7 @@ public class DictionaryController {
     private DictionaryDetailService dictionaryDetailService;
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
-    //获取数据字典的列表
-    //public String getList(
-//    public ServerResponse<Dictionary> getList(
-//            @RequestParam(value="page",required = false)Integer page,
-//            @RequestParam(value="code",required = false)String code,
-//            @RequestParam(value="name",required = false)String name
-//    ) {
-//        //有code-->详情
-//        ServerResponse<Dictionary> response =new ServerResponse<>();
-//        //有传参 根据参数查询
-//        if(code!=null){
-////            if(name!=null){//有name--->查询
-////                System.out.println("111");
-////                return dictionaryService.pageListforQuery(code,name,page);
-////            }else{
-////                System.out.println("222");
-////                return JSON.toJSONString(dictionaryDetailService.getDetail(code));
-////
-////            }
-////        }else{
-//            //无传参数 获取列表
-//            System.out.println("333");
-//            return dictionaryService.pageList(page);
-//        }else {
-//            response.setResult(Boolean.FALSE);
-//            response.setMsg("失败");
-//            return response;
-//        }
-//    }
+
     @ApiOperation(value = "获取数据字典列表",notes = "get")
     public String getList(
             @RequestParam(value="page",required = false)Integer page,
@@ -82,6 +54,103 @@ public class DictionaryController {
             //获取数据字典列表
             return dictionaryService.pageList(page);
         }
+    }
+    //获取数据字典的列表
+    //public String getList(
+//    public ServerResponse<Dictionary> getList(
+//            @RequestParam(value="page",required = false)Integer page,
+//            @RequestParam(value="code",required = false)String code,
+//            @RequestParam(value="name",required = false)String name
+//    ) {
+//    }
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.PATCH)
+    @ApiOperation(value = "修改数据字典",notes = "get")
+    public String update(@RequestBody JSONObject jsonObject) {
+        Map map = JSON.toJavaObject(jsonObject, Map.class);
+        List<DictionaryDetail> detailList = new ArrayList<>();
+        //检查是否唯一
+        QueryWrapper<Dictionary> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("code", map.get("new_code").toString())
+                .eq("is_delete",0);
+        int count = dictionaryService.count(queryWrapper);
+        if(!map.get("new_code").toString().equals(map.get("old_code").toString())){
+            if(count > 0){
+                return ResultUtil.error("英文标识符已存在!");
+            }
+        }
+        //判断是否唯一
+        QueryWrapper<Dictionary> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.eq("name", map.get("new_name").toString())
+                .eq("is_delete",0);
+        int count1 = dictionaryService.count(queryWrapper1);
+        if(!map.get("new_name").toString().equals(map.get("old_name").toString())){
+            if(count1 > 0){
+                return ResultUtil.error("中文标识符已存在!");
+            }
+        }
+        JSONArray detail=(JSONArray) JSONArray.toJSON(map.get("detail"));
+        int flag = 0;
+        Set valueSet = new HashSet<>();
+        Set nameSet = new HashSet<>();
+        int beforeSize = valueSet.size();
+        int beforeSize1 = nameSet.size();
+        //进一步判断
+        for(int i = 0; i < detail.size(); i++){
+            JSONObject tempObject=(JSONObject) JSONObject.toJSON(detail.get(i));
+            Map temp = JSON.toJavaObject(tempObject, Map.class);
+            valueSet.add(temp.get("value").toString());
+            int afterSize = valueSet.size();
+            if(beforeSize == afterSize){
+                return ResultUtil.error("数据项值重复！");
+            }else {
+                beforeSize = afterSize;
+            }
+            nameSet.add(temp.get("name").toString());
+            int afterSize1 = nameSet.size();
+            if(beforeSize1 == afterSize1){
+                return ResultUtil.error("数据项文本重复！");
+            }else {
+                beforeSize1 = afterSize1;
+            }
+            if(parseInt(temp.get("is_default").toString()) == 1){
+                flag ++;
+                if(flag > 1){
+                    return ResultUtil.error("多个数据项设置为默认值！");
+                }
+            }
+            DictionaryDetail dictionaryDetail = new DictionaryDetail();
+            if(temp.containsKey("id")){
+                dictionaryDetail.setId(parseLong(temp.get("id").toString()));
+            }
+            dictionaryDetail.setCode(temp.get("code").toString());
+            dictionaryDetail.setName(temp.get("name").toString());
+            dictionaryDetail.setValue(temp.get("value").toString());
+            //字典顺序
+            dictionaryDetail.setDictOrder(parseInt(temp.get("dict_order").toString()));
+            //是否默认
+            dictionaryDetail.setIsDefault(parseInt(temp.get("is_default").toString()));
+            dictionaryDetail.setTypeCode(map.get("new_code").toString());
+            dictionaryDetail.setIsDelete(0);
+            detailList.add(dictionaryDetail);
+        }
+        Dictionary dictionary = new Dictionary();
+        dictionary.setId(parseLong(map.get("id").toString()));
+        if(map.get("description").toString() == ""){
+            dictionary.setDescription(" ");
+        }else{
+            dictionary.setDescription(map.get("description").toString());
+        }
+        dictionary.setName(map.get("new_name").toString());
+        dictionary.setCode(map.get("new_code").toString());
+        dictionary.setIsDelete(0);
+        //更新数据字典
+        dictionaryService.updateById(dictionary);
+        for(int i = 0; i < detailList.size(); i++){
+            //更新数据值和文本
+            dictionaryDetailService.saveOrUpdate(detailList.get(i));
+        }
+        return ResultUtil.success();
     }
     @ResponseBody
     @RequestMapping(method = RequestMethod.DELETE)
@@ -194,95 +263,7 @@ public class DictionaryController {
         }
         return ResultUtil.success();
     }
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.PATCH)
-    @ApiOperation(value = "修改数据字典",notes = "get")
-    public String update(@RequestBody JSONObject jsonObject) {
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
-        List<DictionaryDetail> detailList = new ArrayList<>();
-        //检查是否唯一
-        QueryWrapper<Dictionary> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("code", map.get("new_code").toString())
-                .eq("is_delete",0);
-        int count = dictionaryService.count(queryWrapper);
-        if(!map.get("new_code").toString().equals(map.get("old_code").toString())){
-            if(count > 0){
-                return ResultUtil.error("英文标识符已存在!");
-            }
-        }
-        //判断是否唯一
-        QueryWrapper<Dictionary> queryWrapper1 = new QueryWrapper<>();
-        queryWrapper1.eq("name", map.get("new_name").toString())
-                .eq("is_delete",0);
-        int count1 = dictionaryService.count(queryWrapper1);
-        if(!map.get("new_name").toString().equals(map.get("old_name").toString())){
-            if(count1 > 0){
-                return ResultUtil.error("中文标识符已存在!");
-            }
-        }
-        JSONArray detail=(JSONArray) JSONArray.toJSON(map.get("detail"));
-        int flag = 0;
-        Set valueSet = new HashSet<>();
-        Set nameSet = new HashSet<>();
-        int beforeSize = valueSet.size();
-        int beforeSize1 = nameSet.size();
-        //进一步判断
-        for(int i = 0; i < detail.size(); i++){
-            JSONObject tempObject=(JSONObject) JSONObject.toJSON(detail.get(i));
-            Map temp = JSON.toJavaObject(tempObject, Map.class);
-            valueSet.add(temp.get("value").toString());
-            int afterSize = valueSet.size();
-            if(beforeSize == afterSize){
-                return ResultUtil.error("数据项值重复！");
-            }else {
-                beforeSize = afterSize;
-            }
-            nameSet.add(temp.get("name").toString());
-            int afterSize1 = nameSet.size();
-            if(beforeSize1 == afterSize1){
-                return ResultUtil.error("数据项文本重复！");
-            }else {
-                beforeSize1 = afterSize1;
-            }
-            if(parseInt(temp.get("is_default").toString()) == 1){
-                flag ++;
-                if(flag > 1){
-                    return ResultUtil.error("多个数据项设置为默认值！");
-                }
-            }
-            DictionaryDetail dictionaryDetail = new DictionaryDetail();
-            if(temp.containsKey("id")){
-                dictionaryDetail.setId(parseLong(temp.get("id").toString()));
-            }
-            dictionaryDetail.setCode(temp.get("code").toString());
-            dictionaryDetail.setName(temp.get("name").toString());
-            dictionaryDetail.setValue(temp.get("value").toString());
-            //字典顺序
-            dictionaryDetail.setDictOrder(parseInt(temp.get("dict_order").toString()));
-            //是否默认
-            dictionaryDetail.setIsDefault(parseInt(temp.get("is_default").toString()));
-            dictionaryDetail.setTypeCode(map.get("new_code").toString());
-            dictionaryDetail.setIsDelete(0);
-            detailList.add(dictionaryDetail);
-        }
-        Dictionary dictionary = new Dictionary();
-        dictionary.setId(parseLong(map.get("id").toString()));
-        if(map.get("description").toString() == ""){
-            dictionary.setDescription(" ");
-        }else{
-            dictionary.setDescription(map.get("description").toString());
-        }
-        dictionary.setName(map.get("new_name").toString());
-        dictionary.setCode(map.get("new_code").toString());
-        dictionary.setIsDelete(0);
-        //更新数据字典
-        dictionaryService.updateById(dictionary);
-        for(int i = 0; i < detailList.size(); i++){
-            //更新数据值和文本
-            dictionaryDetailService.saveOrUpdate(detailList.get(i));
-        }
-        return ResultUtil.success();
-    }
+
 
 }
 

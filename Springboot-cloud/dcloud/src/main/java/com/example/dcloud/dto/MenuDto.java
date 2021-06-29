@@ -9,19 +9,10 @@ public class MenuDto {
 
     private String name;
 
-    /**
-     * 排序
-     */
     private Integer menuOrder;
 
-    /**
-     * 图标
-     */
     private String icon;
 
-    /**
-     * 路径
-     */
     private String url;
 
     private Integer isMenu;

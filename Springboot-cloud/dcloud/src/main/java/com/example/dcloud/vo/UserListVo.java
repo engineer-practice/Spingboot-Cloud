@@ -6,7 +6,7 @@ import lombok.Data;
 public class UserListVo {
     private String name;
     private Integer sex;
-    private String email;
+    private String telephone;
     private Integer roleId;
     private Integer state;
     private String schoolName;
@@ -27,12 +27,12 @@ public class UserListVo {
         this.sex = sex;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public Integer getRoleId() {

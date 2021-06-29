@@ -24,7 +24,7 @@ public class SwaggerConfig {
                         .title("到云后端接口文档")
                         .description("到云后端接口文档")
                         .version("9.0")
-                        .contact(new Contact("杨铭","","791937916@qq.com"))
+                        .contact(new Contact(" ",""," "))
                         .license("baidu")
                         .licenseUrl("http://www.baidu.com")
                         .build());

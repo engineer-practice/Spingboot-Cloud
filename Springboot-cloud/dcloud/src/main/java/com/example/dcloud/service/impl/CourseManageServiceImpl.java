@@ -11,10 +11,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class CourseManageServiceImpl extends ServiceImpl<CourseManageMapper, CourseManage> implements CourseManageService {
 
-    @Autowired
+    @Resource
     private CourseManageMapper courseManageMapper;
     @Override
     public String pageListforQuery(String name, Integer page) {
@@ -40,8 +43,9 @@ public class CourseManageServiceImpl extends ServiceImpl<CourseManageMapper, Cou
 
     @Override
     public String getCourseName() {
-        QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("is_deleted",0);
-        return JSON.toJSONString(courseManageMapper.selectList(queryWrapper));
+        QueryWrapper<CourseManage> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(CourseManage::getIsDeleted,0);
+        List<CourseManage> list = list(queryWrapper);
+        return JSON.toJSONString(list);
     }
 }

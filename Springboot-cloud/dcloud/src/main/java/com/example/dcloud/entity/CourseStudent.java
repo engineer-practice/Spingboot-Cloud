@@ -17,8 +17,6 @@ private static final long serialVersionUID=1L;
 
     private Integer studentId;
 
-    //private String teacherEmail;
-
     private Integer exp;
 
     private int isDelete;

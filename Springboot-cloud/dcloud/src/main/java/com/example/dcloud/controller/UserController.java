@@ -14,6 +14,7 @@ import com.example.dcloud.service.UserService;
 import com.example.dcloud.util.ResultUtil;
 import com.example.dcloud.vo.UserListVo;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -45,14 +46,10 @@ public class UserController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
     public String addUser(@RequestBody UserBasicDto userBasicDto){//新增用户
-       // Map map = JSON.toJavaObject(jsonObject,Map.class);
-//        String name = map.get("name").toString();
-//        int sex = Integer.parseInt(map.get("sex").toString());
-//        String email = map.get("email").toString();
         String password = "123456";//密码是默认
        // int roleId = Integer.parseInt(map.get("roleId").toString());//角色自己可以设置
         JSONObject jsonObject1 = new JSONObject();
-        if(userService.addUser(userBasicDto.getName(),userBasicDto.getSex(),userBasicDto.getEmail(),password,userBasicDto.getRoleId())==1){//增加用户
+        if(userService.addUser(userBasicDto.getName(),userBasicDto.getSex(),userBasicDto.getTelephone(),password,userBasicDto.getRoleId())==1){//增加用户
             jsonObject1.put("respCode","1");
             return  jsonObject1.toString();
         }else{
@@ -65,14 +62,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.PUT)
         //通过 管理员 更新用户信息
     public String updateUserByAdmin(@RequestBody UserBasicDto userBasicDto){
-//        Map map = JSON.toJavaObject(jsonObject,Map.class);
-//        String name = map.get("name").toString();
-//        int sex = Integer.parseInt(map.get("sex").toString());
-//        String email = map.get("email").toString();
-//        //这里可以对用户的角色进行修改
-//        int roleId = Integer.parseInt(map.get("roleId").toString());
-        //////////////////////////
-        userService.updateUserByAdmin(userBasicDto.getName(),userBasicDto.getSex(),userBasicDto.getRoleId(),userBasicDto.getEmail());
+        userService.updateUserByAdmin(userBasicDto.getName(),userBasicDto.getSex(),userBasicDto.getRoleId(),userBasicDto.getTelephone());
         JSONObject jsonObject1 = new JSONObject();
         jsonObject1.put("respCode","1");
         return jsonObject1.toString();
@@ -83,8 +73,8 @@ public class UserController {
     //删除用户信息 可以删除多条记录
     public String deleteUser(@RequestParam(value = "del_list") List list){
         for(int i=0;i<list.size();i++){
-            String email = list.get(i).toString();
-            userService.deleteUser(email);
+            String telephone = list.get(i).toString();
+            userService.deleteUser(telephone);
         }
         JSONObject jsonObject1 = new JSONObject();
         jsonObject1.put("respCode","1");
@@ -95,10 +85,8 @@ public class UserController {
     @ResponseBody
     @RequestMapping(method = RequestMethod.PATCH)
     //改变用户状态
-    public String changeUserState( @RequestParam(value="email")String email){
-//        Map map = JSON.toJavaObject(jsonObject,Map.class);
-//        String email = map.get("email").toString();
-        userService.changeUserStateService(email);
+    public String changeUserState( @RequestParam(value="telephone")String telephone){
+        userService.changeUserStateService(telephone);
         JSONObject jsonObject1 = new JSONObject();
         jsonObject1.put("respCode","1");
         return jsonObject1.toString();
@@ -109,12 +97,12 @@ public class UserController {
     //更新密码
     public String updatePassword(@RequestBody UpdatePasswordDto updatePasswordDto) {
         //Map map = JSON.toJavaObject(jsonObject, Map.class);
-        String email = updatePasswordDto.getEmail();
+        String telephone = updatePasswordDto.getTelephone();
         String newPassword = updatePasswordDto.getNewpassword1();
         String repeatNewPassword = updatePasswordDto.getNewpasswor2();
         String oldPassword = updatePasswordDto.getOldpassword();
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("email",email);
+        queryWrapper.eq("telephone",telephone);
         User user = userService.getOne(queryWrapper);
         String password = user.getPassword();
         int id = user.getId();
@@ -152,14 +140,12 @@ public class UserController {
     @ResponseBody
     @NoToken
     @RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
-    //忘记密码 有点问题 只需要邮箱和新密码就可以修改
-    public String forgetPassword(@RequestParam(value="email")String email,
+    //忘记密码
+    public String forgetPassword(@RequestParam(value="telephone")String telephone,
                                  @RequestParam(value="newpassword")String newPassword) {
-//        Map map = JSON.toJavaObject(jsonObject, Map.class);
-//        String email = map.get("email").toString();
-//        String newPassword = map.get("newpassword").toString();
+
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("email",email);
+        queryWrapper.eq("telephone",telephone);
         User user = userService.getOne(queryWrapper);
         if(user!=null){
             if(user.getIsDelete()==0){
@@ -182,10 +168,10 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/resetPassword",method = RequestMethod.PUT)
-    public String resetPassword(@RequestParam(value="email",required = false)String email) {
+    public String resetPassword(@RequestParam(value="telephone",required = false)String telephone) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        //获取到邮箱直接重置
-        queryWrapper.eq("email",email);
+        //获取到电话直接重置
+        queryWrapper.eq("telephone",telephone);
         User user = new User();
         user.setPassword("123456");
         try{
@@ -233,17 +219,10 @@ public class UserController {
                 user.setSex(updateInfoDto.getSex());
             }
         }
-        //这里感觉有点奇怪 没有调用setEmail方法
-        String email = updateInfoDto.getEmail();
+        String telephone = updateInfoDto.getTelephone();
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("email",email);
+        queryWrapper.eq("telephone",telephone);
         User user1 = userService.getOne(queryWrapper);
-//        if(!map.get("school").toString().equals(""))
-//        {
-//            int school = Integer.parseInt(map.get("school").toString());
-//            user.setSchoolId(school);
-//        }
-
         if(updateInfoDto.getSchoolCode()!=null)
             if(!updateInfoDto.getSchoolCode().equals(""))
                 user.setSchoolCode(updateInfoDto.getSchoolCode());
@@ -286,12 +265,10 @@ public class UserController {
                         return ResultUtil.error("请输入真实手机号");
                 }
             }
-
         }
         if(updateInfoDto.getBirth()!=null)
             if(!updateInfoDto.getBirth().equals(""))
                 user.setBirth(updateInfoDto.getBirth());
-            //好像没有更新用户头像的功能
         if(updateInfoDto.getImage()!=null)
             if(!updateInfoDto.getImage().equals(""))
                 user.setImage(updateInfoDto.getImage());
@@ -304,4 +281,5 @@ public class UserController {
             return ResultUtil.error("更新失败");
         }
     }
+
 }

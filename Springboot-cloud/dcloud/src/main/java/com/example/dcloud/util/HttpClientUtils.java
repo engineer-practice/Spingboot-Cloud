@@ -47,9 +47,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-/**
- * Created by Administrator on 2018/10/30/030.
- */
 
 @SuppressWarnings("all")
 public class HttpClientUtils {
@@ -149,18 +146,6 @@ public class HttpClientUtils {
 		return result;
 	}
 
-	/**
-	 * 提交form表单
-	 *
-	 * @param url
-	 * @param params
-	 * @param connTimeout
-	 * @param readTimeout
-	 * @return
-	 * @throws ConnectTimeoutException
-	 * @throws SocketTimeoutException
-	 * @throws Exception
-	 */
 	public static String postForm(String url, Map<String, String> params, Map<String, String> headers,
 			Integer connTimeout, Integer readTimeout)
 			throws ConnectTimeoutException, SocketTimeoutException, Exception {
@@ -211,18 +196,6 @@ public class HttpClientUtils {
 		}
 	}
 
-	/**
-	 * 发送一个 GET 请求
-	 *
-	 * @param url
-	 * @param charset
-	 * @param connTimeout 建立链接超时时间,毫秒.
-	 * @param readTimeout 响应超时时间,毫秒.
-	 * @return
-	 * @throws ConnectTimeoutException 建立链接超时
-	 * @throws SocketTimeoutException  响应超时
-	 * @throws Exception
-	 */
 	public static String get(String url, String charset, Integer connTimeout, Integer readTimeout)
 			throws ConnectTimeoutException, SocketTimeoutException, Exception {
 
@@ -262,13 +235,7 @@ public class HttpClientUtils {
 		return result;
 	}
 
-	/**
-	 * 从 response 里获取 charset
-	 *
-	 * @param ressponse
-	 * @return
-	 */
-	@SuppressWarnings("unused")
+
 	private static String getCharsetFromResponse(HttpResponse ressponse) {
 		// Content-Type:text/html; charset=GBK
 		if (ressponse.getEntity() != null && ressponse.getEntity().getContentType() != null
@@ -281,12 +248,7 @@ public class HttpClientUtils {
 		return null;
 	}
 
-	/**
-	 * 创建 SSL连接
-	 *
-	 * @return
-	 * @throws GeneralSecurityException
-	 */
+
 	private static CloseableHttpClient createSSLInsecureClient() throws GeneralSecurityException {
 		try {
 			SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
@@ -328,13 +290,7 @@ public class HttpClientUtils {
 		try {
 			String str = post("https://localhost:443/ssl/test.shtml", "name=12&page=34",
 					"application/x-www-form-urlencoded", "UTF-8", 10000, 10000);
-			// String str=
-			// get("https://localhost:443/ssl/test.shtml?name=12&page=34","GBK");
-			/*
-			 * Map<String,String> map = new HashMap<String,String>(); map.put("name",
-			 * "111"); map.put("page", "222"); String str=
-			 * postForm("https://localhost:443/ssl/test.shtml",map,null, 10000, 10000);
-			 */
+
 			System.out.println(str);
 		} catch (ConnectTimeoutException e) {
 			e.printStackTrace();

@@ -12,90 +12,40 @@ public class User extends Model<User> {
 
 private static final long serialVersionUID=1L;
 
-    /**
-     * id,自增
-     */
+
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    /**
-     * 姓名
-     */
     private String name;
 
-    /**
-     * 昵称
-     */
     private String nickname;
 
-    /**
-     * 头像
-     */
     private String image;
 
-    /**
-     * 学号
-     */
     private String sno;
 
-    /**
-     * 性别
-     */
     private Integer sex;
 
-    /**
-     * 电话号码
-     */
     private String telephone;
 
-    /**
-     * 邮箱
-     */
     private String email;
 
-    /**
-     * 密码
-     */
     private String password;
 
-    /**
-     * 出生年月
-     */
     private String birth;
 
-    /**
-     * 角色id
-     */
     private Integer roleId;
 
-    /**
-     * 经验值
-     */
     private Integer exp;
 
-    /**
-     * 状态（0-正常；1-禁用）
-     */
     private Integer state;
 
-    /**
-     * 学校代码
-     */
     private String schoolCode;
 
-    /**
-     * 权限id
-     */
     private String powerId;
 
-    /**
-     * 学历（0-高中；1-大学本科；2-大学专科；3-硕士；4-博士）
-     */
     private Integer education;
 
-    /**
-     * 0-未删除1-已删除
-     */
     private Integer isDelete;
 
     public Integer getId() {

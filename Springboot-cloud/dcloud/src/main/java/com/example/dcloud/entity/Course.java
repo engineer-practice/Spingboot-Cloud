@@ -13,94 +13,35 @@ private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-
-    /**
-     * 班课名
-     */
     private String name;
 
-    /**
-     * 班课号
-     */
     private String code;
 
-    /**
-     * 班级
-     */
     @TableField("className")
     private String className;
-
-    /**
-     * 学期
-     */
     private String semester;
-
-    /**
-     * 班课封面
-     */
     private String image;
-
-    /**
-     * 学习要求
-     */
     @TableField("learnRequire")
     private String learnRequire;
 
-    /**
-     * 教学进度
-     */
     @TableField("teachProgress")
     private String teachProgress;
 
-    /**
-     * 考试安排
-     */
     @TableField("examSchedule")
     private String examSchedule;
-
-    /**
-     * 学校和院系（外键，连接school表）
-     */
     private String schoolCode;
-
-    /**
-     * 班课是否结束
-     */
     private Integer flag;
-
-    /**
-     * 班课创建者
-     */
     private String studentId;
-
-    /**
-     * 活动
-     */
     @TableField("activityId")
     private String activityId;
-
-    /**
-     * 消息
-     */
     @TableField("messageId")
     private String messageId;
-
-    /**
-     * 是否可以加入班课，默认可以，0可以，1不可以
-     */
     @TableField("isJoin")
     private Integer isJoin;
-
-    /**
-     * 0表示未删除，1表示删除
-     */
     @TableField("isDelete")
     private Integer isDelete;
-
     private Integer teacherId;
-
     private String qr_code;
-
     public String getQr_code() {
         return qr_code;
     }

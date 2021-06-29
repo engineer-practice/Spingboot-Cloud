@@ -4,15 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.dcloud.config.ResultCode;
 
 public class Result<T> {
-    //操作代码
     int respCode;
-
-    //提示信息
     String message;
-
-    //结果数据
     T data;
-
     public Result(ResultCode resultCode){
         this.respCode = resultCode.getRespCode();
         this.message = resultCode.getMessage();
