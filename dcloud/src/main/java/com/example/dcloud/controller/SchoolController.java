@@ -8,6 +8,7 @@ import com.example.dcloud.common.ServerResponse;
 import com.example.dcloud.entity.School;
 import com.example.dcloud.service.SchoolService;
 import com.example.dcloud.util.ResultUtil;
+import com.example.dcloud.vo.SchoolVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +30,68 @@ import static java.lang.Integer.parseInt;
 public class SchoolController {
     @Autowired
     private SchoolService schoolService;
-
+    @ResponseBody
+    @RequestMapping(value = "/getCode",method = RequestMethod.GET)
+    @ApiOperation(value = "获取学校名称",notes = "get")
+    public String getCode(@RequestParam(value="code",required = false)String code){
+        if(code == null || code.equals("0")){
+            return "未设置";
+        }
+        QueryWrapper<School> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("code",code)
+                .eq("is_delete",0);
+        School school = schoolService.getOne(queryWrapper);
+        return school.getName();
+    }
+    @ResponseBody
+    @RequestMapping(value = "/getCode1",method = RequestMethod.GET)
+    @ApiOperation(value = "获取学校、学院名称",notes = "get")
+    public ServerResponse<SchoolVo> getCode1(@RequestParam(value="code")String code){
+        ServerResponse<SchoolVo> response = new ServerResponse<>();
+        if(code == null || code.equals("0")){
+            response.setMsg("为设置学校、学院!");
+            response.setResult(false);
+            return response;
+        }
+        QueryWrapper<School> queryWrapper = new QueryWrapper();
+        queryWrapper.eq("code",code)
+                .eq("is_delete",0);
+        School school = schoolService.getOne(queryWrapper);
+        SchoolVo schoolVo = new SchoolVo();
+        Integer parentId = parseInt(school.getParentId());
+        if(parentId!=0){
+            schoolVo.setDepartment(school.getName());
+            QueryWrapper<School> queryWrapper1 = new QueryWrapper();
+            queryWrapper1.eq("id",parentId)
+                    .eq("is_delete",0);
+            int count = schoolService.count(queryWrapper1);
+            if(count!=0){
+                School school1 = schoolService.getOne(queryWrapper1);
+                schoolVo.setUniversity(school1.getName());
+            }
+        }
+        else {
+            schoolVo.setUniversity(school.getName());
+        }
+        List<SchoolVo> dataList = new ArrayList<>();
+        dataList.add(schoolVo);
+        response.setDataList(dataList);
+        response.setMsg("查询成功！");
+        response.setResult(true);
+        return response;
+    }
+    @ResponseBody
+    @ApiOperation(value = "获取学校列表",notes = "get")
+    @RequestMapping(value = "/getSchools",method = RequestMethod.GET)
+    public ServerResponse<School> getSchools(){
+        return schoolService.getSchools1();
+    }
+    @ResponseBody
+    @ApiOperation(value = "获取学校的代码获取该学校的学院列表",notes = "get")
+    @RequestMapping(value = "/getAcademies",method = RequestMethod.GET)
+    public ServerResponse<School> Academies(@RequestParam(value="schoolCode")String schoolCode){
+        return schoolService.getAcademiesByCode1(schoolCode);
+    }
    // 新增
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
@@ -111,31 +174,7 @@ public class SchoolController {
         }
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/getCode",method = RequestMethod.GET)
-    @ApiOperation(value = "获取学校名称",notes = "get")
-    public String getCode(@RequestParam(value="code",required = false)String code){
-        if(code == null || code.equals("0")){
-            return "未设置";
-        }
-        QueryWrapper<School> queryWrapper = new QueryWrapper();
-        queryWrapper.eq("code",code)
-                    .eq("is_delete",0);
-        School school = schoolService.getOne(queryWrapper);
-        return school.getName();
-    }
-    @ResponseBody
-    @ApiOperation(value = "获取学校列表",notes = "get")
-    @RequestMapping(value = "/getSchools",method = RequestMethod.GET)
-    public ServerResponse<School> getSchools(){
-        return schoolService.getSchools1();
-    }
-    @ResponseBody
-    @ApiOperation(value = "获取学校的代码获取该学校的学院列表",notes = "get")
-    @RequestMapping(value = "/getAcademies",method = RequestMethod.GET)
-    public ServerResponse<School> Academies(@RequestParam(value="schoolCode")String schoolCode){
-        return schoolService.getAcademiesByCode1(schoolCode);
-    }
+
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "获取学校、学院列表",notes = "get")

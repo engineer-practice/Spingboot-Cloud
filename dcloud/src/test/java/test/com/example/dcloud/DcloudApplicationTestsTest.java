@@ -1,33 +1,28 @@
-package test.com.example.dcloud; 
+package test.com.example.dcloud;
 
 import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After; 
+import org.junit.Before;
+import org.junit.After;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-/** 
-* DcloudApplicationTests Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>���� 14, 2020</pre> 
-* @version 1.0 
-*/ 
-public class DcloudApplicationTestsTest { 
+@EnableSwagger2
+public class DcloudApplicationTestsTest {
 
 @Before
-public void before() throws Exception { 
-} 
+public void before() throws Exception {
+}
 
 @After
-public void after() throws Exception { 
-} 
+public void after() throws Exception {
+}
 
-/** 
-* 
-* Method: contextLoads() 
-* 
-*/ 
+/**
+*
+* Method: contextLoads()
+*
+*/
 @Test
-public void testContextLoads() throws Exception { 
+public void testContextLoads() throws Exception {
 //TODO: Test goes here...
 //    User user = new User();
 //    UserDto userDto = UserConvertor.INSTANCE.domain2dto(user);
@@ -43,7 +38,7 @@ public void testContextLoads() throws Exception {
 //    people.add(person);
 //    List<PersonDTO> personDTOs = PersonConverter.INSTANCE.domain2dto(people);
 //    assertNotNull(personDTOs);
-} 
+}
 
 
-} 
+}

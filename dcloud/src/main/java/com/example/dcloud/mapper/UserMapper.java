@@ -44,15 +44,15 @@ public interface UserMapper extends BaseMapper<User> {
     List<Map>selUser(int offset);  //查询用户列表
 
     @Insert("INSERT INTO user (name,nickname,image,sno,sex,telephone,email,password,birth,role_id,exp,state,school_code," +
-            "power_id,education,is_delete) VALUES(#{name},'0','0','0',#{sex},'0',#{email},#{password},'0',#{roleId},'0','0'," +
+            "power_id,education,is_delete) VALUES(#{name},'0','0','0',#{sex},#{telephone},'0',#{password},'0',#{roleId},'0','0'," +
             "'0','0','0','0')")  //管理员新增用户
-    void addUserByAdmin(String name,int sex,String email,String password,int roleId);
+    void addUserByAdmin(String name,int sex,String telephone,String password,int roleId);
 
-    @Update("UPDATE user SET name = #{name},sex = #{sex},role_id = #{roleId} WHERE email = #{email}")
-    void updUserByAdmin(String name,int sex,int roleId,String email);
+    @Update("UPDATE user SET name = #{name},sex = #{sex},role_id = #{roleId} WHERE telephone = #{telephone}")
+    void updUserByAdmin(String name,int sex,int roleId,String telephone);
 
-    @Update("UPDATE user SET is_delete = 1 WHERE email = #{email}")
-    void delUser(String email);
+    @Update("UPDATE user SET is_delete = 1 WHERE telephone = #{telephone}")
+    void delUser(String telephone);
 
     @Select("SELECT COUNT(*) FROM user where is_delete = 0")
     int selUserNum();  //查询用户数d
@@ -75,9 +75,9 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("SELECT COUNT(*) FROM user WHERE is_delete = 0 AND role_id != 2 AND name LIKE #{text} AND state = #{state}")
     int selUserByNameAndStateNum(@Param("text")String text,int state,int offset);  //根据用户名查询用户
 
-    @Update("UPDATE user SET state = #{state} WHERE email = #{email}")
-    void updUserState(int state,String email);
+    @Update("UPDATE user SET state = #{state} WHERE telephone = #{telephone}")
+    void updUserState(int state,String telephone);
 
-    @Select("SELECT state FROM user WHERE email = #{email}")
+    @Select("SELECT state FROM user WHERE telephone = #{telephone}")
     int selState(String account);  //查询状态
 }

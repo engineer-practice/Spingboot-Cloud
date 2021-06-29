@@ -10,20 +10,11 @@ public class School extends Model<School> {
 
 private static final long serialVersionUID=1L;
 
-    /**
-     * id
-     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    /**
-     * 学院或学校名称
-     */
     private String name;
 
-    /**
-     * 表示学院属于哪个学校。如果为0表示是学校
-     */
     private String parentId;
 
     private Integer isDelete;

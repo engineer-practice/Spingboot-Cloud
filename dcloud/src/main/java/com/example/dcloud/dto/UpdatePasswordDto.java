@@ -1,17 +1,18 @@
 package com.example.dcloud.dto;
 
 public class UpdatePasswordDto {
-    private String email;
+    private String telephone;
     private String newpassword1;
     private String newpassword2;
     private String oldpassword;
 
-    public String getEmail() {
-        return email;
+
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getNewpassword1() {

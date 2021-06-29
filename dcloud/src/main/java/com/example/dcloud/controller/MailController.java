@@ -27,19 +27,13 @@ public class MailController {
     @PostMapping(value = "/sendCode")
     public String sendCode(@RequestParam(value="email")String email)
     {
-       // Map map = JSON.toJavaObject(jsonObject,Map.class);
-        //String email = (String) map.get("email");
         LOG.info("ddd:已经连接上");
         String checkCode = String.valueOf(new Random().nextInt(899999)+100000);
         String message = "您的验证码为："+checkCode;
         try {
-            //输出日志
-            LOG.info("======sendCode======email：{}, checkCode:{}",email,checkCode);
-            mailService.sendMail(email,"到云验证码",message);
+            mailService.sendMail(email,"验证码",message);
             return ResultUtil.error(checkCode);
         }catch (Exception e){
-            //输出日志
-            LOG.info("======sendCode======邮箱错误，请输入真实邮箱");
             e.printStackTrace();
             return ResultUtil.error("请输入真实邮箱");
         }

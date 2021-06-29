@@ -32,7 +32,7 @@ import static java.lang.Long.parseLong;
 @CrossOrigin
 @Controller
 @RequestMapping("/courseManage")
-@Api(tags = "菜单管理接口")
+@Api(tags = "课程管理接口")
 public class CourseManageController {
     @Autowired
     private CourseManageService courseManageService;
@@ -40,6 +40,7 @@ public class CourseManageController {
     private UserService userService;
     //获取 查询
     @ResponseBody
+    @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "获取课程列表",notes = "get")
     public String get(@RequestParam(value="name",required = false)String name,

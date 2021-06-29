@@ -24,6 +24,42 @@ import static java.lang.Long.parseLong;
 public class MenuController {
     @Autowired
     private MenuService menuService;
+
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.PATCH)
+    @ApiOperation(value = "编辑菜单",notes = "get")
+    public String updateOne(@RequestBody JSONObject jsonObject){
+        Map map = JSON.toJavaObject(jsonObject, Map.class);
+        Menu menu = new Menu();
+        //如果没有父级菜单，parentid设为0
+        if(map.get("parent_name").toString().equals("无")){
+            int a = 0;
+            long b = (int)a;
+            menu.setParentId(b);
+        }else{
+            //根据父级菜单名字查找parentid
+            QueryWrapper<Menu> queryWrapper1 = new QueryWrapper();
+            queryWrapper1.eq("name",map.get("parent_name").toString())
+                    .eq("is_deleted",0);
+            Menu menu1 = menuService.getOne(queryWrapper1);
+            menu.setParentId(menu1.getId());
+        }
+        //更新
+        menu.setId(parseLong(map.get("id").toString()));
+        menu.setName(map.get("name").toString());
+        menu.setIcon(map.get("icon").toString());
+        menu.setIsPage(parseInt(map.get("is_page").toString()));
+        menu.setUrl(map.get("url").toString());
+        menu.setIsVisible(parseInt(map.get("is_visible").toString()));
+        menu.setIsMenu(parseInt(map.get("is_menu").toString()));
+        menu.setMenuOrder(parseInt(map.get("menu_order").toString()));
+        //为按钮
+        menu.setType(1);
+        menu.setIsDeleted(0);
+        //根据id更新菜单
+        menuService.updateById(menu);
+        return ResultUtil.success();
+    }
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "获取菜单列表",notes = "get")
@@ -62,41 +98,7 @@ public class MenuController {
             return menuService.getAll();
         }
     }
-    @ResponseBody
-    @RequestMapping(method = RequestMethod.PATCH)
-    @ApiOperation(value = "编辑菜单",notes = "get")
-    public String updateOne(@RequestBody JSONObject jsonObject){
-        Map map = JSON.toJavaObject(jsonObject, Map.class);
-        Menu menu = new Menu();
-        //如果没有父级菜单，parentid设为0
-        if(map.get("parent_name").toString().equals("无")){
-            int a = 0;
-            long b = (int)a;
-            menu.setParentId(b);
-        }else{
-            //根据父级菜单名字查找parentid
-            QueryWrapper<Menu> queryWrapper1 = new QueryWrapper();
-            queryWrapper1.eq("name",map.get("parent_name").toString())
-                    .eq("is_deleted",0);
-            Menu menu1 = menuService.getOne(queryWrapper1);
-            menu.setParentId(menu1.getId());
-        }
-        //更新
-        menu.setId(parseLong(map.get("id").toString()));
-        menu.setName(map.get("name").toString());
-        menu.setIcon(map.get("icon").toString());
-        menu.setIsPage(parseInt(map.get("is_page").toString()));
-        menu.setUrl(map.get("url").toString());
-        menu.setIsVisible(parseInt(map.get("is_visible").toString()));
-        menu.setIsMenu(parseInt(map.get("is_menu").toString()));
-        menu.setMenuOrder(parseInt(map.get("menu_order").toString()));
-        //为按钮
-        menu.setType(1);
-        menu.setIsDeleted(0);
-        //根据id更新菜单
-        menuService.updateById(menu);
-        return ResultUtil.success();
-    }
+
     @ResponseBody
     @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "新增一个菜单",notes = "get")

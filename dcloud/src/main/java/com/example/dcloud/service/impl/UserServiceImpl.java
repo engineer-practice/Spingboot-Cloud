@@ -7,10 +7,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.dcloud.common.ServerResponse;
+import com.example.dcloud.entity.School;
 import com.example.dcloud.entity.User;
 import com.example.dcloud.mapper.UserMapper;
+import com.example.dcloud.service.SchoolService;
 import com.example.dcloud.service.UserService;
 import com.example.dcloud.vo.UserListVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,8 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
+
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    @Autowired
+    private SchoolService schoolService;
     @Resource
     UserMapper userMapper;
     @Override
@@ -96,20 +103,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     @Override
-    public int addUser(String name,int sex,String email,String password,int roleId){
-        if(userMapper.checkEmail(email)==null){
-            userMapper.addUserByAdmin(name,sex,email,password,roleId);
+    public int addUser(String name,int sex,String telephone,String password,int roleId){
+        if(userMapper.checkTelephone(telephone)==null){
+            userMapper.addUserByAdmin(name,sex,telephone,password,roleId);
             return 1;
         }else
             return 0;
     }
     @Override
-    public void updateUserByAdmin(String name,int sex,int roleId,String email){
-        userMapper.updUserByAdmin(name,sex,roleId,email);
+    public void updateUserByAdmin(String name,int sex,int roleId,String telephone){
+        userMapper.updUserByAdmin(name,sex,roleId,telephone);
     }
     @Override
-    public void deleteUser(String email){
-        userMapper.delUser(email);
+    public void deleteUser(String telephone){
+        userMapper.delUser(telephone);
     }
     @Override
     public int selectUserNum(){return userMapper.selUserNum();}
@@ -134,10 +141,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
     }
     @Override
-    public void changeUserStateService(String email){
-        int state = userMapper.selState(email);
+    public void changeUserStateService(String telephone){
+        int state = userMapper.selState(telephone);
         state = state==0?1:0;
-        userMapper.updUserState(state,email);
+        userMapper.updUserState(state,telephone);
     }
 
     public ServerResponse<UserListVo> userList(String state, String name, Integer page,Integer size, Integer roleId){
@@ -147,7 +154,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
 
-        
+
         if(state!=null && name !=null) {
             queryWrapper
                     .like("state", state)
@@ -194,10 +201,34 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             UserListVo userListVo = new UserListVo();
             userListVo.setName(list.get(i).getName());
             userListVo.setSex(list.get(i).getSex());
-            userListVo.setEmail(list.get(i).getEmail());
+            userListVo.setTelephone(list.get(i).getTelephone());
             userListVo.setRoleId(list.get(i).getRoleId());
             userListVo.setState(list.get(i).getState());
-            userListVo.setSchoolName(list.get(i).getSchoolCode());
+            String code = list.get(i).getSchoolCode();
+            QueryWrapper<School> querySchool = new QueryWrapper();
+            querySchool.eq("code",code)
+                    .eq("is_delete",0);
+            int count = schoolService.count(querySchool);
+            if(count>0) {
+                School school = schoolService.getOne(querySchool);
+                Integer parentId = parseInt(school.getParentId());
+                if (parentId != 0) {
+                    QueryWrapper<School> queryWrapper1 = new QueryWrapper();
+                    queryWrapper1.eq("id", parentId)
+                            .eq("is_delete", 0);
+                    int count1 = schoolService.count(queryWrapper1);
+                    if (count1 > 0) {
+                        School school1 = schoolService.getOne(queryWrapper1);
+                        userListVo.setSchoolName(school1.getName());
+                    }
+                } else {
+                    userListVo.setSchoolName(school.getName());
+                }
+            }
+          //  userListVo.setSchoolName(list.get(i).getSchoolCode());
+            else {
+                userListVo.setSchoolName("未知");
+            }
             dataList.add(userListVo);
         }
         response.setDataList(dataList);

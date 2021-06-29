@@ -106,18 +106,6 @@ public class SystemManageController {
        QueryWrapper<SystemManage> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("para_name", para_name)
                 .eq("is_delete", 0);
-//        int count = systemManageService.count(queryWrapper);
-//        if (count > 0) {
-//            return ResultUtil.error("该参数名称已存在!");
-//        }
-//        QueryWrapper<SystemManage> queryName = new QueryWrapper<>();
-//        queryName
-//                .eq("key_name", key_name)
-//                .eq("is_delete", 0);
-//        int countName = systemManageService.count(queryName);
-//        if (countName > 0) {
-//            return ResultUtil.error("该关键字已存在！");
-//        }
         SystemManage systemManage = new SystemManage();
 //        if (para_name!=null)
             systemManage.setParaName(para_name);

@@ -3,7 +3,17 @@ package com.example.dcloud.vo;
 import java.util.Date;
 
 public class historyAttendenceVo {
+    private Integer attendanceType;
     private Date startTime;
+
+    public Integer getAttendanceType() {
+        return attendanceType;
+    }
+
+    public void setAttendanceType(Integer attendanceType) {
+        this.attendanceType = attendanceType;
+    }
+
     private Integer total;
     private Integer count;
     private Integer attendId;

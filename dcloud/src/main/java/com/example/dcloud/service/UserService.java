@@ -15,13 +15,13 @@ public interface UserService extends IService<User> {
     int selectRole(String email);
     int selectRoleByTelephone(String telephone);
     List<Map> selectUser(int offset);
-    int addUser(String name,int sex,String email,String password,int roleId);
-    void updateUserByAdmin(String name,int sex,int roleId,String email);
-    void deleteUser(String email);
+    int addUser(String name,int sex,String telephone,String password,int roleId);
+    void updateUserByAdmin(String name,int sex,int roleId,String telephone);
+    void deleteUser(String telephone);
     int selectUserNum();
     List<Map> searchUser(int state,String name,int offset);
     int searchUserNum(int state,String name,int offset);
-    void changeUserStateService(String email);
+    void changeUserStateService(String telephone);
     ServerResponse<UserListVo> userList(String state, String name, Integer page, Integer size ,Integer roleId);
     int loginByMessage(String telephone);
 }

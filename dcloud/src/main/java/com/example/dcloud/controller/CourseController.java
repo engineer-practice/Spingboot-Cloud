@@ -69,11 +69,7 @@ public class CourseController {
         response.setDataList(dataList);
         response.setResult(true);
         response.setMsg("查询成功");
-//        CourseVo courseVo = new CourseVo();
-//        courseVo.setCode(course.getCode());
-//        courseVo.setName(course.getName());
-//        courseVo.setFlag(course.getFlag());
-//        courseVo.setIsJoin(course.getIsJoin());
+
 
         return response;
     }
@@ -180,7 +176,8 @@ public class CourseController {
         Course course = courseService.getOne(courseQuery);
         QueryWrapper<CourseStudent> courseId = new QueryWrapper<>();
         courseId.eq("course_id",course.getId())
-        .eq("is_delete",0);
+        .eq("is_delete",0)
+        .orderByDesc("exp");
         //获得课程的所有学生id
 
         List<CourseStudent> list = courseStudentService.list(courseId);
@@ -192,9 +189,9 @@ public class CourseController {
 //        System.out.println("code:"+code);
 //        System.out.println("order:"+order);
         List<CourseStudentVo> dataList= new ArrayList<>();
-        CourseStudentVo courseStudentVo = new CourseStudentVo();
-        for(int i = 0 ; i < list.size(); i++){
 
+        for(int i = 0 ; i < list.size(); i++){
+            CourseStudentVo courseStudentVo = new CourseStudentVo();
             QueryWrapper<User> queryUser = new QueryWrapper<>();
             queryUser.eq("id",list.get(i).getStudentId());
             User user = userService.getOne(queryUser);
@@ -264,85 +261,15 @@ public class CourseController {
                         CourseStudent courseStudent = new CourseStudent();
                         courseStudent.setCourseId(course.getId());
                         courseStudent.setStudentId(user1.getId());
-//                        QueryWrapper<User> queryWrapper1 = new QueryWrapper();
-//                        queryWrapper1.eq("id", course.getTeacherId());
-//                        User user = userService.getOne(queryWrapper1);
-//                        courseStudent.setTeacherEmail(user.getEmail());
-//                        courseStudent.setStudentEmail(email);//学生
                         courseStudentService.save(courseStudent);
                         return ResultUtil.success();
                     }
                 }
-                //else {
-//                    JSONObject jsonObject1 = new JSONObject();
-//                    jsonObject1.put("class", course.getClassName());
-//                    jsonObject1.put("name", course.getName());
-//                    QueryWrapper<User> queryWrapper1 = new QueryWrapper();
-//                    queryWrapper1.eq("id", course.getTeacherId());
-//                    User user = userService.getOne(queryWrapper1);
-//                    jsonObject1.put("tname", user.getName());
-//                    if (course.getFlag() == 1) {
-//                        jsonObject1.put("schoolLesson", "学校课表班课");
-//                    } else {
-//                        jsonObject1.put("schoolLesson", "非学校课表班课");
-//                    }
-//                    return JSON.toJSONString(jsonObject1);
-////                    return ResultUtil.error("请确认是否加入班课");
-//                }
-
-          //  }
             else {
                 return ResultUtil.error("班课号不存在！");
             }
 
     }
-//    @ApiOperation(value = "创建班课",notes = "get")
-//    @ResponseBody
-//    @RequestMapping(value = "/CreateClass",method = RequestMethod.POST)
-//    public String CreateClass(CourseDto courseDto) {
-//        //老师 创建班课
-//            Course course = new Course();
-//            course.setClassName(courseDto.getClassName());
-//            course.setName(courseDto.getName());
-//            course.setSchoolCode(courseDto.getSchool());
-//            course.setFlag(courseDto.getIsSchoolLesson());
-//            //随机生成课程号
-////        course.setCode("11111111");
-//            int count = 1;
-//            String code = "";
-//            do{
-//                StringBuilder str = new StringBuilder();
-//                for (int i = 0; i < 7; i++) {
-//                    if (i == 0 && 8 > 1){
-//                        str.append(new Random().nextInt(9) + 1);
-//                    }else {
-//                        str.append(new Random().nextInt(10));
-//                    }
-//                }
-//                code = str.toString();
-//                //查看数据库中是否存在 若存在则重新生成
-//                QueryWrapper codeQuery = new QueryWrapper();
-//                codeQuery.eq("code",code);
-//                count = courseService.count(codeQuery);
-//            }while(count > 0);
-//            course.setCode(code);
-//
-//         //   QRCodeGenUtil.generateQRCodeImage(code,350,350,System.getProperty("user.dir"));
-//           // course.setQr_code(System.getProperty("user.dir")+);
-//            course.setLearnRequire(courseDto.getRequire());
-//            course.setExamSchedule(courseDto.getExamination());
-//            course.setSemester(courseDto.getTerm());
-//            //通过邮箱找userid
-//            QueryWrapper queryWrapper = new QueryWrapper();
-//            queryWrapper.eq("telephone",courseDto.getTelephone());
-//            User user = userService.getOne(queryWrapper);
-//            course.setTeacherId(parseInt(user.getId().toString()));
-//            course.setTeachProgress(courseDto.getProcess());
-//            course.setIsJoin(1);
-//            course.setIsDelete(0);
-//            courseService.save(course);
-//            return code;
-//        }
 
 
     @ApiOperation(value = "创建班课",notes = "get")
@@ -386,9 +313,6 @@ public class CourseController {
             count = courseService.count(codeQuery);
         }while(count > 0);
         course.setCode(code);
-
-        //   QRCodeGenUtil.generateQRCodeImage(code,350,350,System.getProperty("user.dir"));
-        // course.setQr_code(System.getProperty("user.dir")+);
         if(require!=null)
              course.setLearnRequire(require);
         if(examination!=null)
@@ -463,7 +387,6 @@ public class CourseController {
 
         }
         courseService.updateById(course);
-//        return JSON.toJSONString(courseService.getOne(queryWrapper));
         return ResultUtil.success();
     }
 
